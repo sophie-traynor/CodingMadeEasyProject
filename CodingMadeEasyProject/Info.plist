@@ -45,5 +45,7 @@
 	<array>
 		<string>earwig-factory.regular.ttf</string>
 	</array>
+	<key>CFBundleDisplayName</key>
+	<string>Coding</string>
 </dict>
 </plist>
