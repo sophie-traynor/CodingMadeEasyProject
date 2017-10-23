@@ -12,6 +12,8 @@
 		89F94B1E1F9E6AAE00B82D44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B1C1F9E6AAE00B82D44 /* Main.storyboard */; };
 		89F94B201F9E6AAE00B82D44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B1F1F9E6AAE00B82D44 /* Assets.xcassets */; };
 		89F94B231F9E6AAE00B82D44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B211F9E6AAE00B82D44 /* LaunchScreen.storyboard */; };
+		89F94B2B1F9E6B0000B82D44 /* earwig-factory.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B2A1F9E6B0000B82D44 /* earwig-factory.regular.ttf */; };
+		89F94B2C1F9E6B1A00B82D44 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B241F9E6AAE00B82D44 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,7 @@
 		89F94B1F1F9E6AAE00B82D44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89F94B221F9E6AAE00B82D44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89F94B241F9E6AAE00B82D44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89F94B2A1F9E6B0000B82D44 /* earwig-factory.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "earwig-factory.regular.ttf"; path = "Resources/earwig-factory.regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 				89F94B1A1F9E6AAE00B82D44 /* ViewController.swift */,
 				89F94B1C1F9E6AAE00B82D44 /* Main.storyboard */,
 				89F94B1F1F9E6AAE00B82D44 /* Assets.xcassets */,
+				89F94B2A1F9E6B0000B82D44 /* earwig-factory.regular.ttf */,
 				89F94B211F9E6AAE00B82D44 /* LaunchScreen.storyboard */,
 				89F94B241F9E6AAE00B82D44 /* Info.plist */,
 			);
@@ -125,6 +129,8 @@
 			files = (
 				89F94B231F9E6AAE00B82D44 /* LaunchScreen.storyboard in Resources */,
 				89F94B201F9E6AAE00B82D44 /* Assets.xcassets in Resources */,
+				89F94B2B1F9E6B0000B82D44 /* earwig-factory.regular.ttf in Resources */,
+				89F94B2C1F9E6B1A00B82D44 /* Info.plist in Resources */,
 				89F94B1E1F9E6AAE00B82D44 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
