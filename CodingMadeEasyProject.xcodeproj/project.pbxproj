@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5DE966A0B8AD8E056C45F629 /* Pods_CodingMadeEasyProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F962CF0C4785F83DF44077C8 /* Pods_CodingMadeEasyProject.framework */; };
 		89F94B191F9E6AAE00B82D44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */; };
-		89F94B1B1F9E6AAE00B82D44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F94B1A1F9E6AAE00B82D44 /* ViewController.swift */; };
+		89F94B1B1F9E6AAE00B82D44 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */; };
 		89F94B1E1F9E6AAE00B82D44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B1C1F9E6AAE00B82D44 /* Main.storyboard */; };
 		89F94B201F9E6AAE00B82D44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B1F1F9E6AAE00B82D44 /* Assets.xcassets */; };
 		89F94B231F9E6AAE00B82D44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B211F9E6AAE00B82D44 /* LaunchScreen.storyboard */; };
@@ -23,7 +23,7 @@
 		8812A6F1CF2ED428023DD8A2 /* Pods-CodingMadeEasyProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingMadeEasyProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodingMadeEasyProject/Pods-CodingMadeEasyProject.release.xcconfig"; sourceTree = "<group>"; };
 		89F94B151F9E6AAE00B82D44 /* CodingMadeEasyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodingMadeEasyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		89F94B1A1F9E6AAE00B82D44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		89F94B1D1F9E6AAE00B82D44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89F94B1F1F9E6AAE00B82D44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89F94B221F9E6AAE00B82D44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +53,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8968C6291F9E92A900923022 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8968C62A1F9E92B100923022 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8968C62B1F9E92BC00923022 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		89F94B0C1F9E6AAE00B82D44 = {
 			isa = PBXGroup;
 			children = (
@@ -74,8 +96,10 @@
 		89F94B171F9E6AAE00B82D44 /* CodingMadeEasyProject */ = {
 			isa = PBXGroup;
 			children = (
+				8968C6291F9E92A900923022 /* Model */,
+				8968C62A1F9E92B100923022 /* View */,
+				8968C62B1F9E92BC00923022 /* Controller */,
 				89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */,
-				89F94B1A1F9E6AAE00B82D44 /* ViewController.swift */,
 				89F94B1C1F9E6AAE00B82D44 /* Main.storyboard */,
 				89F94B1F1F9E6AAE00B82D44 /* Assets.xcassets */,
 				89F94B2A1F9E6B0000B82D44 /* earwig-factory.regular.ttf */,
@@ -231,7 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89F94B1B1F9E6AAE00B82D44 /* ViewController.swift in Sources */,
+				89F94B1B1F9E6AAE00B82D44 /* LoginVC.swift in Sources */,
 				89F94B191F9E6AAE00B82D44 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
