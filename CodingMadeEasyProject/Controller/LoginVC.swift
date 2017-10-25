@@ -70,8 +70,7 @@ class LoginVC: UIViewController {
                 Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                     //checks if any errors e.g. user not created yet
                     if error == nil{
-                        //perform segue
-                        print("signed in")
+                        self.performSegue(withIdentifier: "welcomeToHomeScreen", sender: self)
                     }
                     else{
                         self.createAlert(title: "User does not exist", message: "Check details again or register to create user")
@@ -82,10 +81,10 @@ class LoginVC: UIViewController {
             else{
                 Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                     if error == nil{
-                        //perform segue
+                        self.createAlert(title: "User Created", message: "Please sign in using details created")
                     }
                     else{
-                        self.createAlert(title: "Error", message: "User not created, try again")
+                        self.createAlert(title: "Error", message: "User not created")
                     }
                 }
             }

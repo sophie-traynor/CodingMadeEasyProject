@@ -73,7 +73,7 @@
                                                 <rect key="frame" x="0.0" y="117.5" width="295" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Wc-Bq-Erb">
                                                 <rect key="frame" x="50" y="159.5" width="195" height="36"/>
@@ -146,26 +146,42 @@
                         <outlet property="signInBtn" destination="6Wc-Bq-Erb" id="gzi-ng-JLi"/>
                         <outlet property="signInLabel" destination="7Gw-RE-MBO" id="laG-F8-UjU"/>
                         <outlet property="signInSelector" destination="NDX-PM-Vhh" id="Ezo-6h-gvh"/>
+                        <segue destination="YHM-QC-IZi" kind="show" identifier="welcomeToHomeScreen" id="xPX-2p-bMO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="84" y="220"/>
         </scene>
-        <!--View Controller-->
+        <!--HomeVC-->
         <scene sceneID="vzk-pW-Lmx">
             <objects>
-                <viewController id="YHM-QC-IZi" sceneMemberID="viewController">
+                <viewController id="YHM-QC-IZi" customClass="HomeVC" customModule="CodingMadeEasyProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tLS-LN-rcg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzG-YU-9N1">
+                                <rect key="frame" x="157.5" y="318.5" width="60" height="30"/>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="SignOutWith_sender:" destination="YHM-QC-IZi" eventType="touchUpInside" id="iTH-Rr-qkQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.11762935668230057" green="0.11765726655721664" blue="0.11762756854295731" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nzG-YU-9N1" firstAttribute="centerY" secondItem="tLS-LN-rcg" secondAttribute="centerY" id="ZHT-Tv-p37"/>
+                            <constraint firstItem="nzG-YU-9N1" firstAttribute="centerX" secondItem="tLS-LN-rcg" secondAttribute="centerX" id="ldX-yI-Sze"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="eae-gh-W7S"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Kr-5u-a9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="880" y="137"/>
+            <point key="canvasLocation" x="810" y="220"/>
         </scene>
     </scenes>
     <resources>
