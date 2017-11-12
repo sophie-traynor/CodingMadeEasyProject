@@ -44,6 +44,11 @@ class LoginVC: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    //Dismiss the keyboard when view is tapped on
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
     
     //MARK:Actions
     
