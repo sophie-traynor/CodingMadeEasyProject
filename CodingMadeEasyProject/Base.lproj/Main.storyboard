@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -146,45 +146,154 @@
                         <outlet property="signInBtn" destination="6Wc-Bq-Erb" id="gzi-ng-JLi"/>
                         <outlet property="signInLabel" destination="7Gw-RE-MBO" id="laG-F8-UjU"/>
                         <outlet property="signInSelector" destination="NDX-PM-Vhh" id="Ezo-6h-gvh"/>
-                        <segue destination="YHM-QC-IZi" kind="show" identifier="welcomeToHomeScreen" id="xPX-2p-bMO"/>
+                        <segue destination="uwc-44-U8W" kind="show" identifier="welcomeToHomeScreen" id="peP-Wf-NDb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="84" y="219.94002998500753"/>
         </scene>
-        <!--HomeVC-->
-        <scene sceneID="vzk-pW-Lmx">
+        <!--Lessons-->
+        <scene sceneID="QRA-dN-N5c">
             <objects>
-                <viewController id="YHM-QC-IZi" customClass="HomeVC" customModule="CodingMadeEasyProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tLS-LN-rcg">
+                <viewController id="9PZ-vf-srG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DL6-8T-FX8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzG-YU-9N1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lessons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9g-9D-XrG">
+                                <rect key="frame" x="156" y="323" width="63" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="x9g-9D-XrG" firstAttribute="centerY" secondItem="DL6-8T-FX8" secondAttribute="centerY" id="BQK-2g-yzz"/>
+                            <constraint firstItem="x9g-9D-XrG" firstAttribute="centerX" secondItem="DL6-8T-FX8" secondAttribute="centerX" id="EFU-r5-wEd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zr5-DX-b4S"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Lessons" image="lessonIcon" id="Xbl-rb-Jue"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VEi-qd-QnK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="313" y="1038"/>
+        </scene>
+        <!--Messages-->
+        <scene sceneID="FDX-I2-O7s">
+            <objects>
+                <viewController id="FCG-sm-PRN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZTC-9s-e9x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xsr-Uj-rXb">
+                                <rect key="frame" x="149" y="323" width="77.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Xsr-Uj-rXb" firstAttribute="centerY" secondItem="ZTC-9s-e9x" secondAttribute="centerY" id="OMf-p8-BoQ"/>
+                            <constraint firstItem="Xsr-Uj-rXb" firstAttribute="centerX" secondItem="ZTC-9s-e9x" secondAttribute="centerX" id="usN-Ky-373"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8bJ-g7-sIc"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Messages" image="messageIcon" id="wQr-p6-mUg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4c1-JH-3eW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1012" y="1038"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="95N-FU-04T">
+            <objects>
+                <viewController id="rwg-Ps-SbJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iWI-ZB-wwc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pt4-pM-Ce0">
+                                <rect key="frame" x="155.5" y="323" width="64" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="pt4-pM-Ce0" firstAttribute="centerX" secondItem="iWI-ZB-wwc" secondAttribute="centerX" id="75S-ld-NMp"/>
+                            <constraint firstItem="pt4-pM-Ce0" firstAttribute="centerY" secondItem="iWI-ZB-wwc" secondAttribute="centerY" id="mfs-mQ-Fw7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XCp-cN-h6q"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settingsIcon" id="cK3-HA-2LR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rWU-jd-mO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1679" y="1038"/>
+        </scene>
+        <!--HomeVC-->
+        <scene sceneID="dbC-Er-JFk">
+            <objects>
+                <viewController title="HomeVC" id="m37-vo-clh" customClass="HomeVC" customModule="CodingMadeEasyProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yus-Th-aeW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMm-r8-3bL">
                                 <rect key="frame" x="157.5" y="318.5" width="60" height="30"/>
                                 <state key="normal" title="Sign Out">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="SignOutWith_sender:" destination="YHM-QC-IZi" eventType="touchUpInside" id="iTH-Rr-qkQ"/>
+                                    <action selector="SignOutWith_sender:" destination="m37-vo-clh" eventType="touchUpInside" id="JJD-WA-PQD"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.11762935668230057" green="0.11765726655721664" blue="0.11762756854295731" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="nzG-YU-9N1" firstAttribute="centerY" secondItem="tLS-LN-rcg" secondAttribute="centerY" id="ZHT-Tv-p37"/>
-                            <constraint firstItem="nzG-YU-9N1" firstAttribute="centerX" secondItem="tLS-LN-rcg" secondAttribute="centerX" id="ldX-yI-Sze"/>
+                            <constraint firstItem="xMm-r8-3bL" firstAttribute="centerX" secondItem="yus-Th-aeW" secondAttribute="centerX" id="5ys-OB-22i"/>
+                            <constraint firstItem="xMm-r8-3bL" firstAttribute="centerY" secondItem="yus-Th-aeW" secondAttribute="centerY" id="lMJ-75-PEk"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="eae-gh-W7S"/>
+                        <viewLayoutGuide key="safeArea" id="64K-eG-Bnx"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="homeIcon" id="wKL-ff-VJk"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Kr-5u-a9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dwy-IB-1Ex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="810" y="220"/>
+            <point key="canvasLocation" x="1898" y="220"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="V8M-oq-XAQ">
+            <objects>
+                <tabBarController id="uwc-44-U8W" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bCx-OT-bVD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="m37-vo-clh" kind="relationship" relationship="viewControllers" id="tRw-go-8z6"/>
+                        <segue destination="9PZ-vf-srG" kind="relationship" relationship="viewControllers" id="wqt-31-zR8"/>
+                        <segue destination="FCG-sm-PRN" kind="relationship" relationship="viewControllers" id="0K7-Qm-1wz"/>
+                        <segue destination="rwg-Ps-SbJ" kind="relationship" relationship="viewControllers" id="Yhi-Rf-SXP"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MLe-S3-2a3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1012" y="220"/>
         </scene>
     </scenes>
     <resources>
         <image name="codeBg" width="2005" height="1039"/>
+        <image name="homeIcon" width="25" height="25"/>
+        <image name="lessonIcon" width="25" height="25"/>
+        <image name="messageIcon" width="25" height="25"/>
+        <image name="settingsIcon" width="25" height="25"/>
     </resources>
 </document>

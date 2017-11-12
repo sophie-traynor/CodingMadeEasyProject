@@ -29,7 +29,8 @@ class HomeVC: UIViewController {
             print ("Error signing out: %@", signOutError)
         }
         //dismiss home view controller
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {});
+        self.navigationController?.popViewController(animated: true);
     }
 
     /*
