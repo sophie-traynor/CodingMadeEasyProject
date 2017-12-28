@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5DE966A0B8AD8E056C45F629 /* Pods_CodingMadeEasyProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F962CF0C4785F83DF44077C8 /* Pods_CodingMadeEasyProject.framework */; };
 		8921F49C1FA10B5600A2F639 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8921F49B1FA10B5600A2F639 /* HomeVC.swift */; };
+		89B048B61FF50F440019A304 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B048B51FF50F440019A304 /* SettingsVC.swift */; };
+		89B048B81FF50F5E0019A304 /* MessagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B048B71FF50F5E0019A304 /* MessagesVC.swift */; };
+		89B048BA1FF50F880019A304 /* LessonsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B048B91FF50F880019A304 /* LessonsVC.swift */; };
+		89B048BD1FF52CE70019A304 /* CompleteSignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B048BC1FF52CE70019A304 /* CompleteSignupVC.swift */; };
 		89F94B191F9E6AAE00B82D44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */; };
 		89F94B1B1F9E6AAE00B82D44 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */; };
 		89F94B1E1F9E6AAE00B82D44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B1C1F9E6AAE00B82D44 /* Main.storyboard */; };
@@ -23,6 +27,10 @@
 		093188470B553A5199259F34 /* Pods-CodingMadeEasyProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingMadeEasyProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodingMadeEasyProject/Pods-CodingMadeEasyProject.debug.xcconfig"; sourceTree = "<group>"; };
 		8812A6F1CF2ED428023DD8A2 /* Pods-CodingMadeEasyProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingMadeEasyProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodingMadeEasyProject/Pods-CodingMadeEasyProject.release.xcconfig"; sourceTree = "<group>"; };
 		8921F49B1FA10B5600A2F639 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		89B048B51FF50F440019A304 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		89B048B71FF50F5E0019A304 /* MessagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVC.swift; sourceTree = "<group>"; };
+		89B048B91FF50F880019A304 /* LessonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsVC.swift; sourceTree = "<group>"; };
+		89B048BC1FF52CE70019A304 /* CompleteSignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSignupVC.swift; sourceTree = "<group>"; };
 		89F94B151F9E6AAE00B82D44 /* CodingMadeEasyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodingMadeEasyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -55,27 +63,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8968C6291F9E92A900923022 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		8968C62A1F9E92B100923022 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		8968C62B1F9E92BC00923022 /* Controller */ = {
+		89B048BB1FF50F960019A304 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */,
 				8921F49B1FA10B5600A2F639 /* HomeVC.swift */,
+				89B048B51FF50F440019A304 /* SettingsVC.swift */,
+				89B048B91FF50F880019A304 /* LessonsVC.swift */,
+				89B048B71FF50F5E0019A304 /* MessagesVC.swift */,
+				89B048BC1FF52CE70019A304 /* CompleteSignupVC.swift */,
 			);
-			path = Controller;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		89F94B0C1F9E6AAE00B82D44 = {
@@ -99,14 +97,12 @@
 		89F94B171F9E6AAE00B82D44 /* CodingMadeEasyProject */ = {
 			isa = PBXGroup;
 			children = (
-				8968C6291F9E92A900923022 /* Model */,
-				8968C62A1F9E92B100923022 /* View */,
-				8968C62B1F9E92BC00923022 /* Controller */,
-				89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */,
+				89B048BB1FF50F960019A304 /* ViewControllers */,
 				89F94B1C1F9E6AAE00B82D44 /* Main.storyboard */,
+				89F94B211F9E6AAE00B82D44 /* LaunchScreen.storyboard */,
+				89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */,
 				89F94B1F1F9E6AAE00B82D44 /* Assets.xcassets */,
 				89F94B2A1F9E6B0000B82D44 /* earwig-factory.regular.ttf */,
-				89F94B211F9E6AAE00B82D44 /* LaunchScreen.storyboard */,
 				89F94B241F9E6AAE00B82D44 /* Info.plist */,
 				89F94B2D1F9E917000B82D44 /* GoogleService-Info.plist */,
 			);
@@ -259,7 +255,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8921F49C1FA10B5600A2F639 /* HomeVC.swift in Sources */,
+				89B048B61FF50F440019A304 /* SettingsVC.swift in Sources */,
 				89F94B1B1F9E6AAE00B82D44 /* LoginVC.swift in Sources */,
+				89B048B81FF50F5E0019A304 /* MessagesVC.swift in Sources */,
+				89B048BA1FF50F880019A304 /* LessonsVC.swift in Sources */,
+				89B048BD1FF52CE70019A304 /* CompleteSignupVC.swift in Sources */,
 				89F94B191F9E6AAE00B82D44 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

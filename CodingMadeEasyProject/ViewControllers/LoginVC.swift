@@ -23,7 +23,6 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         //set status bar to white
         UIApplication.shared.statusBarStyle = .lightContent
@@ -75,7 +74,8 @@ class LoginVC: UIViewController {
                 Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                     //checks if any errors e.g. user not created yet
                     if error == nil{
-                        self.performSegue(withIdentifier: "welcomeToHomeScreen", sender: self)
+                        //......................CHECK IF COMPLETE SIGN UP IS COMPLETE
+                        self.performSegue(withIdentifier: "loginToHomeScreen", sender: self)
                     }
                     else{
                         self.createAlert(title: "User does not exist", message: "Check details again or register to create user")
@@ -86,7 +86,8 @@ class LoginVC: UIViewController {
             else{
                 Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                     if error == nil{
-                        self.createAlert(title: "User Created", message: "Please sign in using details created")
+                        Auth.auth().signIn(withEmail: email, password: password)
+                        self.performSegue(withIdentifier: "loginToCompleteSignupScreen", sender: self)
                     }
                     else{
                         self.createAlert(title: "Error", message: "User not created")
@@ -95,9 +96,5 @@ class LoginVC: UIViewController {
             }
         }
     }
-    
-    
-    
-    
 }
 
