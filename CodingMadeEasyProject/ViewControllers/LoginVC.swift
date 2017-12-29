@@ -47,8 +47,20 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
             return
         }
         
+        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+        
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if error == nil {
+                self.performSegue(withIdentifier: "loginToHomeScreen", sender: self)
+            }
+            else{
+                self.createAlert(title: "Error", message: "Could not login via Facebook")
+            }
+        }
+        
         print("Successfully logged in with facebook...")
     }
+    
     
     //sends pop up to screen displaying message
     func createAlert(title:String, message:String){
