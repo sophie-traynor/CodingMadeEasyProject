@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,7 +45,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="WUK-Qe-gsD">
-                                        <rect key="frame" x="40" y="246" width="295" height="195.5"/>
+                                        <rect key="frame" x="40" y="246" width="295" height="243.5"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NDX-PM-Vhh">
                                                 <rect key="frame" x="50" y="0.0" width="195" height="29"/>
@@ -78,6 +79,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Wc-Bq-Erb">
                                                 <rect key="frame" x="50" y="159.5" width="195" height="36"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="bCW-Vk-6Nc"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <state key="normal" title="Sign In">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="custom" customColorSpace="sRGB"/>
@@ -91,22 +95,33 @@
                                                     <action selector="signInBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GVC-LC-m4f"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VoF-yR-atO" userLabel="FacebookLoginView">
+                                                <rect key="frame" x="49.5" y="207.5" width="196" height="36"/>
+                                                <color key="backgroundColor" red="0.25554990768432617" green="0.3969268798828125" blue="0.68745404481887817" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="CMf-fC-f2B"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="VoF-yR-atO" firstAttribute="leading" secondItem="WUK-Qe-gsD" secondAttribute="leading" constant="50" id="0wv-EJ-Py3"/>
                                             <constraint firstAttribute="trailing" secondItem="jWt-aB-8Iq" secondAttribute="trailing" id="3bw-7Q-kT4"/>
                                             <constraint firstAttribute="trailing" secondItem="NDX-PM-Vhh" secondAttribute="trailing" constant="50" id="7Zq-yP-Xqy"/>
                                             <constraint firstItem="CwN-D3-MQI" firstAttribute="leading" secondItem="WUK-Qe-gsD" secondAttribute="leading" id="Lh9-5w-PPh"/>
                                             <constraint firstAttribute="trailing" secondItem="6Wc-Bq-Erb" secondAttribute="trailing" constant="50" id="Ndj-Jz-A0j"/>
                                             <constraint firstItem="NDX-PM-Vhh" firstAttribute="leading" secondItem="WUK-Qe-gsD" secondAttribute="leading" constant="50" id="SGN-yN-95J"/>
                                             <constraint firstItem="6Wc-Bq-Erb" firstAttribute="leading" secondItem="WUK-Qe-gsD" secondAttribute="leading" constant="50" id="SQz-ts-DKY"/>
+                                            <constraint firstAttribute="trailing" secondItem="VoF-yR-atO" secondAttribute="trailing" constant="50" id="b7r-fu-7SA"/>
                                             <constraint firstAttribute="trailing" secondItem="CwN-D3-MQI" secondAttribute="trailing" id="h0t-au-4eY"/>
                                             <constraint firstItem="jWt-aB-8Iq" firstAttribute="leading" secondItem="WUK-Qe-gsD" secondAttribute="leading" id="kcY-PK-fOv"/>
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Coding Made Easy! We hope you enjoy this simplistic way of learning to program. Suitable for all ages!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZb-LW-JMK">
-                                        <rect key="frame" x="37" y="471" width="301" height="132"/>
+                                        <rect key="frame" x="37" y="504.5" width="301" height="132"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="132" id="3Lo-1r-vEl"/>
                                             <constraint firstAttribute="height" constant="132" id="YlV-gR-9S5"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="301" id="bcs-3n-e5R"/>
                                             <constraint firstAttribute="width" constant="301" id="bdy-Mk-6tm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
@@ -118,10 +133,9 @@
                                 <constraints>
                                     <constraint firstItem="WUK-Qe-gsD" firstAttribute="top" secondItem="3wg-kR-IkE" secondAttribute="bottom" constant="55" id="8oo-dM-Quy"/>
                                     <constraint firstItem="3wg-kR-IkE" firstAttribute="top" secondItem="RM3-7g-5tb" secondAttribute="top" constant="50" id="ABp-mM-dBd"/>
-                                    <constraint firstItem="kZb-LW-JMK" firstAttribute="centerX" secondItem="RM3-7g-5tb" secondAttribute="centerX" id="I6U-Pc-tzv"/>
                                     <constraint firstItem="3wg-kR-IkE" firstAttribute="centerX" secondItem="RM3-7g-5tb" secondAttribute="centerX" id="JaY-Hb-678"/>
-                                    <constraint firstItem="kZb-LW-JMK" firstAttribute="top" secondItem="WUK-Qe-gsD" secondAttribute="bottom" constant="30" id="VGq-hV-2Ry"/>
-                                    <constraint firstItem="kZb-LW-JMK" firstAttribute="top" secondItem="WUK-Qe-gsD" secondAttribute="bottom" constant="30" id="eWs-Sg-tgD"/>
+                                    <constraint firstItem="kZb-LW-JMK" firstAttribute="centerX" secondItem="RM3-7g-5tb" secondAttribute="centerX" id="MGy-iV-i48"/>
+                                    <constraint firstItem="kZb-LW-JMK" firstAttribute="top" secondItem="WUK-Qe-gsD" secondAttribute="bottom" constant="15" id="V80-S4-9qb"/>
                                     <constraint firstAttribute="trailing" secondItem="WUK-Qe-gsD" secondAttribute="trailing" constant="40" id="iga-2O-9OA"/>
                                     <constraint firstItem="WUK-Qe-gsD" firstAttribute="leading" secondItem="RM3-7g-5tb" secondAttribute="leading" constant="40" id="mS0-7T-6Gn"/>
                                 </constraints>
@@ -142,6 +156,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="CwN-D3-MQI" id="Oya-l4-XZy"/>
+                        <outlet property="facebookView" destination="VoF-yR-atO" id="Bax-dm-YIJ"/>
                         <outlet property="passwordTextField" destination="jWt-aB-8Iq" id="yFI-02-7Iz"/>
                         <outlet property="signInBtn" destination="6Wc-Bq-Erb" id="gzi-ng-JLi"/>
                         <outlet property="signInLabel" destination="7Gw-RE-MBO" id="laG-F8-UjU"/>
@@ -152,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-698" y="75"/>
+            <point key="canvasLocation" x="-698.39999999999998" y="74.212893553223395"/>
         </scene>
         <!--Lessons-->
         <scene sceneID="QRA-dN-N5c">
@@ -496,6 +511,6 @@
         <image name="settingsIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mQ0-kH-cJf"/>
+        <segue reference="peP-Wf-NDb"/>
     </inferredMetricsTieBreakers>
 </document>

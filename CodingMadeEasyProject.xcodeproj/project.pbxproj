@@ -19,7 +19,6 @@
 		89F94B201F9E6AAE00B82D44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B1F1F9E6AAE00B82D44 /* Assets.xcassets */; };
 		89F94B231F9E6AAE00B82D44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B211F9E6AAE00B82D44 /* LaunchScreen.storyboard */; };
 		89F94B2B1F9E6B0000B82D44 /* earwig-factory.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B2A1F9E6B0000B82D44 /* earwig-factory.regular.ttf */; };
-		89F94B2C1F9E6B1A00B82D44 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B241F9E6AAE00B82D44 /* Info.plist */; };
 		89F94B2E1F9E917000B82D44 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B2D1F9E917000B82D44 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -183,7 +182,6 @@
 				89F94B231F9E6AAE00B82D44 /* LaunchScreen.storyboard in Resources */,
 				89F94B201F9E6AAE00B82D44 /* Assets.xcassets in Resources */,
 				89F94B2B1F9E6B0000B82D44 /* earwig-factory.regular.ttf in Resources */,
-				89F94B2C1F9E6B1A00B82D44 /* Info.plist in Resources */,
 				89F94B1E1F9E6AAE00B82D44 /* Main.storyboard in Resources */,
 				89F94B2E1F9E917000B82D44 /* GoogleService-Info.plist in Resources */,
 			);
@@ -199,12 +197,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CodingMadeEasyProject/Pods-CodingMadeEasyProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -334,7 +338,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -385,7 +389,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

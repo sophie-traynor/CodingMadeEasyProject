@@ -8,8 +8,9 @@
 
 import UIKit
 import FirebaseAuth
+import FBSDKLoginKit
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
     
     //MARK: Properties
     @IBOutlet weak var signInSelector: UISegmentedControl!
@@ -17,6 +18,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInBtn: UIButton!
+    @IBOutlet weak var facebookView: UIView!
     
     //variable to check if sign in or register is selected - default sign in so true
     var isSignIn:Bool = true
@@ -26,11 +28,26 @@ class LoginVC: UIViewController {
         
         //set status bar to white
         UIApplication.shared.statusBarStyle = .lightContent
+        
+        let fbLoginButton = FBSDKLoginButton()
+        facebookView.addSubview(fbLoginButton)
+        fbLoginButton.frame = CGRect(x: 0, y: 0, width: facebookView.frame.width, height: facebookView.frame.height)
+        
+        fbLoginButton.delegate = self
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    //facebook login
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("Did log out of facebook")
+    }
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error != nil {
+            print(error)
+            return
+        }
+        
+        print("Successfully logged in with facebook...")
     }
     
     //sends pop up to screen displaying message

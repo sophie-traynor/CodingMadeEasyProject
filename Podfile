@@ -8,5 +8,6 @@ target 'CodingMadeEasyProject' do
   # Pods for CodingMadeEasyProject
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'FBSDKLoginKit'
 
 end
