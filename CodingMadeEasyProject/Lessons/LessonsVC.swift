@@ -12,6 +12,8 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //MARK:Properties
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     var lessons = [Lesson]()
     
     override func viewDidLoad() {
@@ -21,6 +23,10 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+    }
+    //MARK: Actions
+    @IBAction func unwindToLessons(segue: UIStoryboardSegue) {
         
     }
     
@@ -45,6 +51,57 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.lessonImage.image = lesson.image
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            performSegue(withIdentifier: "ShowVisual", sender: self)
+        case 1:
+            performSegue(withIdentifier: "ShowAuditory", sender: self)
+        case 2:
+            performSegue(withIdentifier: "ShowReadWrite", sender: self)
+        case 3:
+            performSegue(withIdentifier: "ShowKinaesthetic", sender: self)
+        default:
+            fatalError("Unexpected Segue Identifier")
+        }
+    }
+    
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+            
+        case "ShowVisual":
+            let destination = segue.destination as? VisualVC
+            let cellIndex = tableView.indexPathForSelectedRow?.row
+            
+            destination?.lesson = lessons[cellIndex!]
+            
+        case "ShowAuditory":
+            let destination = segue.destination as? AuditoryVC
+            let cellIndex = tableView.indexPathForSelectedRow?.row
+            
+            destination?.lesson = lessons[cellIndex!]
+            
+        case "ShowReadWrite":
+            let destination = segue.destination as? ReadWriteVC
+            let cellIndex = tableView.indexPathForSelectedRow?.row
+            
+            destination?.lesson = lessons[cellIndex!]
+            
+        case "ShowKinaesthetic":
+            let destination = segue.destination as? KinaestheticVC
+            let cellIndex = tableView.indexPathForSelectedRow?.row
+            
+            destination?.lesson = lessons[cellIndex!]
+            
+        default:
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
     }
     
     //MARK: Private methods
