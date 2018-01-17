@@ -478,12 +478,56 @@
                                     <constraint firstItem="pt4-pM-Ce0" firstAttribute="centerX" secondItem="EjV-Gs-Y4D" secondAttribute="centerX" id="cp0-dc-UWG"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6HZ-0u-F93">
+                                <rect key="frame" x="16" y="242.5" width="343" height="182"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLW-6L-xGp">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Change Password">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ez2-gQ-9hw">
+                                        <rect key="frame" x="0.0" y="38" width="343" height="30"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Feedback">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ait-iu-qdR">
+                                        <rect key="frame" x="0.0" y="76" width="343" height="30"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="FAQ">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcy-Tv-H0j">
+                                        <rect key="frame" x="0.0" y="114" width="343" height="30"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Contact">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GpX-TY-O3Y">
+                                        <rect key="frame" x="0.0" y="152" width="343" height="30"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Log Out">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.8351101279258728" green="0.83935695886611938" blue="0.83507812023162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="XCp-cN-h6q" firstAttribute="trailing" secondItem="6HZ-0u-F93" secondAttribute="trailing" constant="16" id="1Pq-Co-yXA"/>
+                            <constraint firstItem="6HZ-0u-F93" firstAttribute="centerX" secondItem="iWI-ZB-wwc" secondAttribute="centerX" id="dgl-Qx-gtB"/>
+                            <constraint firstItem="6HZ-0u-F93" firstAttribute="leading" secondItem="XCp-cN-h6q" secondAttribute="leading" constant="16" id="e3O-aW-lhg"/>
                             <constraint firstItem="EjV-Gs-Y4D" firstAttribute="trailing" secondItem="XCp-cN-h6q" secondAttribute="trailing" id="m6k-FZ-yNb"/>
                             <constraint firstItem="EjV-Gs-Y4D" firstAttribute="top" secondItem="iWI-ZB-wwc" secondAttribute="top" id="spa-j0-Xg4"/>
                             <constraint firstItem="EjV-Gs-Y4D" firstAttribute="leading" secondItem="XCp-cN-h6q" secondAttribute="leading" id="u9T-nS-tXC"/>
+                            <constraint firstItem="6HZ-0u-F93" firstAttribute="centerY" secondItem="iWI-ZB-wwc" secondAttribute="centerY" id="xxn-G5-XvX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XCp-cN-h6q"/>
                     </view>
