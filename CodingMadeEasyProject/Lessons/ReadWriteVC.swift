@@ -12,11 +12,14 @@ class ReadWriteVC: UIViewController {
     
     var lesson: Lesson?
     
+    @IBOutlet weak var lessonDescription: UILabel!
     @IBOutlet weak var lessonNameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         lessonNameLabel.text = lesson?.name
+        lessonDescription.text = lesson?.readWriteDescription
     }
     
     @IBAction func backBtnPressed(_ sender: UIButton) {

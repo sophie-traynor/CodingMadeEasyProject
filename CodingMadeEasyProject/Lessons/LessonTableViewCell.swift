@@ -13,7 +13,7 @@ class LessonTableViewCell: UITableViewCell {
     //MARK: Properties
     @IBOutlet weak var lessonImage: UIImageView!
     @IBOutlet weak var lessonName: UILabel!
-    @IBOutlet weak var lessonDescription: UILabel!
+    @IBOutlet weak var lessonOverview: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

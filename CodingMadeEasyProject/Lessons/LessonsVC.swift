@@ -47,7 +47,7 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let lesson = lessons[indexPath.row]
         
         cell.lessonName.text = lesson.name
-        cell.lessonDescription.text = lesson.description
+        cell.lessonOverview.text = lesson.overview
         cell.lessonImage.image = lesson.image
         
         return cell
@@ -109,23 +109,57 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let photo = UIImage(named: "nophoto")
         
-        guard let lesson1 = Lesson(name: "Lesson 1", description: "description", image: photo) else {
+        guard let lesson1 = Lesson(name: "Lesson 1",
+                                   overview: "overview",
+                                   visualDescription: "lesson 1 visual description",
+                                   auditoryDescription: "lesson 1 auditory description",
+                                   readWriteDescription: "lesson 1 readWrite description",
+                                   kinaestheticDescription: "lesson 1 kinaesthetic description",
+                                   image: photo) else {
             fatalError("Unable to instantiate lesson1")
         }
         
-        guard let lesson2 = Lesson(name: "Lesson 2", description: "description", image: photo) else {
+        guard let lesson2 = Lesson(name: "Lesson 2",
+                                   overview: "overview",
+                                   visualDescription: "lesson 2 visual description",
+                                   auditoryDescription: "lesson 2 auditory description",
+                                   readWriteDescription: "lesson 2 readWrite description",
+                                   kinaestheticDescription: "lesson 2 kinaesthetic description",
+                                   image: photo) else {
             fatalError("Unable to instantiate lesson2")
         }
         
-        guard let lesson3 = Lesson(name: "Lesson 3", description: "description", image: photo) else {
-            fatalError("Unable to instantiate lesson2")
+        guard let lesson3 = Lesson(name: "Lesson 3",
+                                   overview: "overview",
+                                   visualDescription: "lesson 3 visual description",
+                                   auditoryDescription: "lesson 3 auditory description",
+                                   readWriteDescription: "lesson 3 readWrite description",
+                                   kinaestheticDescription: "lesson 3 kinaesthetic description",
+                                   image: photo) else {
+            fatalError("Unable to instantiate lesson3")
         }
         
-        guard let lesson4 = Lesson(name: "Lesson 4", description: "description", image: photo) else {
-            fatalError("Unable to instantiate lesson2")
+        guard let lesson4 = Lesson(name: "Lesson 4",
+                                   overview: "overview",
+                                   visualDescription: "lesson 4 visual description",
+                                   auditoryDescription: "lesson 4 auditory description",
+                                   readWriteDescription: "lesson 4 readWrite description",
+                                   kinaestheticDescription: "lesson 4 kinaesthetic description",
+                                   image: photo) else {
+            fatalError("Unable to instantiate lesson4")
         }
         
-        lessons += [lesson1, lesson2, lesson3, lesson4]
+        guard let lesson5 = Lesson(name: "Lesson 5",
+                                   overview: "overview",
+                                   visualDescription: "lesson 5 visual description",
+                                   auditoryDescription: "lesson 5 auditory description",
+                                   readWriteDescription: "lesson 5 readWrite description",
+                                   kinaestheticDescription: "lesson 5 kinaesthetic description",
+                                   image: photo) else {
+            fatalError("Unable to instantiate lesson5")
+        }
+        
+        lessons += [lesson1, lesson2, lesson3, lesson4, lesson5]
     }
 
 }

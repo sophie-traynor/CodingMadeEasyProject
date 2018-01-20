@@ -12,12 +12,14 @@ class VisualVC: UIViewController {
     
     var lesson: Lesson?
     
+    @IBOutlet weak var lessonDescription: UILabel!
     @IBOutlet weak var lessonNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         lessonNameLabel.text = lesson?.name
+        lessonDescription.text = lesson?.visualDescription
     }
     
     @IBAction func backBtnPressed(_ sender: UIButton) {

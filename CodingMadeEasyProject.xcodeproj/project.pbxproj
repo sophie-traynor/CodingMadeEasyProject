@@ -77,9 +77,9 @@
 		892E07F6200FC3AD00632A0D /* Lessons */ = {
 			isa = PBXGroup;
 			children = (
-				8922B054200E2771000BFF34 /* Lesson.swift */,
-				8922B056200E297A000BFF34 /* LessonTableViewCell.swift */,
 				89B048B91FF50F880019A304 /* LessonsVC.swift */,
+				8922B056200E297A000BFF34 /* LessonTableViewCell.swift */,
+				8922B054200E2771000BFF34 /* Lesson.swift */,
 				892E07F7200FC3E600632A0D /* VisualVC.swift */,
 				892E07F9200FC3F500632A0D /* AuditoryVC.swift */,
 				892E07FB200FC40200632A0D /* ReadWriteVC.swift */,

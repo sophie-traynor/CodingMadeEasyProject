@@ -20,7 +20,7 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var facebookView: UIView!
     
-    //variable to check if sign in or register is selected - default sign in so true
+    //variable to check if sign in or register is selected - default sigs n in so true
     var isSignIn:Bool = true
     
     override func viewDidLoad() {
