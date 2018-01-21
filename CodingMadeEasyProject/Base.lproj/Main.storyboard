@@ -168,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-698.39999999999998" y="74.212893553223395"/>
+            <point key="canvasLocation" x="-810" y="63"/>
         </scene>
         <!--Lessons-->
         <scene sceneID="QRA-dN-N5c">
@@ -454,7 +454,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oir-gp-xdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-914" y="857"/>
+            <point key="canvasLocation" x="-809" y="853"/>
         </scene>
         <!--Settings-->
         <scene sceneID="95N-FU-04T">
@@ -511,6 +511,9 @@
                                         <state key="normal" title="Contact">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="contactBtnPressed:" destination="rwg-Ps-SbJ" eventType="touchUpInside" id="MjI-3J-IUe"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GpX-TY-O3Y">
                                         <rect key="frame" x="0.0" y="152" width="343" height="30"/>
@@ -590,7 +593,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwy-IB-1Ex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1504.8" y="-12.143928035982009"/>
+            <point key="canvasLocation" x="1412" y="152"/>
         </scene>
         <!--VisualVC-->
         <scene sceneID="Qo9-sM-CY3">

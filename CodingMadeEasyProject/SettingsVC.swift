@@ -11,13 +11,19 @@ import FirebaseAuth
 import FBSDKLoginKit
 
 class SettingsVC: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
+    //MARK: Actions
+    
+    @IBAction func contactBtnPressed(_ sender: UIButton) {
+        createAlert(title: "Contact Details", message: "Email: email@email.com")
+        
+    }
+    
     @IBAction func SignOut (_sender: Any){
         let firebaseAuth = Auth.auth()
         let loginManager = FBSDKLoginManager()
@@ -37,4 +43,15 @@ class SettingsVC: UIViewController {
         self.navigationController?.popViewController(animated: true);
     }
 
+    
+    //MARK: functions
+    func createAlert (title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        //creates button on alert
+        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)}))
+    
+        self.present(alert, animated: true, completion: nil)
+    }
 }
