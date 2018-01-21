@@ -19,6 +19,10 @@ class SettingsVC: UIViewController {
 
     //MARK: Actions
     
+    @IBAction func unwindToSettings(segue: UIStoryboardSegue) {
+        
+    }
+    
     @IBAction func contactBtnPressed(_ sender: UIButton) {
         createAlert(title: "Contact Details", message: "Email: email@email.com")
         

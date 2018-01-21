@@ -19,6 +19,7 @@
 		89B048B81FF50F5E0019A304 /* MessagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B048B71FF50F5E0019A304 /* MessagesVC.swift */; };
 		89B048BA1FF50F880019A304 /* LessonsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B048B91FF50F880019A304 /* LessonsVC.swift */; };
 		89B048BD1FF52CE70019A304 /* CompleteSignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B048BC1FF52CE70019A304 /* CompleteSignupVC.swift */; };
+		89E2D7452014C0C600C9AFA3 /* FAQVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E2D7442014C0C600C9AFA3 /* FAQVC.swift */; };
 		89F94B191F9E6AAE00B82D44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */; };
 		89F94B1B1F9E6AAE00B82D44 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */; };
 		89F94B1E1F9E6AAE00B82D44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B1C1F9E6AAE00B82D44 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		89B048B71FF50F5E0019A304 /* MessagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVC.swift; sourceTree = "<group>"; };
 		89B048B91FF50F880019A304 /* LessonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsVC.swift; sourceTree = "<group>"; };
 		89B048BC1FF52CE70019A304 /* CompleteSignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSignupVC.swift; sourceTree = "<group>"; };
+		89E2D7442014C0C600C9AFA3 /* FAQVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQVC.swift; sourceTree = "<group>"; };
 		89F94B151F9E6AAE00B82D44 /* CodingMadeEasyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodingMadeEasyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -88,6 +90,15 @@
 			path = Lessons;
 			sourceTree = "<group>";
 		};
+		89E2D7462014C0DA00C9AFA3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				89B048B51FF50F440019A304 /* SettingsVC.swift */,
+				89E2D7442014C0C600C9AFA3 /* FAQVC.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		89F94B0C1F9E6AAE00B82D44 = {
 			isa = PBXGroup;
 			children = (
@@ -111,9 +122,9 @@
 			children = (
 				89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */,
 				8921F49B1FA10B5600A2F639 /* HomeVC.swift */,
-				89B048B51FF50F440019A304 /* SettingsVC.swift */,
 				89B048B71FF50F5E0019A304 /* MessagesVC.swift */,
 				89B048BC1FF52CE70019A304 /* CompleteSignupVC.swift */,
+				89E2D7462014C0DA00C9AFA3 /* Settings */,
 				892E07F6200FC3AD00632A0D /* Lessons */,
 				89F94B1C1F9E6AAE00B82D44 /* Main.storyboard */,
 				89F94B211F9E6AAE00B82D44 /* LaunchScreen.storyboard */,
@@ -283,6 +294,7 @@
 				8922B055200E2771000BFF34 /* Lesson.swift in Sources */,
 				892E07F8200FC3E600632A0D /* VisualVC.swift in Sources */,
 				89B048B81FF50F5E0019A304 /* MessagesVC.swift in Sources */,
+				89E2D7452014C0C600C9AFA3 /* FAQVC.swift in Sources */,
 				8922B057200E297A000BFF34 /* LessonTableViewCell.swift in Sources */,
 				892E07FE200FC41400632A0D /* KinaestheticVC.swift in Sources */,
 				892E07FC200FC40200632A0D /* ReadWriteVC.swift in Sources */,
