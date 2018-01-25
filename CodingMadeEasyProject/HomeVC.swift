@@ -8,12 +8,14 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseStorage
+
 class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       
     }
 
     

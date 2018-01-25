@@ -107,55 +107,56 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //MARK: Private methods
     private func loadLessons(){
         
-        let photo = UIImage(named: "nophoto")
+        //let photo = UIImage(named: "nophoto")
+        let photoCpp = UIImage(named: "cpp")
         
         guard let lesson1 = Lesson(name: "Lesson 1",
-                                   overview: "overview",
+                                   overview: "Learn the structure of a program",
                                    visualDescription: "lesson 1 visual description",
                                    auditoryDescription: "lesson 1 auditory description",
                                    readWriteDescription: "lesson 1 readWrite description",
                                    kinaestheticDescription: "lesson 1 kinaesthetic description",
-                                   image: photo) else {
+                                   image: photoCpp) else {
             fatalError("Unable to instantiate lesson1")
         }
         
         guard let lesson2 = Lesson(name: "Lesson 2",
-                                   overview: "overview",
+                                   overview: "Variables and data types",
                                    visualDescription: "lesson 2 visual description",
                                    auditoryDescription: "lesson 2 auditory description",
-                                   readWriteDescription: "lesson 2 readWrite description",
+                                   readWriteDescription: "A variable can be described as a type of storage. Variables can have different types which will affect the value it can hold. There are many different types of variables. We will focus on the main ones you will come across.Examples of variables include, int, float, bool, and char. An int, variable is short for integer which means it can store whole numbers. A float variable can store numerical values with a decimal point. A bool variable can store either a true or false value.  A char variable can store one character, this can be a letter or a number etc.",
                                    kinaestheticDescription: "lesson 2 kinaesthetic description",
-                                   image: photo) else {
+                                   image: photoCpp) else {
             fatalError("Unable to instantiate lesson2")
         }
         
         guard let lesson3 = Lesson(name: "Lesson 3",
-                                   overview: "overview",
+                                   overview: "Print a message to the screen",
                                    visualDescription: "lesson 3 visual description",
                                    auditoryDescription: "lesson 3 auditory description",
                                    readWriteDescription: "lesson 3 readWrite description",
                                    kinaestheticDescription: "lesson 3 kinaesthetic description",
-                                   image: photo) else {
+                                   image: photoCpp) else {
             fatalError("Unable to instantiate lesson3")
         }
         
         guard let lesson4 = Lesson(name: "Lesson 4",
-                                   overview: "overview",
+                                   overview: "Allow user input in a simple program",
                                    visualDescription: "lesson 4 visual description",
                                    auditoryDescription: "lesson 4 auditory description",
                                    readWriteDescription: "lesson 4 readWrite description",
                                    kinaestheticDescription: "lesson 4 kinaesthetic description",
-                                   image: photo) else {
+                                   image: photoCpp) else {
             fatalError("Unable to instantiate lesson4")
         }
         
         guard let lesson5 = Lesson(name: "Lesson 5",
-                                   overview: "overview",
+                                   overview: "Arrays",
                                    visualDescription: "lesson 5 visual description",
                                    auditoryDescription: "lesson 5 auditory description",
                                    readWriteDescription: "lesson 5 readWrite description",
                                    kinaestheticDescription: "lesson 5 kinaesthetic description",
-                                   image: photo) else {
+                                   image: photoCpp) else {
             fatalError("Unable to instantiate lesson5")
         }
         
