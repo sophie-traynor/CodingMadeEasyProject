@@ -7,24 +7,44 @@
 //
 
 import UIKit
-
-import UIKit
+import AVFoundation
 
 class AuditoryVC: UIViewController {
     
     var lesson: Lesson?
     
-    @IBOutlet weak var lessonDescription: UILabel!
+    var lessonAudio: AVAudioPlayer?
+    
+    @IBOutlet weak var lessonDescription: UITextView!
     @IBOutlet weak var lessonNameLabel: UILabel!
+    @IBOutlet weak var auditoryImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         lessonNameLabel.text = lesson?.name
         lessonDescription.text = lesson?.auditoryDescription
+        auditoryImage.image = lesson?.auditoryImage
+        
     }
     
+    //MARK: Actions
     @IBAction func backBtnPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "unwindToLesson", sender: self)
+    }
+    
+    
+    
+    //MARK: functions
+    func playMusic(name : String){
+        let path = Bundle.main.path(forResource: name, ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            lessonAudio = try AVAudioPlayer(contentsOf: url)
+            lessonAudio?.play()
+        } catch {
+            //couldn't load file
+        }
     }
 }

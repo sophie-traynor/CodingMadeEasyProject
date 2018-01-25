@@ -48,7 +48,7 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         cell.lessonName.text = lesson.name
         cell.lessonOverview.text = lesson.overview
-        cell.lessonImage.image = lesson.image
+        cell.lessonImage.image = lesson.cellImage
         
         return cell
     }
@@ -108,55 +108,66 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private func loadLessons(){
         
         //let photo = UIImage(named: "nophoto")
+        
         let photoCpp = UIImage(named: "cpp")
+        let auditoryL1 = UIImage(named: "lesson1auditory")
+        let auditoryL2 = UIImage(named: "lesson2auditory")
+        let auditoryL3 = UIImage(named: "lesson3auditory")
+        let auditoryL4 = UIImage(named: "lesson4auditory")
+        let auditoryL5 = UIImage(named: "lesson5auditory")
         
         guard let lesson1 = Lesson(name: "Lesson 1",
                                    overview: "Learn the structure of a program",
-                                   visualDescription: "lesson 1 visual description",
-                                   auditoryDescription: "lesson 1 auditory description",
+                                   visualDescription: "Watch the video below to learn about the structure of a C++ program",
+                                   auditoryDescription: "Listen to the audio below to learn about the structure of a C++ Program",
                                    readWriteDescription: "lesson 1 readWrite description",
                                    kinaestheticDescription: "lesson 1 kinaesthetic description",
-                                   image: photoCpp) else {
+                                   cellImage: photoCpp,
+                                   auditoryImage: auditoryL1) else {
             fatalError("Unable to instantiate lesson1")
         }
         
         guard let lesson2 = Lesson(name: "Lesson 2",
                                    overview: "Variables and data types",
-                                   visualDescription: "lesson 2 visual description",
-                                   auditoryDescription: "lesson 2 auditory description",
+                                   visualDescription: "Watch the video below to learn about variabels and the different data types they can store",
+                                   auditoryDescription: "Listen to the audio below to learn about what a variable is and the different types of values it can hold",
                                    readWriteDescription: "A variable can be described as a type of storage. Variables can have different types which will affect the value it can hold. There are many different types of variables. We will focus on the main ones you will come across.Examples of variables include, int, float, bool, and char. An int, variable is short for integer which means it can store whole numbers. A float variable can store numerical values with a decimal point. A bool variable can store either a true or false value.  A char variable can store one character, this can be a letter or a number etc.",
                                    kinaestheticDescription: "lesson 2 kinaesthetic description",
-                                   image: photoCpp) else {
+                                   cellImage: photoCpp,
+                                   auditoryImage: auditoryL2) else {
             fatalError("Unable to instantiate lesson2")
         }
         
         guard let lesson3 = Lesson(name: "Lesson 3",
                                    overview: "Print a message to the screen",
-                                   visualDescription: "lesson 3 visual description",
-                                   auditoryDescription: "lesson 3 auditory description",
+                                   visualDescription: "Watch the video below to learn about how you can print a message to the screen",
+                                   auditoryDescription: "Listen to the audio below to learn how to print a message to the screen",
                                    readWriteDescription: "lesson 3 readWrite description",
                                    kinaestheticDescription: "lesson 3 kinaesthetic description",
-                                   image: photoCpp) else {
+                                   cellImage: photoCpp,
+                                   auditoryImage: auditoryL3) else {
             fatalError("Unable to instantiate lesson3")
         }
         
         guard let lesson4 = Lesson(name: "Lesson 4",
                                    overview: "Allow user input in a simple program",
-                                   visualDescription: "lesson 4 visual description",
-                                   auditoryDescription: "lesson 4 auditory description",
+                                   visualDescription: "Watch the video below to learn about how to ask a user to input something into the program",
+                                   auditoryDescription: "Listen to the audio below to learn how to ask for user input to a program",
                                    readWriteDescription: "lesson 4 readWrite description",
                                    kinaestheticDescription: "lesson 4 kinaesthetic description",
-                                   image: photoCpp) else {
+                                   cellImage: photoCpp,
+                                   auditoryImage: auditoryL4) else {
             fatalError("Unable to instantiate lesson4")
         }
         
         guard let lesson5 = Lesson(name: "Lesson 5",
                                    overview: "Arrays",
-                                   visualDescription: "lesson 5 visual description",
-                                   auditoryDescription: "lesson 5 auditory description",
+                                   visualDescription: "Watch the video below to learn about what arrays are and how to use them",
+                                   auditoryDescription: "Listen to the audio below to learn about what arrays are and how to use them",
                                    readWriteDescription: "lesson 5 readWrite description",
                                    kinaestheticDescription: "lesson 5 kinaesthetic description",
-                                   image: photoCpp) else {
+                                   cellImage: photoCpp,
+                                   auditoryImage: auditoryL5) else {
             fatalError("Unable to instantiate lesson5")
         }
         

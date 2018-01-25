@@ -12,8 +12,9 @@ class VisualVC: UIViewController {
     
     var lesson: Lesson?
     
-    @IBOutlet weak var lessonDescription: UILabel!
+    @IBOutlet weak var lessonDescription: UITextView!
     @IBOutlet weak var lessonNameLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

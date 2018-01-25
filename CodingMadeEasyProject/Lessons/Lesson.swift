@@ -17,7 +17,8 @@ class Lesson {
     var auditoryDescription: String
     var readWriteDescription: String
     var kinaestheticDescription: String
-    var image: UIImage?
+    var cellImage: UIImage?
+    var auditoryImage: UIImage?
     
     struct PropertyKey{
         static let name = "name"
@@ -26,17 +27,19 @@ class Lesson {
         static let auditoryDescription = "auditoryDescription"
         static let readWriteDescription = "readWriteDescription"
         static let kinaestheticDescription = "kinaestheticDescription"
-        static let image = "image"
+        static let cellImage = "cellImage"
+        static let auditoryImage = "auditoryImage"
     }
     
-    init?(name: String, overview: String, visualDescription: String, auditoryDescription: String, readWriteDescription: String, kinaestheticDescription: String, image: UIImage?) {
+    init?(name: String, overview: String, visualDescription: String, auditoryDescription: String, readWriteDescription: String, kinaestheticDescription: String, cellImage: UIImage?, auditoryImage: UIImage?) {
         self.name = name
         self.overview = overview
         self.visualDescription = visualDescription
         self.auditoryDescription = auditoryDescription
         self.readWriteDescription = readWriteDescription
         self.kinaestheticDescription = kinaestheticDescription
-        self.image = image
+        self.cellImage = cellImage
+        self.auditoryImage = auditoryImage
     }
 }
 

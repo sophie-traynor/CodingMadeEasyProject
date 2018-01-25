@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 import FBSDKLoginKit
 
 class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
@@ -23,8 +24,13 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
     //variable to check if sign in or register is selected - default sigs n in so true
     var isSignIn:Bool = true
     
+    var ref: DatabaseReference!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference()
         
         //set status bar to white
         UIApplication.shared.statusBarStyle = .lightContent
@@ -51,7 +57,9 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
         
         Auth.auth().signIn(with: credential) { (user, error) in
             if error == nil {
+                
                 self.performSegue(withIdentifier: "loginToHomeScreen", sender: self)
+                //ADD DETAILS TO DATABASE FROM FACEBOOK
             }
             else{
                 self.createAlert(title: "Error", message: "Could not login via Facebook")
@@ -104,6 +112,11 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
                     //checks if any errors e.g. user not created yet
                     if error == nil{
                         //......................CHECK IF COMPLETE SIGN UP IS COMPLETE
+                        let uid = user?.uid
+                        let userReference = self.ref.child("users").child(uid!)
+                        let values = ["email": self.emailTextField, "firstName":"", "lastName":"", "dateOfBirth":"", "pic":""] as [String : Any]
+                        
+                        userReference.updateChildValues(values)
                         self.performSegue(withIdentifier: "loginToHomeScreen", sender: self)
                     }
                     else{

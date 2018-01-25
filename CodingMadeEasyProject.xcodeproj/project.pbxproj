@@ -23,6 +23,7 @@
 		89B048BA1FF50F880019A304 /* LessonsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B048B91FF50F880019A304 /* LessonsVC.swift */; };
 		89B048BD1FF52CE70019A304 /* CompleteSignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B048BC1FF52CE70019A304 /* CompleteSignupVC.swift */; };
 		89E2D7452014C0C600C9AFA3 /* FAQVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E2D7442014C0C600C9AFA3 /* FAQVC.swift */; };
+		89E79256201A6B4B00D3A93B /* lesson2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 89E79255201A6B4B00D3A93B /* lesson2.mp3 */; };
 		89F94B191F9E6AAE00B82D44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */; };
 		89F94B1B1F9E6AAE00B82D44 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */; };
 		89F94B1E1F9E6AAE00B82D44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B1C1F9E6AAE00B82D44 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		89B048B91FF50F880019A304 /* LessonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsVC.swift; sourceTree = "<group>"; };
 		89B048BC1FF52CE70019A304 /* CompleteSignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSignupVC.swift; sourceTree = "<group>"; };
 		89E2D7442014C0C600C9AFA3 /* FAQVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQVC.swift; sourceTree = "<group>"; };
+		89E79255201A6B4B00D3A93B /* lesson2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lesson2.mp3; sourceTree = "<group>"; };
 		89F94B151F9E6AAE00B82D44 /* CodingMadeEasyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodingMadeEasyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				89F94B211F9E6AAE00B82D44 /* LaunchScreen.storyboard */,
 				89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */,
 				89F94B1F1F9E6AAE00B82D44 /* Assets.xcassets */,
+				89E79255201A6B4B00D3A93B /* lesson2.mp3 */,
 				89F94B2A1F9E6B0000B82D44 /* earwig-factory.regular.ttf */,
 				89F94B241F9E6AAE00B82D44 /* Info.plist */,
 				89F94B2D1F9E917000B82D44 /* GoogleService-Info.plist */,
@@ -226,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89F94B231F9E6AAE00B82D44 /* LaunchScreen.storyboard in Resources */,
+				89E79256201A6B4B00D3A93B /* lesson2.mp3 in Resources */,
 				89F94B201F9E6AAE00B82D44 /* Assets.xcassets in Resources */,
 				89F94B2B1F9E6B0000B82D44 /* earwig-factory.regular.ttf in Resources */,
 				89F94B1E1F9E6AAE00B82D44 /* Main.storyboard in Resources */,
