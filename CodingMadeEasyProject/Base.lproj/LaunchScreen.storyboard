@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="codeBg" translatesAutoresizingMaskIntoConstraints="NO" id="QVH-qG-Fp9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBg" translatesAutoresizingMaskIntoConstraints="NO" id="QVH-qG-Fp9">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ivA-eT-5TI">
@@ -35,7 +36,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.2817258883" green="0.2817258883" blue="0.2817258883" alpha="0.37427761129999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.1113388911" green="0.018721735100000001" blue="0.03847543523" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="VuT-N2-Vou" firstAttribute="centerX" secondItem="ivA-eT-5TI" secondAttribute="centerX" id="JEp-0K-YOU"/>
                                     <constraint firstItem="VuT-N2-Vou" firstAttribute="centerY" secondItem="ivA-eT-5TI" secondAttribute="centerY" id="dMW-ge-gOj"/>
@@ -62,6 +63,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="codeBg" width="2005" height="1039"/>
+        <image name="loginBg" width="198" height="122"/>
     </resources>
 </document>

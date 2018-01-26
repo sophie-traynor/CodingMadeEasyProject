@@ -14,6 +14,7 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     var ref: DatabaseReference?
+    var posts = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -49,6 +50,12 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func unwindToForum(segue: UIStoryboardSegue) {
         
+    }
+    
+    func listenForPosts(){
+        ref?.child("posts").observe(.childAdded, with: { (snapshot) in
+            
+        })
     }
 
 }
