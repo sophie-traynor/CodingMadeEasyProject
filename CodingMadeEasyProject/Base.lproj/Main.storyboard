@@ -1041,32 +1041,43 @@
                                     <constraint firstAttribute="height" constant="55" id="T6x-gk-wwZ"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="HbO-Hs-CAv">
-                                <rect key="frame" x="133" y="86" width="109" height="109"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefaultCover" translatesAutoresizingMaskIntoConstraints="NO" id="2Fd-ah-NQp">
+                                <rect key="frame" x="0.0" y="55" width="375" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="109" id="2d2-Oj-a5l"/>
+                                    <constraint firstAttribute="height" constant="150" id="dac-Bu-cFM"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kq4-G7-YJg">
-                                <rect key="frame" x="112.5" y="323" width="150" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="HbO-Hs-CAv">
+                                <rect key="frame" x="32" y="155" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="MKa-LX-gHJ"/>
+                                    <constraint firstAttribute="height" constant="100" id="lsq-u3-qCq"/>
+                                    <constraint firstAttribute="width" constant="100" id="v0U-Ww-erj"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kq4-G7-YJg">
+                                <rect key="frame" x="140" y="213" width="219" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="219" id="WKd-Y1-447"/>
+                                    <constraint firstAttribute="height" constant="42" id="vkW-EN-WR5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.83511012790000005" green="0.83935695889999995" blue="0.83507812020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="HbO-Hs-CAv" firstAttribute="centerX" secondItem="fsX-as-oIt" secondAttribute="centerX" id="4XK-dE-dzj"/>
                             <constraint firstItem="fsX-as-oIt" firstAttribute="trailing" secondItem="64K-eG-Bnx" secondAttribute="trailing" id="7tU-S8-l9I"/>
+                            <constraint firstItem="2Fd-ah-NQp" firstAttribute="leading" secondItem="64K-eG-Bnx" secondAttribute="leading" id="AYZ-li-bLD"/>
+                            <constraint firstItem="2Fd-ah-NQp" firstAttribute="top" secondItem="fsX-as-oIt" secondAttribute="bottom" id="Esh-wn-iIP"/>
+                            <constraint firstItem="2Fd-ah-NQp" firstAttribute="trailing" secondItem="64K-eG-Bnx" secondAttribute="trailing" id="HqH-Ro-a47"/>
                             <constraint firstItem="fsX-as-oIt" firstAttribute="top" secondItem="yus-Th-aeW" secondAttribute="top" id="JAW-bJ-esJ"/>
-                            <constraint firstItem="Kq4-G7-YJg" firstAttribute="centerX" secondItem="yus-Th-aeW" secondAttribute="centerX" id="JY7-RN-fOr"/>
-                            <constraint firstItem="HbO-Hs-CAv" firstAttribute="leading" secondItem="64K-eG-Bnx" secondAttribute="leading" constant="133" id="YRd-9G-L7p"/>
-                            <constraint firstItem="HbO-Hs-CAv" firstAttribute="top" secondItem="fsX-as-oIt" secondAttribute="bottom" constant="31" id="d2n-ly-fe3"/>
-                            <constraint firstItem="Kq4-G7-YJg" firstAttribute="centerY" secondItem="yus-Th-aeW" secondAttribute="centerY" id="jsK-Yk-hJa"/>
+                            <constraint firstItem="Kq4-G7-YJg" firstAttribute="top" secondItem="2Fd-ah-NQp" secondAttribute="bottom" constant="8" id="Xxb-8l-Rjc"/>
+                            <constraint firstItem="64K-eG-Bnx" firstAttribute="trailing" secondItem="Kq4-G7-YJg" secondAttribute="trailing" constant="16" id="dJ0-a5-uEF"/>
+                            <constraint firstItem="Kq4-G7-YJg" firstAttribute="leading" secondItem="HbO-Hs-CAv" secondAttribute="trailing" constant="8" id="g6w-n7-6gh"/>
+                            <constraint firstItem="HbO-Hs-CAv" firstAttribute="leading" secondItem="64K-eG-Bnx" secondAttribute="leading" constant="32" id="mNx-Qi-t8w"/>
                             <constraint firstItem="fsX-as-oIt" firstAttribute="leading" secondItem="64K-eG-Bnx" secondAttribute="leading" id="no1-0h-mVd"/>
+                            <constraint firstItem="HbO-Hs-CAv" firstAttribute="top" secondItem="fsX-as-oIt" secondAttribute="bottom" constant="100" id="xtG-5f-Fn6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="64K-eG-Bnx"/>
                     </view>
@@ -1495,12 +1506,13 @@
     </scenes>
     <resources>
         <image name="codeBg" width="2005" height="1039"/>
-        <image name="defaultAvatar" width="169" height="169"/>
+        <image name="defaultAvatar" width="528" height="528"/>
         <image name="homeIcon" width="25" height="25"/>
         <image name="lessonIcon" width="25" height="25"/>
         <image name="messageIcon" width="25" height="25"/>
         <image name="nophoto" width="338" height="338"/>
         <image name="playButton" width="206" height="206"/>
+        <image name="profileDefaultCover" width="633" height="356"/>
         <image name="settingsIcon" width="25" height="25"/>
         <image name="stopButton" width="169" height="169"/>
     </resources>
