@@ -14,16 +14,21 @@ class CompleteSignupVC: UIViewController {
 
     //MARK: Properties
     
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var displayNameTextField: UITextField!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var dateOfBirthTextField: UITextField!
     
-    
-    let databaseReference = Database.database().reference()
+    var emailAddress: String = ""
+    var ref: DatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ref = Database.database().reference()
+        emailTextField.text = emailAddress
+        
     }
     
     
@@ -34,6 +39,7 @@ class CompleteSignupVC: UIViewController {
             createAlert(title: "Error", message: "All Fields must contain values")
         }
         else{
+            saveData()
             self.performSegue(withIdentifier: "completeSignupToHomeScreen", sender: self)
         }
     }
@@ -51,11 +57,12 @@ class CompleteSignupVC: UIViewController {
     
     func saveData(){
         
+        let email = emailTextField.text
+        let displayName = displayNameTextField.text
         let firstName = firstNameTextField.text
         let lastName = lastNameTextField.text
         let dateOfBirth = dateOfBirthTextField.text
-        
-        self.databaseReference.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["firstName" : firstName!, "lastName": lastName!, "dateOfBirth": dateOfBirth!], withCompletionBlock: { (error, ref) in
+        self.ref?.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["Email" : email!, "Display Name" : displayName!, "First Name" : firstName!, "Last Name": lastName!, "Date of Birth": dateOfBirth!], withCompletionBlock: { (error, ref) in
             if error != nil{
                 print(error!)
                 return

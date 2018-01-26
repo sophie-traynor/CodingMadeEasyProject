@@ -24,13 +24,13 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
     //variable to check if sign in or register is selected - default sigs n in so true
     var isSignIn:Bool = true
     
-    var ref: DatabaseReference!
+    //var ref: DatabaseReference?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ref = Database.database().reference()
+        //ref = Database.database().reference()
         
         //set status bar to white
         UIApplication.shared.statusBarStyle = .lightContent
@@ -86,6 +86,14 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
         passwordTextField.resignFirstResponder()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let vc = segue.destination as? CompleteSignupVC
+        {
+            vc.emailAddress = emailTextField.text!
+        }
+    }
+    
     //MARK:Actions
     
     @IBAction func signInSelectorChanged(_ sender: UISegmentedControl) {
@@ -112,11 +120,11 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
                     //checks if any errors e.g. user not created yet
                     if error == nil{
                         //......................CHECK IF COMPLETE SIGN UP IS COMPLETE
-                        let uid = user?.uid
-                        let userReference = self.ref.child("users").child(uid!)
+                       /* let uid = user?.uid
+                        let userReference = self.ref?.child("users").child(uid!)
                         let values = ["email": self.emailTextField, "firstName":"", "lastName":"", "dateOfBirth":"", "pic":""] as [String : Any]
                         
-                        userReference.updateChildValues(values)
+                        userReference?.updateChildValues(values)*/
                         self.performSegue(withIdentifier: "loginToHomeScreen", sender: self)
                     }
                     else{
