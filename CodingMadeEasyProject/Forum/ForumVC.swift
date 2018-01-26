@@ -1,5 +1,5 @@
 //
-//  MessagesVC.swift
+//  ForumVC.swift
 //  CodingMadeEasyProject
 //
 //  Created by Sophie Traynor on 28/12/2017.
@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var ref: DatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ref = Database.database().reference()
+        
         tableView.delegate = self
         tableView.dataSource = self
         
