@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginVC.swift
 //  CodingMadeEasyProject
 //
 //  Created by Sophie Traynor on 23/10/2017.
@@ -9,11 +9,10 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
-import FBSDKLoginKit
 
-class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
+class LoginVC: UIViewController {
     
-    //MARK: Properties
+    //MARK: - Properties
     @IBOutlet weak var signInSelector: UISegmentedControl!
     @IBOutlet weak var signInLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
@@ -21,55 +20,33 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var facebookView: UIView!
     
-    //variable to check if sign in or register is selected - default sigs n in so true
+    //variable to check if sign in or register is selected
     var isSignIn:Bool = true
     
-    //var ref: DatabaseReference?
-    
-    
+    //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //ref = Database.database().reference()
-        
         //set status bar to white
         UIApplication.shared.statusBarStyle = .lightContent
-        
-        let fbLoginButton = FBSDKLoginButton()
-        facebookView.addSubview(fbLoginButton)
-        fbLoginButton.frame = CGRect(x: 0, y: 0, width: facebookView.frame.width, height: facebookView.frame.height)
-        
-        fbLoginButton.delegate = self
     }
     
-    //facebook login
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("Did log out of facebook")
+    //Dismiss the keyboard when view is tapped on
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
     }
     
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if error != nil {
-            print(error)
-            return
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let vc = segue.destination as? CompleteSignupVC
+        {
+            vc.emailAddress = emailTextField.text!
         }
-        
-        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-        
-        Auth.auth().signIn(with: credential) { (user, error) in
-            if error == nil {
-                
-                self.performSegue(withIdentifier: "loginToHomeScreen", sender: self)
-                //ADD DETAILS TO DATABASE FROM FACEBOOK
-            }
-            else{
-                self.createAlert(title: "Error", message: "Could not login via Facebook")
-            }
-        }
-        
-        print("Successfully logged in with facebook...")
     }
     
-    
+    //MARK: - Public Functions
     //sends pop up to screen displaying message
     func createAlert(title:String, message:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -80,21 +57,7 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
-    //Dismiss the keyboard when view is tapped on
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        emailTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let vc = segue.destination as? CompleteSignupVC
-        {
-            vc.emailAddress = emailTextField.text!
-        }
-    }
-    
-    //MARK:Actions
+    //MARK: - Actions
     
     @IBAction func signInSelectorChanged(_ sender: UISegmentedControl) {
         //flip boolean - switch to sign in or register
@@ -119,12 +82,8 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
                 Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                     //checks if any errors e.g. user not created yet
                     if error == nil{
-                        //......................CHECK IF COMPLETE SIGN UP IS COMPLETE
-                       /* let uid = user?.uid
-                        let userReference = self.ref?.child("users").child(uid!)
-                        let values = ["email": self.emailTextField, "firstName":"", "lastName":"", "dateOfBirth":"", "pic":""] as [String : Any]
-                        
-                        userReference?.updateChildValues(values)*/
+                        //TODO: - CHECK IF COMPLETE SIGN UP IS COMPLETE
+                       
                         self.performSegue(withIdentifier: "loginToHomeScreen", sender: self)
                     }
                     else{

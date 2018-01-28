@@ -10,13 +10,13 @@ import UIKit
 
 class FAQVC: UIViewController {
 
+    //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
-    //MARK: Actions
+    //MARK: - Actions
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "unwindToSettings", sender: self)

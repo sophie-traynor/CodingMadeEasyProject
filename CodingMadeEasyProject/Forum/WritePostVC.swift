@@ -12,18 +12,20 @@ import FirebaseDatabase
 
 class WritePostVC: UIViewController {
 
+    //MARK: - Properties
     @IBOutlet weak var postTitleTextView: UITextView!
     @IBOutlet weak var postDescriptionTextView: UITextView!
     
     var ref: DatabaseReference?
     
+    //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
         ref = Database.database().reference()
     }
     
-    //MARK: Actions
+    //MARK: - Actions
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "unwindToForum", sender: self)
@@ -39,7 +41,7 @@ class WritePostVC: UIViewController {
         }
     }
     
-    
+    //MARK: - Public Functions
     func saveData(){
         
         let postTitle = postTitleTextView.text

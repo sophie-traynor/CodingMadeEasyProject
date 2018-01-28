@@ -11,11 +11,13 @@ import FirebaseDatabase
 
 class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    //MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
     
     var ref: DatabaseReference?
     var posts = [String]()
     
+    //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,9 +25,9 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
     
+    //MARK: - Table View
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -46,12 +48,13 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
   
     
-    //MARK: Actions
+    //MARK: - Actions
     
     @IBAction func unwindToForum(segue: UIStoryboardSegue) {
         
     }
     
+    //MARK: - Public Functions
     func listenForPosts(){
         ref?.child("posts").observe(.childAdded, with: { (snapshot) in
             let post = snapshot.value as? String

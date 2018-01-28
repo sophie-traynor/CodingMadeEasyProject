@@ -10,10 +10,10 @@ import UIKit
 
 class ViewPostVC: UIViewController {
 
+    //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
 

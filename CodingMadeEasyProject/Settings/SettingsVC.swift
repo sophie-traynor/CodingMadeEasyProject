@@ -8,16 +8,16 @@
 
 import UIKit
 import FirebaseAuth
-import FBSDKLoginKit
 
 class SettingsVC: UIViewController {
     
+    //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
-    //MARK: Actions
+    //MARK: - Actions
     
     @IBAction func unwindToSettings(segue: UIStoryboardSegue) {
         
@@ -30,25 +30,19 @@ class SettingsVC: UIViewController {
     
     @IBAction func SignOut (_sender: Any){
         let firebaseAuth = Auth.auth()
-        let loginManager = FBSDKLoginManager()
         
-        if FBSDKAccessToken.current() == nil {
-            loginManager.logOut()
-        } else {
-            do {
-                try firebaseAuth.signOut()
-            } catch let signOutError as NSError {
-                print ("Error signing out: %@", signOutError)
-            }
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
         }
-        
+       
         //dismiss home view controller
         self.dismiss(animated: true, completion: {});
         self.navigationController?.popViewController(animated: true);
     }
 
-    
-    //MARK: functions
+    //MARK: - Private Functions
     func createAlert (title: String, message: String)
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)

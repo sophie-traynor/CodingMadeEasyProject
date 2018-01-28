@@ -11,11 +11,12 @@ import UIKit
 class ForumTableViewCell: UITableViewCell {
 
     
-    //MARK: Properties
+    //MARK: - Properties
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     
+    //MARK: - override Functions
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

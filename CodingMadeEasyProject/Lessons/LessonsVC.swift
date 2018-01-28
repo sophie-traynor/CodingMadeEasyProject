@@ -10,7 +10,7 @@ import UIKit
 
 class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    //MARK:Properties
+    //MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -23,14 +23,14 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
-    //MARK: Actions
+    
+    //MARK: - Actions
     @IBAction func unwindToLessons(segue: UIStoryboardSegue) {
         
     }
     
-    //MARK: Table View
+    //MARK: - Table View
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lessons.count
     }
@@ -69,7 +69,7 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    //MARK: Navigation
+    //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
@@ -104,7 +104,7 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    //MARK: Private methods
+    //MARK: - Private Functions
     private func loadLessons(){
         
         //let photo = UIImage(named: "nophoto")

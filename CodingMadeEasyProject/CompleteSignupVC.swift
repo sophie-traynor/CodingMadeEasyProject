@@ -12,8 +12,7 @@ import FirebaseDatabase
 
 class CompleteSignupVC: UIViewController {
 
-    //MARK: Properties
-    
+    //MARK: - Properties
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var displayNameTextField: UITextField!
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -23,16 +22,15 @@ class CompleteSignupVC: UIViewController {
     var emailAddress: String = ""
     var ref: DatabaseReference?
     
+    //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
         ref = Database.database().reference()
         emailTextField.text = emailAddress
-        
     }
     
-    
-    //MARK: Actions
+    //MARK: - Actions
     @IBAction func completeBtnClicked(_ sender: Any) {
         
         if firstNameTextField.text!.isEmpty || lastNameTextField.text!.isEmpty || dateOfBirthTextField.text!.isEmpty{
@@ -44,7 +42,7 @@ class CompleteSignupVC: UIViewController {
         }
     }
     
-    //MARK: functions
+    //MARK: - Public Functions
     func createAlert (title: String, message: String)
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
