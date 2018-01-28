@@ -50,6 +50,7 @@ class WritePostVC: UIViewController {
                 return
             }
         })
+        
     }
     
     func createAlert (title: String, message: String)

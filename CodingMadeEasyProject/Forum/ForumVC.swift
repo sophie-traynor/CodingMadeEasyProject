@@ -54,7 +54,12 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func listenForPosts(){
         ref?.child("posts").observe(.childAdded, with: { (snapshot) in
+            let post = snapshot.value as? String
             
+            if let actualPost = post {
+                self.posts.append(actualPost)
+                self.tableView.reloadData()
+            }
         })
     }
 
