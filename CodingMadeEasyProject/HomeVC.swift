@@ -15,12 +15,21 @@ class HomeVC: UIViewController {
     
     //MARK: - Properties
     
-    @IBOutlet weak var displayNameLabel: UILabel!
-
+    @IBOutlet weak var displayNameTextField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var dobTextField: UITextField!
+    
+    
     ///Reference to Firebase Database
     var ref: DatabaseReference?
     ///Default name for the user Display Name
-    var displayName: String = "No Name"
+    var displayName: String = ""
+    var firstName: String = ""
+    var lastName: String = ""
+    var email: String = ""
+    var dob: String = ""
     
     //MARK: - override Functions
     
@@ -28,20 +37,30 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         ref = Database.database().reference()
-        loadDisplayName()
+        loadData()
         
     }
     
     //MARK: - Public Functions
     
     ///Checks the current users display name from firebase database
-    func loadDisplayName(){
+    func loadData(){
         let userID = Auth.auth().currentUser?.uid
         ref?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
-            let displayName = value?["Display Name"] as? String ?? ""
             
-            self.displayNameLabel.text = displayName
+            let displayName = value?["Display Name"] as? String ?? ""
+            let firstName = value?["First Name"] as? String ?? ""
+            let lastName = value?["Last Name"] as? String ?? ""
+            let email = value?["Email"] as? String ?? ""
+            let dob = value?["Date of Birth"] as? String ?? ""
+            
+            self.displayNameTextField.text = displayName
+            self.firstNameTextField.text = firstName
+            self.lastNameTextField.text = lastName
+            self.emailTextField.text = email
+            self.dobTextField.text = dob
+            
         }) { (error) in
             print(error.localizedDescription)
         }

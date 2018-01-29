@@ -1003,15 +1003,6 @@
                                     <constraint firstAttribute="width" constant="100" id="v0U-Ww-erj"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kq4-G7-YJg">
-                                <rect key="frame" x="140" y="213" width="219" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="vkW-EN-WR5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header" translatesAutoresizingMaskIntoConstraints="NO" id="FMU-QH-31F">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                 <constraints>
@@ -1019,33 +1010,80 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cU2-5u-0VB">
-                                <rect key="frame" x="159" y="20" width="57" height="28"/>
+                                <rect key="frame" x="159.5" y="20" width="56.5" height="27.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wLW-dO-8rj">
+                                <rect key="frame" x="50" y="315" width="275" height="180"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="First Name" borderStyle="roundedRect" placeholder="First Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PcY-Yt-6rx">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="30"/>
+                                        <color key="backgroundColor" red="0.1113388911" green="0.018721735100000001" blue="0.03847543523" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Last Name" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X5A-Jb-tgX">
+                                        <rect key="frame" x="0.0" y="50" width="275" height="30"/>
+                                        <color key="backgroundColor" red="0.1113388911" green="0.018721735100000001" blue="0.03847543523" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ah8-wo-7kT">
+                                        <rect key="frame" x="0.0" y="100" width="275" height="30"/>
+                                        <color key="backgroundColor" red="0.1113388911" green="0.018721735100000001" blue="0.03847543523" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="D.O.B" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cBx-cz-bVl">
+                                        <rect key="frame" x="0.0" y="150" width="275" height="30"/>
+                                        <color key="backgroundColor" red="0.1113388911" green="0.018721735100000001" blue="0.03847543523" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Display Name" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iB6-ms-x8J">
+                                <rect key="frame" x="140" y="225" width="219" height="30"/>
+                                <color key="backgroundColor" red="0.1113388911" green="0.018721735100000001" blue="0.03847543523" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.1113388911" green="0.018721735100000001" blue="0.03847543523" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="iB6-ms-x8J" firstAttribute="top" secondItem="2Fd-ah-NQp" secondAttribute="bottom" constant="20" id="2fX-sB-cCo"/>
+                            <constraint firstItem="wLW-dO-8rj" firstAttribute="leading" secondItem="64K-eG-Bnx" secondAttribute="leading" constant="50" id="ACl-oR-aFY"/>
                             <constraint firstItem="2Fd-ah-NQp" firstAttribute="leading" secondItem="64K-eG-Bnx" secondAttribute="leading" id="AYZ-li-bLD"/>
                             <constraint firstItem="2Fd-ah-NQp" firstAttribute="top" secondItem="FMU-QH-31F" secondAttribute="bottom" id="BoX-aI-hF8"/>
                             <constraint firstItem="FMU-QH-31F" firstAttribute="leading" secondItem="64K-eG-Bnx" secondAttribute="leading" id="CFM-W5-MiT"/>
+                            <constraint firstItem="iB6-ms-x8J" firstAttribute="leading" secondItem="HbO-Hs-CAv" secondAttribute="trailing" constant="8" id="DYe-Zt-Xo8"/>
                             <constraint firstItem="HbO-Hs-CAv" firstAttribute="top" secondItem="FMU-QH-31F" secondAttribute="bottom" constant="100" id="E0d-ro-6iy"/>
                             <constraint firstItem="2Fd-ah-NQp" firstAttribute="trailing" secondItem="64K-eG-Bnx" secondAttribute="trailing" id="HqH-Ro-a47"/>
                             <constraint firstAttribute="trailing" secondItem="FMU-QH-31F" secondAttribute="trailing" id="Plz-T8-x8z"/>
                             <constraint firstItem="cU2-5u-0VB" firstAttribute="top" secondItem="yus-Th-aeW" secondAttribute="top" constant="20" id="SFf-65-H3B"/>
-                            <constraint firstItem="Kq4-G7-YJg" firstAttribute="top" secondItem="2Fd-ah-NQp" secondAttribute="bottom" constant="8" id="Xxb-8l-Rjc"/>
-                            <constraint firstItem="64K-eG-Bnx" firstAttribute="trailing" secondItem="Kq4-G7-YJg" secondAttribute="trailing" constant="16" id="dJ0-a5-uEF"/>
-                            <constraint firstItem="Kq4-G7-YJg" firstAttribute="leading" secondItem="HbO-Hs-CAv" secondAttribute="trailing" constant="8" id="g6w-n7-6gh"/>
                             <constraint firstItem="FMU-QH-31F" firstAttribute="top" secondItem="yus-Th-aeW" secondAttribute="top" id="h34-XK-Ubf"/>
+                            <constraint firstItem="64K-eG-Bnx" firstAttribute="trailing" secondItem="wLW-dO-8rj" secondAttribute="trailing" constant="50" id="hfE-5j-81u"/>
                             <constraint firstItem="cU2-5u-0VB" firstAttribute="centerX" secondItem="yus-Th-aeW" secondAttribute="centerX" id="j05-IL-7dG"/>
                             <constraint firstItem="HbO-Hs-CAv" firstAttribute="leading" secondItem="64K-eG-Bnx" secondAttribute="leading" constant="32" id="mNx-Qi-t8w"/>
+                            <constraint firstItem="wLW-dO-8rj" firstAttribute="top" secondItem="HbO-Hs-CAv" secondAttribute="bottom" constant="60" id="rdl-92-bxF"/>
+                            <constraint firstItem="64K-eG-Bnx" firstAttribute="trailing" secondItem="iB6-ms-x8J" secondAttribute="trailing" constant="16" id="ulU-lt-plJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="64K-eG-Bnx"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="homeIcon" id="wKL-ff-VJk"/>
                     <connections>
-                        <outlet property="displayNameLabel" destination="Kq4-G7-YJg" id="MHe-XG-xtK"/>
+                        <outlet property="displayNameTextField" destination="iB6-ms-x8J" id="Wi1-bA-IaM"/>
+                        <outlet property="dobTextField" destination="cBx-cz-bVl" id="iYU-oP-HFH"/>
+                        <outlet property="emailTextField" destination="Ah8-wo-7kT" id="An0-ar-m2v"/>
+                        <outlet property="firstNameTextField" destination="PcY-Yt-6rx" id="RzE-qD-ypu"/>
+                        <outlet property="lastNameTextField" destination="X5A-Jb-tgX" id="WQy-JA-2xu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwy-IB-1Ex" userLabel="First Responder" sceneMemberID="firstResponder"/>
