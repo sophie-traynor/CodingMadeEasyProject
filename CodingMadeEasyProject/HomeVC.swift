@@ -14,12 +14,16 @@ import FirebaseStorage
 class HomeVC: UIViewController {
     
     //MARK: - Properties
+    
     @IBOutlet weak var displayNameLabel: UILabel!
 
+    ///Reference to Firebase Database
     var ref: DatabaseReference?
+    ///Default name for the user Display Name
     var displayName: String = "No Name"
     
     //MARK: - override Functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +33,8 @@ class HomeVC: UIViewController {
     }
     
     //MARK: - Public Functions
+    
+    ///Checks the current users display name from firebase database
     func loadDisplayName(){
         let userID = Auth.auth().currentUser?.uid
         ref?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in

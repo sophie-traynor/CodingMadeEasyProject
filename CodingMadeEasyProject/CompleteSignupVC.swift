@@ -19,10 +19,13 @@ class CompleteSignupVC: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var dateOfBirthTextField: UITextField!
     
+    ///String to store the email address retrieved from the LoginVC 
     var emailAddress: String = ""
+    ///Reference to Firebase Database
     var ref: DatabaseReference?
     
     //MARK: - override Functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +34,7 @@ class CompleteSignupVC: UIViewController {
     }
     
     //MARK: - Actions
+    
     @IBAction func completeBtnClicked(_ sender: Any) {
         
         if firstNameTextField.text!.isEmpty || lastNameTextField.text!.isEmpty || dateOfBirthTextField.text!.isEmpty{
@@ -43,6 +47,8 @@ class CompleteSignupVC: UIViewController {
     }
     
     //MARK: - Public Functions
+    
+    ///sends pop up to screen displaying a message
     func createAlert (title: String, message: String)
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -53,6 +59,7 @@ class CompleteSignupVC: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    ///Gets values from entered fields and uploads them to firebase database
     func saveData(){
         
         let email = emailTextField.text

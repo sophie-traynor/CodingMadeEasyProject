@@ -13,6 +13,7 @@ import FirebaseDatabase
 class LoginVC: UIViewController {
     
     //MARK: - Properties
+    
     @IBOutlet weak var signInSelector: UISegmentedControl!
     @IBOutlet weak var signInLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
@@ -20,10 +21,11 @@ class LoginVC: UIViewController {
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var facebookView: UIView!
     
-    //variable to check if sign in or register is selected
+    ///variable to check if sign in or register is selected
     var isSignIn:Bool = true
     
     //MARK: - override Functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,15 +33,17 @@ class LoginVC: UIViewController {
         UIApplication.shared.statusBarStyle = .lightContent
     }
     
-    //Dismiss the keyboard when view is tapped on
+    //Dismiss the keyboard when view is tapped on when in email or password text field
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
     }
     
     //MARK: - Navigation
+    
+    //Carries out code before segue is initiated
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        //sends the email address to a text field on CompleteSignupVC if that particular segue is initiated
         if let vc = segue.destination as? CompleteSignupVC
         {
             vc.emailAddress = emailTextField.text!
@@ -47,7 +51,8 @@ class LoginVC: UIViewController {
     }
     
     //MARK: - Public Functions
-    //sends pop up to screen displaying message
+    
+    ///sends pop up to screen displaying message
     func createAlert(title:String, message:String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
@@ -62,6 +67,7 @@ class LoginVC: UIViewController {
     @IBAction func signInSelectorChanged(_ sender: UISegmentedControl) {
         //flip boolean - switch to sign in or register
         isSignIn = !isSignIn
+        
         //check bool and set buttons and labels
         if isSignIn {
             signInLabel.text = "Sign In"
@@ -79,11 +85,15 @@ class LoginVC: UIViewController {
             
             //sign user in if selector is on sign in
             if isSignIn {
+                
+                //Calls the sign in method using the email and password provided by user
                 Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+                    
                     //checks if any errors e.g. user not created yet
                     if error == nil{
+                        
                         //TODO: - CHECK IF COMPLETE SIGN UP IS COMPLETE
-                       
+                       //go to home screen if user has been authenticated
                         self.performSegue(withIdentifier: "loginToHomeScreen", sender: self)
                     }
                     else{
@@ -93,9 +103,15 @@ class LoginVC: UIViewController {
             }
             //create user if register is selected
             else{
+                //Calls the create user method to add a new user to the firebase database
                 Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                    
                     if error == nil{
+                        
+                        //Sign user in with created details if user has been created successfully
                         Auth.auth().signIn(withEmail: email, password: password)
+                        
+                        //go to complete signup screen to get further details about new user
                         self.performSegue(withIdentifier: "loginToCompleteSignupScreen", sender: self)
                     }
                     else{

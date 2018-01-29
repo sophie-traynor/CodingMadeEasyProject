@@ -10,11 +10,13 @@ import UIKit
 
 class KinaestheticVC: UIViewController {
     
-    var lesson: Lesson?
-    
+    //MARK: - Properties
     @IBOutlet weak var lessonDescription: UILabel!
     @IBOutlet weak var lessonNameLabel: UILabel!
     
+    var lesson: Lesson?
+    
+    //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +24,7 @@ class KinaestheticVC: UIViewController {
         lessonDescription.text = lesson?.kinaestheticDescription
     }
     
+    //MARK: Actions
     @IBAction func backBtnPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "unwindToLesson", sender: self)
     }

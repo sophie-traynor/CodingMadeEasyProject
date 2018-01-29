@@ -10,12 +10,13 @@ import UIKit
 
 class VisualVC: UIViewController {
     
-    var lesson: Lesson?
-    
+    //MARK: - Properties
     @IBOutlet weak var lessonDescription: UITextView!
     @IBOutlet weak var lessonNameLabel: UILabel!
     
+    var lesson: Lesson?
     
+    //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +24,7 @@ class VisualVC: UIViewController {
         lessonDescription.text = lesson?.visualDescription
     }
     
+    //MARK: - Actions
     @IBAction func backBtnPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "unwindToLesson", sender: self)
     }

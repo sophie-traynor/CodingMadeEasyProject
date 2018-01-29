@@ -16,6 +16,7 @@ class WritePostVC: UIViewController {
     @IBOutlet weak var postTitleTextView: UITextView!
     @IBOutlet weak var postDescriptionTextView: UITextView!
     
+    ///Reference to Firebase Database
     var ref: DatabaseReference?
     
     //MARK: - override Functions

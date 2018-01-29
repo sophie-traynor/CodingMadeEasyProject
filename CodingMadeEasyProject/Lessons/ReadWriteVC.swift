@@ -10,11 +10,13 @@ import UIKit
 
 class ReadWriteVC: UIViewController {
     
-    var lesson: Lesson?
-    
+    //MARK: - Properties
     @IBOutlet weak var lessonDescription: UITextView!
     @IBOutlet weak var lessonNameLabel: UILabel!
     
+    var lesson: Lesson?
+    
+    //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +24,7 @@ class ReadWriteVC: UIViewController {
         lessonDescription.text = lesson?.readWriteDescription
     }
     
+    //MARK: - Actions
     @IBAction func backBtnPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "unwindToLesson", sender: self)
     }

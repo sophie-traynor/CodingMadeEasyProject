@@ -8,22 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		5DE966A0B8AD8E056C45F629 /* Pods_CodingMadeEasyProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F962CF0C4785F83DF44077C8 /* Pods_CodingMadeEasyProject.framework */; };
+		890C18E8201F419F00216E88 /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C18E7201F419F00216E88 /* FeedbackVC.swift */; };
 		8921F49C1FA10B5600A2F639 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8921F49B1FA10B5600A2F639 /* HomeVC.swift */; };
 		8922B055200E2771000BFF34 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922B054200E2771000BFF34 /* Lesson.swift */; };
 		8922B057200E297A000BFF34 /* LessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922B056200E297A000BFF34 /* LessonTableViewCell.swift */; };
 		89294A6A201A445C007E5A6B /* WritePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89294A69201A445C007E5A6B /* WritePostVC.swift */; };
 		89294A6C201A46BC007E5A6B /* ViewPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89294A6B201A46BC007E5A6B /* ViewPostVC.swift */; };
-		892E07F8200FC3E600632A0D /* VisualVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E07F7200FC3E600632A0D /* VisualVC.swift */; };
-		892E07FA200FC3F500632A0D /* AuditoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E07F9200FC3F500632A0D /* AuditoryVC.swift */; };
-		892E07FC200FC40200632A0D /* ReadWriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E07FB200FC40200632A0D /* ReadWriteVC.swift */; };
-		892E07FE200FC41400632A0D /* KinaestheticVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E07FD200FC41400632A0D /* KinaestheticVC.swift */; };
 		89580DDF2016045F00E45FC8 /* ForumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89580DDE2016045F00E45FC8 /* ForumTableViewCell.swift */; };
+		895E2060201F8D8000152F9F /* IndividualLessonsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895E205F201F8D8000152F9F /* IndividualLessonsVC.swift */; };
+		895E2063201FC0B700152F9F /* ReadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895E2062201FC0B700152F9F /* ReadVC.swift */; };
+		895E2065201FC0C700152F9F /* ListenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895E2064201FC0C700152F9F /* ListenVC.swift */; };
+		895E2067201FC0D600152F9F /* WatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895E2066201FC0D600152F9F /* WatchVC.swift */; };
+		895E2069201FC0E000152F9F /* DoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895E2068201FC0E000152F9F /* DoVC.swift */; };
 		89B048B61FF50F440019A304 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B048B51FF50F440019A304 /* SettingsVC.swift */; };
 		89B048B81FF50F5E0019A304 /* ForumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B048B71FF50F5E0019A304 /* ForumVC.swift */; };
 		89B048BA1FF50F880019A304 /* LessonsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B048B91FF50F880019A304 /* LessonsVC.swift */; };
 		89B048BD1FF52CE70019A304 /* CompleteSignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B048BC1FF52CE70019A304 /* CompleteSignupVC.swift */; };
 		89E2D7452014C0C600C9AFA3 /* FAQVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E2D7442014C0C600C9AFA3 /* FAQVC.swift */; };
-		89E79256201A6B4B00D3A93B /* lesson2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 89E79255201A6B4B00D3A93B /* lesson2.mp3 */; };
 		89F94B191F9E6AAE00B82D44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */; };
 		89F94B1B1F9E6AAE00B82D44 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */; };
 		89F94B1E1F9E6AAE00B82D44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B1C1F9E6AAE00B82D44 /* Main.storyboard */; };
@@ -36,22 +37,23 @@
 /* Begin PBXFileReference section */
 		093188470B553A5199259F34 /* Pods-CodingMadeEasyProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingMadeEasyProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodingMadeEasyProject/Pods-CodingMadeEasyProject.debug.xcconfig"; sourceTree = "<group>"; };
 		8812A6F1CF2ED428023DD8A2 /* Pods-CodingMadeEasyProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingMadeEasyProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodingMadeEasyProject/Pods-CodingMadeEasyProject.release.xcconfig"; sourceTree = "<group>"; };
+		890C18E7201F419F00216E88 /* FeedbackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
 		8921F49B1FA10B5600A2F639 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		8922B054200E2771000BFF34 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		8922B056200E297A000BFF34 /* LessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTableViewCell.swift; sourceTree = "<group>"; };
 		89294A69201A445C007E5A6B /* WritePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostVC.swift; sourceTree = "<group>"; };
 		89294A6B201A46BC007E5A6B /* ViewPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPostVC.swift; sourceTree = "<group>"; };
-		892E07F7200FC3E600632A0D /* VisualVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualVC.swift; sourceTree = "<group>"; };
-		892E07F9200FC3F500632A0D /* AuditoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuditoryVC.swift; sourceTree = "<group>"; };
-		892E07FB200FC40200632A0D /* ReadWriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadWriteVC.swift; sourceTree = "<group>"; };
-		892E07FD200FC41400632A0D /* KinaestheticVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinaestheticVC.swift; sourceTree = "<group>"; };
 		89580DDE2016045F00E45FC8 /* ForumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumTableViewCell.swift; sourceTree = "<group>"; };
+		895E205F201F8D8000152F9F /* IndividualLessonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualLessonsVC.swift; sourceTree = "<group>"; };
+		895E2062201FC0B700152F9F /* ReadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadVC.swift; sourceTree = "<group>"; };
+		895E2064201FC0C700152F9F /* ListenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenVC.swift; sourceTree = "<group>"; };
+		895E2066201FC0D600152F9F /* WatchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchVC.swift; sourceTree = "<group>"; };
+		895E2068201FC0E000152F9F /* DoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoVC.swift; sourceTree = "<group>"; };
 		89B048B51FF50F440019A304 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		89B048B71FF50F5E0019A304 /* ForumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumVC.swift; sourceTree = "<group>"; };
 		89B048B91FF50F880019A304 /* LessonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsVC.swift; sourceTree = "<group>"; };
 		89B048BC1FF52CE70019A304 /* CompleteSignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSignupVC.swift; sourceTree = "<group>"; };
 		89E2D7442014C0C600C9AFA3 /* FAQVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQVC.swift; sourceTree = "<group>"; };
-		89E79255201A6B4B00D3A93B /* lesson2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lesson2.mp3; sourceTree = "<group>"; };
 		89F94B151F9E6AAE00B82D44 /* CodingMadeEasyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodingMadeEasyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -90,12 +92,20 @@
 				89B048B91FF50F880019A304 /* LessonsVC.swift */,
 				8922B056200E297A000BFF34 /* LessonTableViewCell.swift */,
 				8922B054200E2771000BFF34 /* Lesson.swift */,
-				892E07F7200FC3E600632A0D /* VisualVC.swift */,
-				892E07F9200FC3F500632A0D /* AuditoryVC.swift */,
-				892E07FB200FC40200632A0D /* ReadWriteVC.swift */,
-				892E07FD200FC41400632A0D /* KinaestheticVC.swift */,
+				895E205F201F8D8000152F9F /* IndividualLessonsVC.swift */,
+				895E2062201FC0B700152F9F /* ReadVC.swift */,
+				895E2064201FC0C700152F9F /* ListenVC.swift */,
+				895E2066201FC0D600152F9F /* WatchVC.swift */,
+				895E2068201FC0E000152F9F /* DoVC.swift */,
 			);
 			path = Lessons;
+			sourceTree = "<group>";
+		};
+		895E2061201F96AC00152F9F /* Audio Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Audio Files";
 			sourceTree = "<group>";
 		};
 		89E2D7462014C0DA00C9AFA3 /* Settings */ = {
@@ -103,6 +113,7 @@
 			children = (
 				89B048B51FF50F440019A304 /* SettingsVC.swift */,
 				89E2D7442014C0C600C9AFA3 /* FAQVC.swift */,
+				890C18E7201F419F00216E88 /* FeedbackVC.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -148,8 +159,8 @@
 				89F94B1C1F9E6AAE00B82D44 /* Main.storyboard */,
 				89F94B211F9E6AAE00B82D44 /* LaunchScreen.storyboard */,
 				89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */,
+				895E2061201F96AC00152F9F /* Audio Files */,
 				89F94B1F1F9E6AAE00B82D44 /* Assets.xcassets */,
-				89E79255201A6B4B00D3A93B /* lesson2.mp3 */,
 				89F94B2A1F9E6B0000B82D44 /* earwig-factory.regular.ttf */,
 				89F94B241F9E6AAE00B82D44 /* Info.plist */,
 				89F94B2D1F9E917000B82D44 /* GoogleService-Info.plist */,
@@ -229,7 +240,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				89F94B231F9E6AAE00B82D44 /* LaunchScreen.storyboard in Resources */,
-				89E79256201A6B4B00D3A93B /* lesson2.mp3 in Resources */,
 				89F94B201F9E6AAE00B82D44 /* Assets.xcassets in Resources */,
 				89F94B2B1F9E6B0000B82D44 /* earwig-factory.regular.ttf in Resources */,
 				89F94B1E1F9E6AAE00B82D44 /* Main.storyboard in Resources */,
@@ -304,22 +314,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				892E07FA200FC3F500632A0D /* AuditoryVC.swift in Sources */,
+				895E2060201F8D8000152F9F /* IndividualLessonsVC.swift in Sources */,
 				8921F49C1FA10B5600A2F639 /* HomeVC.swift in Sources */,
+				895E2067201FC0D600152F9F /* WatchVC.swift in Sources */,
 				89B048B61FF50F440019A304 /* SettingsVC.swift in Sources */,
 				89580DDF2016045F00E45FC8 /* ForumTableViewCell.swift in Sources */,
 				89F94B1B1F9E6AAE00B82D44 /* LoginVC.swift in Sources */,
+				890C18E8201F419F00216E88 /* FeedbackVC.swift in Sources */,
 				8922B055200E2771000BFF34 /* Lesson.swift in Sources */,
 				89294A6A201A445C007E5A6B /* WritePostVC.swift in Sources */,
-				892E07F8200FC3E600632A0D /* VisualVC.swift in Sources */,
 				89B048B81FF50F5E0019A304 /* ForumVC.swift in Sources */,
 				89E2D7452014C0C600C9AFA3 /* FAQVC.swift in Sources */,
 				8922B057200E297A000BFF34 /* LessonTableViewCell.swift in Sources */,
 				89294A6C201A46BC007E5A6B /* ViewPostVC.swift in Sources */,
-				892E07FE200FC41400632A0D /* KinaestheticVC.swift in Sources */,
-				892E07FC200FC40200632A0D /* ReadWriteVC.swift in Sources */,
+				895E2063201FC0B700152F9F /* ReadVC.swift in Sources */,
+				895E2069201FC0E000152F9F /* DoVC.swift in Sources */,
 				89B048BA1FF50F880019A304 /* LessonsVC.swift in Sources */,
 				89B048BD1FF52CE70019A304 /* CompleteSignupVC.swift in Sources */,
+				895E2065201FC0C700152F9F /* ListenVC.swift in Sources */,
 				89F94B191F9E6AAE00B82D44 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

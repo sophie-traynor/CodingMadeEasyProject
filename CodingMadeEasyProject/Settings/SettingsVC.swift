@@ -42,7 +42,7 @@ class SettingsVC: UIViewController {
         self.navigationController?.popViewController(animated: true);
     }
 
-    //MARK: - Private Functions
+    //MARK: - Public Functions
     func createAlert (title: String, message: String)
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)

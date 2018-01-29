@@ -14,7 +14,9 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
     
+     ///Reference to Firebase Database
     var ref: DatabaseReference?
+    ///Array to store the forum posts
     var posts = [String]()
     
     //MARK: - override Functions
@@ -55,6 +57,8 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     //MARK: - Public Functions
+    
+    ///Checks firebase database for forum posts
     func listenForPosts(){
         ref?.child("posts").observe(.childAdded, with: { (snapshot) in
             let post = snapshot.value as? String

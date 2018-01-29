@@ -10,36 +10,35 @@ import UIKit
 
 class Lesson {
     
-    //MARK: Properties
+    //MARK: -  Properties
     var name: String
     var overview: String
-    var visualDescription: String
-    var auditoryDescription: String
-    var readWriteDescription: String
-    var kinaestheticDescription: String
+    var lessonDescription: String
+    var readText: String
+    var audioName: String
+    var videoName: String
     var cellImage: UIImage?
-    var auditoryImage: UIImage?
     
+    //MARK: - Property Key
     struct PropertyKey{
         static let name = "name"
         static let overview = "overview"
-        static let visualDescription = "visualDescription"
-        static let auditoryDescription = "auditoryDescription"
-        static let readWriteDescription = "readWriteDescription"
-        static let kinaestheticDescription = "kinaestheticDescription"
+        static let lessonDescription = "lessonDescription"
+        static let readText = "readText"
+        static let audioName = "audioName"
+        static let videoName = "videoName"
         static let cellImage = "cellImage"
-        static let auditoryImage = "auditoryImage"
     }
     
-    init?(name: String, overview: String, visualDescription: String, auditoryDescription: String, readWriteDescription: String, kinaestheticDescription: String, cellImage: UIImage?, auditoryImage: UIImage?) {
+    //MARK: - Initialiser
+    init?(name: String, overview: String, lessonDescription: String, readText: String, audioName: String, videoName: String, cellImage: UIImage?) {
         self.name = name
         self.overview = overview
-        self.visualDescription = visualDescription
-        self.auditoryDescription = auditoryDescription
-        self.readWriteDescription = readWriteDescription
-        self.kinaestheticDescription = kinaestheticDescription
+        self.lessonDescription = lessonDescription
+        self.readText = readText
+        self.audioName = audioName
+        self.videoName = videoName
         self.cellImage = cellImage
-        self.auditoryImage = auditoryImage
     }
 }
 

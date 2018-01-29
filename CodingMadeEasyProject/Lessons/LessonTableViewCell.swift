@@ -10,11 +10,12 @@ import UIKit
 
 class LessonTableViewCell: UITableViewCell {
 
-    //MARK: Properties
+    //MARK: - Properties
     @IBOutlet weak var lessonImage: UIImageView!
     @IBOutlet weak var lessonName: UILabel!
     @IBOutlet weak var lessonOverview: UILabel!
     
+    //MARK: - override Functions
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
