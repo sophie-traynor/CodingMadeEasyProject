@@ -11,8 +11,7 @@ import UIKit
 class ReadVC: UIViewController {
 
     @IBOutlet weak var readTextView: UITextView!
-    
-    
+
     var readDescription: String = ""
     
     override func viewDidLoad() {

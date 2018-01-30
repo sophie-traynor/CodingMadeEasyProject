@@ -82,13 +82,16 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //let photo = UIImage(named: "nophoto")
         
         let photoCpp = UIImage(named: "cpp")
+        let samplePhoto = UIImage(named: "sample")
         
         guard let lesson1 = Lesson(name: "Lesson 1",
                                    overview: "Learn the structure of a program",
-                                   lessonDescription: "description",
-                                   readText: "lesson 1 text",
-                                   audioName: "lesson1Audio",
-                                   videoName: "lesson1Video",
+                                   lessonDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                                   readText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis odio a lacus vulputate placerat eu sed augue. Aliquam dui neque, volutpat et metus quis, condimentum bibendum dolor. Phasellus magna metus, accumsan eget lectus sit amet, suscipit varius turpis. Praesent in ante scelerisque, mattis tortor id, viverra libero. Sed facilisis consequat iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer ornare velit ac leo commodo ultrices. Ut laoreet volutpat nisi, rhoncus ultricies arcu eleifend sit amet. Pellentesque congue semper lorem, nec sagittis libero fringilla at. Pellentesque feugiat sapien sit amet eros rutrum efficitur. Donec sit amet magna elit. Cras ornare ligula a magna bibendum, in molestie enim ullamcorper. Donec rhoncus sollicitudin sem, non fringilla nibh rutrum ut. Donec malesuada, felis ac vestibulum tristique, sem ipsum euismod massa, vel rutrum tortor libero sed felis. Nullam sodales aliquam mauris non facilisis. Curabitur iaculis nunc quis ligula malesuada, non facilisis lorem luctus. Suspendisse sed cursus purus, ac elementum est. Duis luctus ex at commodo blandit. Suspendisse potenti. Curabitur semper posuere nisl nec finibus. Nam at facilisis sapien, a bibendum est. Fusce facilisis lobortis urna, id auctor diam sagittis mattis.",
+                                   audioName: "sampleAudio",
+                                   audioImage: samplePhoto,
+                                   videoName: "sampleVideo",
+                                   videoThumbnail: samplePhoto,
                                    cellImage: photoCpp)
                                    else {
             fatalError("Unable to instantiate lesson1")
@@ -96,10 +99,12 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         guard let lesson2 = Lesson(name: "Lesson 2",
                                    overview: "Variables and data types",
-                                   lessonDescription: "description",
-                                   readText: "lesson 2 text",
-                                   audioName: "lesson2Audio",
-                                   videoName: "lesson2Video",
+                                   lessonDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                                   readText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis odio a lacus vulputate placerat eu sed augue. Aliquam dui neque, volutpat et metus quis, condimentum bibendum dolor. Phasellus magna metus, accumsan eget lectus sit amet, suscipit varius turpis. Praesent in ante scelerisque, mattis tortor id, viverra libero. Sed facilisis consequat iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer ornare velit ac leo commodo ultrices. Ut laoreet volutpat nisi, rhoncus ultricies arcu eleifend sit amet. Pellentesque congue semper lorem, nec sagittis libero fringilla at. Pellentesque feugiat sapien sit amet eros rutrum efficitur. Donec sit amet magna elit. Cras ornare ligula a magna bibendum, in molestie enim ullamcorper. Donec rhoncus sollicitudin sem, non fringilla nibh rutrum ut. Donec malesuada, felis ac vestibulum tristique, sem ipsum euismod massa, vel rutrum tortor libero sed felis. Nullam sodales aliquam mauris non facilisis. Curabitur iaculis nunc quis ligula malesuada, non facilisis lorem luctus. Suspendisse sed cursus purus, ac elementum est. Duis luctus ex at commodo blandit. Suspendisse potenti. Curabitur semper posuere nisl nec finibus. Nam at facilisis sapien, a bibendum est. Fusce facilisis lobortis urna, id auctor diam sagittis mattis.",
+                                   audioName: "sampleAudio",
+                                   audioImage: samplePhoto,
+                                   videoName: "sampleVideo",
+                                   videoThumbnail: samplePhoto,
                                    cellImage: photoCpp)
                                    else {
             fatalError("Unable to instantiate lesson2")
@@ -107,10 +112,12 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         guard let lesson3 = Lesson(name: "Lesson 3",
                                    overview: "Print a message to the screen",
-                                   lessonDescription: "description",
-                                   readText: "lesson 3 text",
-                                   audioName: "lesson3Audio",
-                                   videoName: "lesson3Video",
+                                   lessonDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                                   readText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis odio a lacus vulputate placerat eu sed augue. Aliquam dui neque, volutpat et metus quis, condimentum bibendum dolor. Phasellus magna metus, accumsan eget lectus sit amet, suscipit varius turpis. Praesent in ante scelerisque, mattis tortor id, viverra libero. Sed facilisis consequat iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer ornare velit ac leo commodo ultrices. Ut laoreet volutpat nisi, rhoncus ultricies arcu eleifend sit amet. Pellentesque congue semper lorem, nec sagittis libero fringilla at. Pellentesque feugiat sapien sit amet eros rutrum efficitur. Donec sit amet magna elit. Cras ornare ligula a magna bibendum, in molestie enim ullamcorper. Donec rhoncus sollicitudin sem, non fringilla nibh rutrum ut. Donec malesuada, felis ac vestibulum tristique, sem ipsum euismod massa, vel rutrum tortor libero sed felis. Nullam sodales aliquam mauris non facilisis. Curabitur iaculis nunc quis ligula malesuada, non facilisis lorem luctus. Suspendisse sed cursus purus, ac elementum est. Duis luctus ex at commodo blandit. Suspendisse potenti. Curabitur semper posuere nisl nec finibus. Nam at facilisis sapien, a bibendum est. Fusce facilisis lobortis urna, id auctor diam sagittis mattis.",
+                                   audioName: "sampleAudio",
+                                   audioImage: samplePhoto,
+                                   videoName: "sampleVideo",
+                                   videoThumbnail: samplePhoto,
                                    cellImage: photoCpp)
                                    else {
             fatalError("Unable to instantiate lesson3")
@@ -118,10 +125,12 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         guard let lesson4 = Lesson(name: "Lesson 4",
                                    overview: "Allow user input in a simple program",
-                                   lessonDescription: "description",
-                                   readText: "lesson 4 text",
-                                   audioName: "lesson4Audio",
-                                   videoName: "lesson4Video",
+                                   lessonDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                                   readText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis odio a lacus vulputate placerat eu sed augue. Aliquam dui neque, volutpat et metus quis, condimentum bibendum dolor. Phasellus magna metus, accumsan eget lectus sit amet, suscipit varius turpis. Praesent in ante scelerisque, mattis tortor id, viverra libero. Sed facilisis consequat iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer ornare velit ac leo commodo ultrices. Ut laoreet volutpat nisi, rhoncus ultricies arcu eleifend sit amet. Pellentesque congue semper lorem, nec sagittis libero fringilla at. Pellentesque feugiat sapien sit amet eros rutrum efficitur. Donec sit amet magna elit. Cras ornare ligula a magna bibendum, in molestie enim ullamcorper. Donec rhoncus sollicitudin sem, non fringilla nibh rutrum ut. Donec malesuada, felis ac vestibulum tristique, sem ipsum euismod massa, vel rutrum tortor libero sed felis. Nullam sodales aliquam mauris non facilisis. Curabitur iaculis nunc quis ligula malesuada, non facilisis lorem luctus. Suspendisse sed cursus purus, ac elementum est. Duis luctus ex at commodo blandit. Suspendisse potenti. Curabitur semper posuere nisl nec finibus. Nam at facilisis sapien, a bibendum est. Fusce facilisis lobortis urna, id auctor diam sagittis mattis.",
+                                   audioName: "sampleAudio",
+                                   audioImage: samplePhoto,
+                                   videoName: "sampleVideo",
+                                   videoThumbnail: samplePhoto,
                                    cellImage: photoCpp)
                                    else {
             fatalError("Unable to instantiate lesson4")
@@ -129,10 +138,12 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         guard let lesson5 = Lesson(name: "Lesson 5",
                                    overview: "Arrays",
-                                   lessonDescription: "description",
-                                   readText: "lesson 5 text",
-                                   audioName: "lesson5Audio",
-                                   videoName: "lesson5Video",
+                                   lessonDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                                   readText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis odio a lacus vulputate placerat eu sed augue. Aliquam dui neque, volutpat et metus quis, condimentum bibendum dolor. Phasellus magna metus, accumsan eget lectus sit amet, suscipit varius turpis. Praesent in ante scelerisque, mattis tortor id, viverra libero. Sed facilisis consequat iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer ornare velit ac leo commodo ultrices. Ut laoreet volutpat nisi, rhoncus ultricies arcu eleifend sit amet. Pellentesque congue semper lorem, nec sagittis libero fringilla at. Pellentesque feugiat sapien sit amet eros rutrum efficitur. Donec sit amet magna elit. Cras ornare ligula a magna bibendum, in molestie enim ullamcorper. Donec rhoncus sollicitudin sem, non fringilla nibh rutrum ut. Donec malesuada, felis ac vestibulum tristique, sem ipsum euismod massa, vel rutrum tortor libero sed felis. Nullam sodales aliquam mauris non facilisis. Curabitur iaculis nunc quis ligula malesuada, non facilisis lorem luctus. Suspendisse sed cursus purus, ac elementum est. Duis luctus ex at commodo blandit. Suspendisse potenti. Curabitur semper posuere nisl nec finibus. Nam at facilisis sapien, a bibendum est. Fusce facilisis lobortis urna, id auctor diam sagittis mattis.",
+                                   audioName: "sampleAudio",
+                                   audioImage: samplePhoto,
+                                   videoName: "sampleVideo",
+                                   videoThumbnail: samplePhoto,
                                    cellImage: photoCpp)
                                    else {
             fatalError("Unable to instantiate lesson5")

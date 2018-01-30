@@ -63,6 +63,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="loginBg" width="198" height="122"/>
+        <image name="loginBg" width="429" height="323"/>
     </resources>
 </document>
