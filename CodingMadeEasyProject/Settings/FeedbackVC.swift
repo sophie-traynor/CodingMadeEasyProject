@@ -10,9 +10,17 @@ import UIKit
 
 class FeedbackVC: UIViewController {
 
+    @IBOutlet weak var feedbackTextView: UITextView!
+    
     //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    //Dismiss the keyboard when view is tapped on when in email or password text field
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        feedbackTextView.resignFirstResponder()
         
     }
     

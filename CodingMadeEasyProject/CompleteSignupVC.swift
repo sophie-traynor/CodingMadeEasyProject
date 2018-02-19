@@ -21,6 +21,7 @@ class CompleteSignupVC: UIViewController {
     
     ///String to store the email address retrieved from the LoginVC 
     var emailAddress: String = ""
+    
     ///Reference to Firebase Database
     var ref: DatabaseReference?
     
@@ -31,6 +32,15 @@ class CompleteSignupVC: UIViewController {
 
         ref = Database.database().reference()
         emailTextField.text = emailAddress
+    }
+    
+    //Dismiss the keyboard when view is tapped on
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        emailTextField.resignFirstResponder()
+        displayNameTextField.resignFirstResponder()
+        firstNameTextField.resignFirstResponder()
+        lastNameTextField.resignFirstResponder()
+        dateOfBirthTextField.resignFirstResponder()
     }
     
     //MARK: - Actions

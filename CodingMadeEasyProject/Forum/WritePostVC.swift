@@ -26,6 +26,12 @@ class WritePostVC: UIViewController {
         ref = Database.database().reference()
     }
     
+    //Dismiss the keyboard when view is tapped on when in text views
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        postTitleTextView.resignFirstResponder()
+        postDescriptionTextView.resignFirstResponder()
+    }
+    
     //MARK: - Actions
     
     @IBAction func backBtnPressed(_ sender: UIButton) {
