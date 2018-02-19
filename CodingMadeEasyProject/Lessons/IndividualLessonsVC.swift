@@ -20,8 +20,7 @@ class IndividualLessonsVC: UIViewController {
     @IBOutlet weak var doView: UIView!
     
     var lesson: Lesson?
-    
-    var listenVC: ListenVC?
+    var listen: ListenVC?
     
     override func viewDidLoad() {
         super.viewDidLoad()
