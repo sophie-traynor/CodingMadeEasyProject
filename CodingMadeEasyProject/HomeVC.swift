@@ -26,7 +26,9 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     var imageTag: Int?
     
     ///Reference to Firebase Database
-    var ref: DatabaseReference?
+    var dataRef: DatabaseReference?
+    ///reference to Firebase Storage
+    var storageRef: StorageReference?
     
     ///Default name for the user Display Name
     var displayName: String = ""
@@ -43,7 +45,8 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.clipsToBounds = true
         
-        ref = Database.database().reference()
+        dataRef = Database.database().reference()
+        storageRef = Storage.storage().reference()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -69,6 +72,8 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         }
         else if imageTag == 2{
             profileImage.image = selectedImage
+            saveProfileImage()
+    
         }
        
         //Dismiss the picker
@@ -81,7 +86,7 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     ///Checks the current users display name from firebase database
     func loadData(){
         let userID = Auth.auth().currentUser?.uid
-        ref?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+        dataRef?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             
             self.displayName = value?["Display Name"] as? String ?? ""
@@ -104,6 +109,27 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         }) { (error) in
             print(error.localizedDescription)
         }
+    }
+    
+    func saveProfileImage()
+    {
+        let profileImageData = UIImageJPEGRepresentation(profileImage.image!, 0.1)
+        
+        let userID = Auth.auth().currentUser?.uid
+        
+        storageRef?.child(userID!).putData(profileImageData!, metadata: nil, completion: { (metadata, error) in
+            if error != nil {
+                return
+            }
+            
+            let profileURL = metadata?.downloadURL()?.absoluteString
+            self.dataRef?.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["ProfileURL": profileURL!], withCompletionBlock: { (error, ref) in
+                if error != nil{
+                    print(error!)
+                    return
+                }
+            })
+        })
     }
     
     //MARK: - Actions
