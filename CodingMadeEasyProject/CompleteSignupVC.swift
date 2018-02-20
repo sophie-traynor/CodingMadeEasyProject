@@ -23,7 +23,7 @@ class CompleteSignupVC: UIViewController, UITextFieldDelegate {
     let datePicker = UIDatePicker()
     
     ///String to store the email address retrieved from the LoginVC 
-    var emailAddress: String = ""
+    //var emailAddress: String?
     
     ///Reference to Firebase Database
     var ref: DatabaseReference?
@@ -41,11 +41,14 @@ class CompleteSignupVC: UIViewController, UITextFieldDelegate {
         
         createDatePicker()
         
-        ref = Database.database().reference()
-        emailTextField.text = emailAddress
+        ///load email
+        let user = Auth.auth().currentUser
+        let email = user?.email
+        emailTextField.text = email
+        
     }
 
-    
+
     //MARK: - Text Field Delegate
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -161,12 +164,11 @@ class CompleteSignupVC: UIViewController, UITextFieldDelegate {
     ///Gets values from entered fields and uploads them to firebase database
     func saveData(){
         
-        let email = emailTextField.text
         let displayName = displayNameTextField.text
         let firstName = firstNameTextField.text
         let lastName = lastNameTextField.text
         let dateOfBirth = dateOfBirthTextField.text
-        self.ref?.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["Email" : email!, "Display Name" : displayName!, "First Name" : firstName!, "Last Name": lastName!, "Date of Birth": dateOfBirth!], withCompletionBlock: { (error, ref) in
+        self.ref?.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["Display Name" : displayName!, "First Name" : firstName!, "Last Name": lastName!, "Date of Birth": dateOfBirth!], withCompletionBlock: { (error, ref) in
             if error != nil{
                 print(error!)
                 return

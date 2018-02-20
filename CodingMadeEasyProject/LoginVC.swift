@@ -25,10 +25,15 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     ///variable to check if sign in or register is selected
     var isSignIn:Bool = true
     
+    ///Reference to Firebase Database
+    var ref: DatabaseReference?
+    
     //MARK: - override Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference()
         
         //set status bar to white
         UIApplication.shared.statusBarStyle = .lightContent
@@ -49,10 +54,18 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     //Carries out code before segue is initiated
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //sends the email address to a text field on CompleteSignupVC if that particular segue is initiated
-        if let vc = segue.destination as? CompleteSignupVC
+        /*if let vc = segue.destination as? CompleteSignupVC
         {
             vc.emailAddress = emailTextField.text!
-        }
+        }*/
+         let email = emailTextField.text
+        
+        self.ref?.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["Email" : email!], withCompletionBlock: { (error, ref) in
+            if error != nil{
+                print(error!)
+                return
+            }
+        })
     }
     
     //MARK: - Text Field Delegate
