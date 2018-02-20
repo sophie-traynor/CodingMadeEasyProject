@@ -41,6 +41,8 @@ class CompleteSignupVC: UIViewController, UITextFieldDelegate {
         
         createDatePicker()
         
+        ref = Database.database().reference()
+        
         ///load email
         let user = Auth.auth().currentUser
         let email = user?.email

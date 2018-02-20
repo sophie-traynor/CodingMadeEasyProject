@@ -41,12 +41,11 @@ class HomeVC: UIViewController {
         profileImage.clipsToBounds = true
         
         ref = Database.database().reference()
-        loadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-       
-        //loadData()
+        //TODO: - FIX ERROR HANDLING WHEN LOGGING OUT AFTER RELOGGING IN WITH NO DATA
+        loadData()
     }
     
     //MARK: - Public Functions
@@ -57,19 +56,19 @@ class HomeVC: UIViewController {
         ref?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             
-            let displayName = value?["Display Name"] as? String ?? ""
-            let firstName = value?["First Name"] as? String ?? ""
-            let lastName = value?["Last Name"] as? String ?? ""
-            let email = value?["Email"] as? String ?? ""
-            let dob = value?["Date of Birth"] as? String ?? ""
+            self.displayName = value?["Display Name"] as? String ?? ""
+            self.firstName = value?["First Name"] as? String ?? ""
+            self.lastName = value?["Last Name"] as? String ?? ""
+            self.email = value?["Email"] as? String ?? ""
+            self.dob = value?["Date of Birth"] as? String ?? ""
             
-            self.displayNameTextField.text = displayName
-            self.firstNameTextField.text = firstName
-            self.lastNameTextField.text = lastName
-            self.emailTextField.text = email
-            self.dobTextField.text = dob
+            self.displayNameTextField.text = self.displayName
+            self.firstNameTextField.text = self.firstName
+            self.lastNameTextField.text = self.lastName
+            self.emailTextField.text = self.email
+            self.dobTextField.text = self.dob
             
-            if displayName == "" || firstName == "" || lastName == "" || dob == "" {
+            if self.displayName == "" || self.firstName == "" || self.lastName == "" || self.dob == "" {
                 self.performSegue(withIdentifier: "HomeToCompleteSignup", sender: self)
                 print("........no data.......")
             }

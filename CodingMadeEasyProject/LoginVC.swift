@@ -89,6 +89,16 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func saveEmail(){
+        let email = self.emailTextField.text
+        self.ref?.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["Email" : email!], withCompletionBlock: { (error, ref) in
+            if error != nil{
+                print(error!)
+                return
+            }
+        })
+    }
+    
     //MARK: - Actions
     
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
@@ -123,14 +133,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     //checks if any errors e.g. user not created yet
                     if error == nil{
                         
-                        let email = self.emailTextField.text
-                    self.ref?.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["Email" : email!], withCompletionBlock: { (error, ref) in
-                            if error != nil{
-                                print(error!)
-                                return
-                            }
-                        })
-                        
                        //go to home screen if user has been authenticated
                         self.performSegue(withIdentifier: "loginToHomeScreen", sender: self)
                     }
@@ -148,6 +150,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                         
                         //Sign user in with created details if user has been created successfully
                         Auth.auth().signIn(withEmail: email, password: password)
+                        
+                        self.saveEmail()
                         
                         //go to complete signup screen to get further details about new user
                         self.performSegue(withIdentifier: "loginToCompleteSignupScreen", sender: self)
