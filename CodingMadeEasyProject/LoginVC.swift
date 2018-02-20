@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController, UITextFieldDelegate {
     
     //MARK: - Properties
     
@@ -19,7 +19,8 @@ class LoginVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInBtn: UIButton!
-    @IBOutlet weak var facebookView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     
     ///variable to check if sign in or register is selected
     var isSignIn:Bool = true
@@ -31,6 +32,9 @@ class LoginVC: UIViewController {
         
         //set status bar to white
         UIApplication.shared.statusBarStyle = .lightContent
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,12 +42,6 @@ class LoginVC: UIViewController {
         if Auth.auth().currentUser != nil {
             self.performSegue(withIdentifier: "loginToHomeScreen", sender: self)
         }
-    }
-    
-    //Dismiss the keyboard when view is tapped on when in email or password text field
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        emailTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
     }
     
     //MARK: - Navigation
@@ -55,6 +53,34 @@ class LoginVC: UIViewController {
         {
             vc.emailAddress = emailTextField.text!
         }
+    }
+    
+    //MARK: - Text Field Delegate
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField.tag
+        {
+        case 0:
+            scrollView.setContentOffset(CGPoint(x:0,y:60), animated: true)
+        case 1:
+            scrollView.setContentOffset(CGPoint(x:0,y:60), animated: true)
+        default:
+            scrollView.setContentOffset(CGPoint(x:0,y:0), animated: true)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        scrollView.setContentOffset(CGPoint(x:0,y:0), animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.tag == 0{
+            emailTextField.resignFirstResponder()
+        }
+        else if textField.tag == 1 {
+            passwordTextField.resignFirstResponder()
+        }
+        return true
     }
     
     //MARK: - Public Functions
@@ -70,6 +96,10 @@ class LoginVC: UIViewController {
     }
     
     //MARK: - Actions
+    
+    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
+        
+    }
     
     @IBAction func signInSelectorChanged(_ sender: UISegmentedControl) {
         //flip boolean - switch to sign in or register

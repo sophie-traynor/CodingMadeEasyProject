@@ -36,7 +36,7 @@ class SettingsVC: UIViewController {
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
-       
+
         //dismiss home view controller
         self.dismiss(animated: true, completion: {});
         self.navigationController?.popViewController(animated: true);

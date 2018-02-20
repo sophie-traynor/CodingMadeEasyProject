@@ -13,6 +13,7 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
      ///Reference to Firebase Database
     var ref: DatabaseReference?
@@ -27,6 +28,11 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    //Dismiss the keyboard when view is tapped on 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        searchBar.resignFirstResponder()
     }
     
     //MARK: - Table View

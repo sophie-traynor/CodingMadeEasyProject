@@ -61,6 +61,11 @@ class HomeVC: UIViewController {
             self.emailTextField.text = email
             self.dobTextField.text = dob
             
+            if displayName == "" || firstName == "" || lastName == "" || dob == "" {
+                self.performSegue(withIdentifier: "HomeToCompleteSignup", sender: self)
+                print("........no data.......")
+            }
+            
         }) { (error) in
             print(error.localizedDescription)
         }
