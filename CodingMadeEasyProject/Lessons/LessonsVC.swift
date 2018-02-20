@@ -24,6 +24,8 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        self.tableView.rowHeight = 90.0
     }
     
     override func viewWillAppear(_ animated: Bool) {

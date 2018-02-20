@@ -33,6 +33,13 @@ class LoginVC: UIViewController {
         UIApplication.shared.statusBarStyle = .lightContent
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        //Keep user signed in if not logged out in previous session
+        if Auth.auth().currentUser != nil {
+            self.performSegue(withIdentifier: "loginToHomeScreen", sender: self)
+        }
+    }
+    
     //Dismiss the keyboard when view is tapped on when in email or password text field
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         emailTextField.resignFirstResponder()
