@@ -49,25 +49,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         }
     }
     
-    //MARK: - Navigation
-    
-    //Carries out code before segue is initiated
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //sends the email address to a text field on CompleteSignupVC if that particular segue is initiated
-        /*if let vc = segue.destination as? CompleteSignupVC
-        {
-            vc.emailAddress = emailTextField.text!
-        }*/
-         let email = emailTextField.text
-        
-        self.ref?.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["Email" : email!], withCompletionBlock: { (error, ref) in
-            if error != nil{
-                print(error!)
-                return
-            }
-        })
-    }
-    
     //MARK: - Text Field Delegate
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -142,7 +123,14 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     //checks if any errors e.g. user not created yet
                     if error == nil{
                         
-                        //TODO: - CHECK IF COMPLETE SIGN UP IS COMPLETE
+                        let email = self.emailTextField.text
+                    self.ref?.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["Email" : email!], withCompletionBlock: { (error, ref) in
+                            if error != nil{
+                                print(error!)
+                                return
+                            }
+                        })
+                        
                        //go to home screen if user has been authenticated
                         self.performSegue(withIdentifier: "loginToHomeScreen", sender: self)
                     }

@@ -15,6 +15,7 @@ class HomeVC: UIViewController {
     
     //MARK: - Properties
     
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var displayNameTextField: UITextField!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -36,9 +37,16 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
+        profileImage.clipsToBounds = true
+        
         ref = Database.database().reference()
         loadData()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+       
+        //loadData()
     }
     
     //MARK: - Public Functions
