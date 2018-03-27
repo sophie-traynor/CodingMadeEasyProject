@@ -36,6 +36,8 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     var lastName: String = ""
     var email: String = ""
     var dob: String = ""
+    var profileImageUrl: String = ""
+    var coverImageUrl: String = ""
     
     //MARK: - override Functions
     
@@ -47,12 +49,13 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         
         dataRef = Database.database().reference()
         storageRef = Storage.storage().reference()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        //TODO: - FIX ERROR HANDLING WHEN LOGGING OUT AFTER RELOGGING IN WITH NO DATA
         loadData()
     }
+    
+   /* override func viewDidAppear(_ animated: Bool) {
+        //TODO: - FIX ERROR HANDLING WHEN LOGGING OUT AFTER RELOGGING IN WITH NO DATA
+        //loadData()
+    }*/
     
     //MARK: UIImagePickerControllerDelegate
     
@@ -69,10 +72,11 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         
         if imageTag == 1{
             coverImage.image = selectedImage
+            saveCoverImage(coverImg: selectedImage)
         }
         else if imageTag == 2{
             profileImage.image = selectedImage
-            saveProfileImage()
+            saveProfileImage(profileImg: selectedImage)
     
         }
        
@@ -100,6 +104,54 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
             self.lastNameTextField.text = self.lastName
             self.emailTextField.text = self.email
             self.dobTextField.text = self.dob
+        
+            if snapshot.hasChild("ProfileURL"){
+                print ("Profile Image exists")
+                self.profileImageUrl = value?["ProfileURL"] as? String ?? ""
+                let profileStorageRef = Storage.storage().reference(forURL: self.profileImageUrl)
+                /// Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+                profileStorageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        if let imageData = data {
+                            DispatchQueue.main.async {
+                                let image = UIImage(data: imageData)
+                                self.profileImage.image = image
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                print ("Profile Image does not exist")
+            }
+            
+            if snapshot.hasChild("ProfileURL"){
+                print ("Profile Image exists")
+                ///Get Cover Image
+                self.coverImageUrl = value?["CoverURL"] as? String ?? ""
+                let coverStorageRef = Storage.storage().reference(forURL: self.coverImageUrl)
+                /// Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+                coverStorageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        if let imageData = data {
+                            DispatchQueue.main.async {
+                                let image = UIImage(data: imageData)
+                                self.coverImage.image = image
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                print ("Cover Image does not exist")
+            }
+            
             
             if self.displayName == "" || self.firstName == "" || self.lastName == "" || self.dob == "" {
                 self.performSegue(withIdentifier: "HomeToCompleteSignup", sender: self)
@@ -111,25 +163,45 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         }
     }
     
-    func saveProfileImage()
+    func saveProfileImage(profileImg: UIImage)
     {
-        let profileImageData = UIImageJPEGRepresentation(profileImage.image!, 0.1)
-        
         let userID = Auth.auth().currentUser?.uid
-        
-        storageRef?.child(userID!).putData(profileImageData!, metadata: nil, completion: { (metadata, error) in
-            if error != nil {
-                return
-            }
-            
-            let profileURL = metadata?.downloadURL()?.absoluteString
-            self.dataRef?.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["ProfileURL": profileURL!], withCompletionBlock: { (error, ref) in
-                if error != nil{
+        if let profileImageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+            storageRef?.child("profile_images").child(userID!).putData(profileImageData, metadata: nil, completion: { (metadata, error) in
+                if error != nil {
                     print(error!)
                     return
                 }
+                
+                let profileURL = metadata?.downloadURL()?.absoluteString
+                self.dataRef?.child("users").child(userID!).updateChildValues(["ProfileURL": profileURL!], withCompletionBlock: { (error, ref) in
+                    if error != nil{
+                        print(error!)
+                        return
+                    }
+                })
             })
-        })
+        }
+    }
+    
+    func saveCoverImage(coverImg: UIImage) {
+        let userID = Auth.auth().currentUser?.uid
+        if let coverImageData = UIImageJPEGRepresentation(coverImg, 0.1) {
+            storageRef?.child("cover_images").child(userID!).putData(coverImageData, metadata: nil, completion: { (metadata, error) in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                
+                let coverURL = metadata?.downloadURL()?.absoluteString
+                self.dataRef?.child("users").child(userID!).updateChildValues(["CoverURL": coverURL!], withCompletionBlock: { (error, ref) in
+                    if error != nil{
+                        print(error!)
+                        return
+                    }
+                })
+            })
+        }
     }
     
     //MARK: - Actions

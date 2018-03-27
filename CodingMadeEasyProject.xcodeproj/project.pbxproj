@@ -45,7 +45,7 @@
 		8922B056200E297A000BFF34 /* LessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTableViewCell.swift; sourceTree = "<group>"; };
 		89294A69201A445C007E5A6B /* WritePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePostVC.swift; sourceTree = "<group>"; };
 		89294A6B201A46BC007E5A6B /* ViewPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPostVC.swift; sourceTree = "<group>"; };
-		8951058B2020A17A0056ED78 /* sampleAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sampleAudio.mp3; path = ../../../../Downloads/sampleAudio.mp3; sourceTree = "<group>"; };
+		8951058B2020A17A0056ED78 /* sampleAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sampleAudio.mp3; sourceTree = "<group>"; };
 		89580DDE2016045F00E45FC8 /* ForumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumTableViewCell.swift; sourceTree = "<group>"; };
 		895E205F201F8D8000152F9F /* IndividualLessonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualLessonsVC.swift; sourceTree = "<group>"; };
 		895E2062201FC0B700152F9F /* ReadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadVC.swift; sourceTree = "<group>"; };
