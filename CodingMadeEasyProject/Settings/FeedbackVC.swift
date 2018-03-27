@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class FeedbackVC: UIViewController {
 
     @IBOutlet weak var feedbackTextView: UITextView!
     
+    ///Reference to Firebase Database
+    var ref: DatabaseReference?
+    
     //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+         ref = Database.database().reference()
     }
     
     //Dismiss the keyboard when view is tapped on when in email or password text field
@@ -31,9 +35,37 @@ class FeedbackVC: UIViewController {
     }
     
     @IBAction func submitFeedbackPressed(_ sender: UIButton) {
+        if feedbackTextView.text.isEmpty{
+            createAlert(title: "Error", message: "No Feedback entered")
+        }
+        else{
+            saveData()
+            self.performSegue(withIdentifier: "unwindToSettings", sender: self)
+        }
         
+    }
+    
+    //MARK: - Public Functions
+    func saveData(){
         
-        self.performSegue(withIdentifier: "unwindToSettings", sender: self)
+        let feedback = feedbackTextView.text
+        self.ref?.child("user feedback").childByAutoId().updateChildValues(["feedback" : feedback!], withCompletionBlock: { (error, ref) in
+            if error != nil{
+                print(error!)
+                return
+            }
+        })
+        
+    }
+    
+    func createAlert (title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        //creates button on alert
+        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)}))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
