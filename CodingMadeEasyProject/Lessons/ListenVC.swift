@@ -14,21 +14,28 @@ class ListenVC: UIViewController {
     
     @IBOutlet weak var audioImage: UIImageView!
     @IBOutlet weak var audioSlider: UISlider!
+    @IBOutlet weak var audioDuration: UILabel!
     
     var audioName: String = ""
     var audioImg: UIImage?
+    var timer: Timer?
     
     var audio = AVAudioPlayer()
+
+    let ncObserver = NotificationCenter.default
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         audioImage.image = audioImg
         
-        //var timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: Selector("updateSlider"), userInfo: nil, repeats: true)
         playAudio()
+        audioSlider.value = 0.0
         audioSlider.maximumValue = Float(audio.duration)
-
+        
+        audioDuration.text = String(format: "%02d:%02d", ((Int)((audio.duration))) / 60, ((Int)((audio.duration))) % 60)
+        
+        ncObserver.addObserver(self, selector: #selector(self.stopMusic), name: Notification.Name("StopMusic"), object: nil)
     }
     
     
@@ -37,25 +44,24 @@ class ListenVC: UIViewController {
         audio.currentTime = TimeInterval(audioSlider.value)
         audio.prepareToPlay()
         audio.play()
+        timer = Timer.scheduledTimer(timeInterval: 0.0001, target: self, selector: #selector(self.updateSlider), userInfo: nil, repeats: true)
     }
     
     @IBAction func playPressed(_ sender: UIButton) {
         audio.play()
+        timer = Timer.scheduledTimer(timeInterval: 0.0001, target: self, selector: #selector(self.updateSlider), userInfo: nil, repeats: true)
     }
     
     @IBAction func pausePressed(_ sender: UIButton) {
         if audio.isPlaying {
             audio.pause()
+            timer?.invalidate()
         }
     }
     @IBAction func restartPressed(_ sender: UIButton) {
-        if audio.isPlaying {
-            audio.currentTime = 0
-            audio.play()
-        }
-        else {
-            audio.play()
-        }
+        audio.stop()
+        audioSlider.value = 0.0
+        audio.currentTime = 0
     }
     
     func playAudio(){
@@ -68,7 +74,11 @@ class ListenVC: UIViewController {
          }
     }
     
-    func updateSlider(){
+    @objc func stopMusic(){
+        audio.stop()
+    }
+    
+    @objc func updateSlider(){
         audioSlider.value = Float(audio.currentTime)
     }
 

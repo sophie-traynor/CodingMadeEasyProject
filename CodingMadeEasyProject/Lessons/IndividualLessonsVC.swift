@@ -22,6 +22,8 @@ class IndividualLessonsVC: UIViewController {
     var lesson: Lesson?
     var listen: ListenVC?
     
+    let notification = NotificationCenter.default
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,9 +34,9 @@ class IndividualLessonsVC: UIViewController {
         listenView.isHidden = true
         watchView.isHidden = true
         doView.isHidden = true
-        
     }
-
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowRead"{
             let destination = segue.destination as? ReadVC
@@ -66,6 +68,7 @@ class IndividualLessonsVC: UIViewController {
     
     @IBAction func ShowContainer(_ sender: UISegmentedControl) {
         //TODO: - Stop music when switching views
+        notification.post(name: Notification.Name("StopMusic"), object: nil)
         switch sender.selectedSegmentIndex {
         case 0:
             readView.isHidden = false
