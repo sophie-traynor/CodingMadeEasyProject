@@ -17,7 +17,6 @@ class ListenVC: UIViewController {
     @IBOutlet weak var audioDuration: UILabel!
     
     var audioName: String = ""
-    var audioImg: UIImage?
     var timer: Timer?
     
     var audio = AVAudioPlayer()
@@ -27,7 +26,6 @@ class ListenVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        audioImage.image = audioImg
         
         playAudio()
         audioSlider.value = 0.0

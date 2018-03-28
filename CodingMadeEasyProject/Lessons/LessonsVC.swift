@@ -84,74 +84,70 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //let photo = UIImage(named: "nophoto")
         
         let photoCpp = UIImage(named: "cpp")
-        let samplePhoto = UIImage(named: "sample")
         
         guard let lesson1 = Lesson(name: "Lesson 1",
-                                   overview: "Learn the structure of a program",
-                                   lessonDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                                   overview: "Print a message to the screen",
+                                   lessonDescription: "Learn how to print your first message to the screen!",
                                    readText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis odio a lacus vulputate placerat eu sed augue. Aliquam dui neque, volutpat et metus quis, condimentum bibendum dolor. Phasellus magna metus, accumsan eget lectus sit amet, suscipit varius turpis. Praesent in ante scelerisque, mattis tortor id, viverra libero. Sed facilisis consequat iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer ornare velit ac leo commodo ultrices. Ut laoreet volutpat nisi, rhoncus ultricies arcu eleifend sit amet. Pellentesque congue semper lorem, nec sagittis libero fringilla at. Pellentesque feugiat sapien sit amet eros rutrum efficitur. Donec sit amet magna elit. Cras ornare ligula a magna bibendum, in molestie enim ullamcorper. Donec rhoncus sollicitudin sem, non fringilla nibh rutrum ut. Donec malesuada, felis ac vestibulum tristique, sem ipsum euismod massa, vel rutrum tortor libero sed felis. Nullam sodales aliquam mauris non facilisis. Curabitur iaculis nunc quis ligula malesuada, non facilisis lorem luctus. Suspendisse sed cursus purus, ac elementum est. Duis luctus ex at commodo blandit. Suspendisse potenti. Curabitur semper posuere nisl nec finibus. Nam at facilisis sapien, a bibendum est. Fusce facilisis lobortis urna, id auctor diam sagittis mattis.",
                                    audioName: "sampleAudio",
-                                   audioImage: samplePhoto,
                                    videoName: "sampleVideo",
-                                   videoThumbnail: samplePhoto,
-                                   cellImage: photoCpp)
-                                   else {
-            fatalError("Unable to instantiate lesson1")
-        }
-        
-        guard let lesson2 = Lesson(name: "Lesson 2",
-                                   overview: "Variables and data types",
-                                   lessonDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                                   readText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis odio a lacus vulputate placerat eu sed augue. Aliquam dui neque, volutpat et metus quis, condimentum bibendum dolor. Phasellus magna metus, accumsan eget lectus sit amet, suscipit varius turpis. Praesent in ante scelerisque, mattis tortor id, viverra libero. Sed facilisis consequat iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer ornare velit ac leo commodo ultrices. Ut laoreet volutpat nisi, rhoncus ultricies arcu eleifend sit amet. Pellentesque congue semper lorem, nec sagittis libero fringilla at. Pellentesque feugiat sapien sit amet eros rutrum efficitur. Donec sit amet magna elit. Cras ornare ligula a magna bibendum, in molestie enim ullamcorper. Donec rhoncus sollicitudin sem, non fringilla nibh rutrum ut. Donec malesuada, felis ac vestibulum tristique, sem ipsum euismod massa, vel rutrum tortor libero sed felis. Nullam sodales aliquam mauris non facilisis. Curabitur iaculis nunc quis ligula malesuada, non facilisis lorem luctus. Suspendisse sed cursus purus, ac elementum est. Duis luctus ex at commodo blandit. Suspendisse potenti. Curabitur semper posuere nisl nec finibus. Nam at facilisis sapien, a bibendum est. Fusce facilisis lobortis urna, id auctor diam sagittis mattis.",
-                                   audioName: "sampleAudio",
-                                   audioImage: samplePhoto,
-                                   videoName: "sampleVideo",
-                                   videoThumbnail: samplePhoto,
-                                   cellImage: photoCpp)
+                                   cellImage: photoCpp,
+                                   answer: "cout << \"Hello World\" << endl;",
+                                   output: """
+                                            Hello World
+                                            """)
                                    else {
             fatalError("Unable to instantiate lesson2")
         }
         
-        guard let lesson3 = Lesson(name: "Lesson 3",
-                                   overview: "Print a message to the screen",
-                                   lessonDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        guard let lesson2 = Lesson(name: "Lesson 2",
+                                   overview: "Variables and data types",
+                                   lessonDescription: "Learn all about variables and different data types!",
                                    readText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis odio a lacus vulputate placerat eu sed augue. Aliquam dui neque, volutpat et metus quis, condimentum bibendum dolor. Phasellus magna metus, accumsan eget lectus sit amet, suscipit varius turpis. Praesent in ante scelerisque, mattis tortor id, viverra libero. Sed facilisis consequat iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer ornare velit ac leo commodo ultrices. Ut laoreet volutpat nisi, rhoncus ultricies arcu eleifend sit amet. Pellentesque congue semper lorem, nec sagittis libero fringilla at. Pellentesque feugiat sapien sit amet eros rutrum efficitur. Donec sit amet magna elit. Cras ornare ligula a magna bibendum, in molestie enim ullamcorper. Donec rhoncus sollicitudin sem, non fringilla nibh rutrum ut. Donec malesuada, felis ac vestibulum tristique, sem ipsum euismod massa, vel rutrum tortor libero sed felis. Nullam sodales aliquam mauris non facilisis. Curabitur iaculis nunc quis ligula malesuada, non facilisis lorem luctus. Suspendisse sed cursus purus, ac elementum est. Duis luctus ex at commodo blandit. Suspendisse potenti. Curabitur semper posuere nisl nec finibus. Nam at facilisis sapien, a bibendum est. Fusce facilisis lobortis urna, id auctor diam sagittis mattis.",
                                    audioName: "sampleAudio",
-                                   audioImage: samplePhoto,
                                    videoName: "sampleVideo",
-                                   videoThumbnail: samplePhoto,
-                                   cellImage: photoCpp)
+                                   cellImage: photoCpp,
+                                   answer: """
+                                                .......
+                                                """,
+                                   output: """
+                                            Hello World
+                                            """)
                                    else {
             fatalError("Unable to instantiate lesson3")
         }
         
-        guard let lesson4 = Lesson(name: "Lesson 4",
+        guard let lesson3 = Lesson(name: "Lesson 3",
                                    overview: "Allow user input in a simple program",
-                                   lessonDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                                   lessonDescription: "Learn how to request user input from a program!",
                                    readText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis odio a lacus vulputate placerat eu sed augue. Aliquam dui neque, volutpat et metus quis, condimentum bibendum dolor. Phasellus magna metus, accumsan eget lectus sit amet, suscipit varius turpis. Praesent in ante scelerisque, mattis tortor id, viverra libero. Sed facilisis consequat iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer ornare velit ac leo commodo ultrices. Ut laoreet volutpat nisi, rhoncus ultricies arcu eleifend sit amet. Pellentesque congue semper lorem, nec sagittis libero fringilla at. Pellentesque feugiat sapien sit amet eros rutrum efficitur. Donec sit amet magna elit. Cras ornare ligula a magna bibendum, in molestie enim ullamcorper. Donec rhoncus sollicitudin sem, non fringilla nibh rutrum ut. Donec malesuada, felis ac vestibulum tristique, sem ipsum euismod massa, vel rutrum tortor libero sed felis. Nullam sodales aliquam mauris non facilisis. Curabitur iaculis nunc quis ligula malesuada, non facilisis lorem luctus. Suspendisse sed cursus purus, ac elementum est. Duis luctus ex at commodo blandit. Suspendisse potenti. Curabitur semper posuere nisl nec finibus. Nam at facilisis sapien, a bibendum est. Fusce facilisis lobortis urna, id auctor diam sagittis mattis.",
                                    audioName: "sampleAudio",
-                                   audioImage: samplePhoto,
                                    videoName: "sampleVideo",
-                                   videoThumbnail: samplePhoto,
-                                   cellImage: photoCpp)
+                                   cellImage: photoCpp,
+                                   answer: ".......",
+                                   output: """
+                                            Hello World
+                                            """)
                                    else {
             fatalError("Unable to instantiate lesson4")
         }
         
-        guard let lesson5 = Lesson(name: "Lesson 5",
+        guard let lesson4 = Lesson(name: "Lesson 4",
                                    overview: "Arrays",
-                                   lessonDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                                   lessonDescription: "Learn how to use Arrays!",
                                    readText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis odio a lacus vulputate placerat eu sed augue. Aliquam dui neque, volutpat et metus quis, condimentum bibendum dolor. Phasellus magna metus, accumsan eget lectus sit amet, suscipit varius turpis. Praesent in ante scelerisque, mattis tortor id, viverra libero. Sed facilisis consequat iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer ornare velit ac leo commodo ultrices. Ut laoreet volutpat nisi, rhoncus ultricies arcu eleifend sit amet. Pellentesque congue semper lorem, nec sagittis libero fringilla at. Pellentesque feugiat sapien sit amet eros rutrum efficitur. Donec sit amet magna elit. Cras ornare ligula a magna bibendum, in molestie enim ullamcorper. Donec rhoncus sollicitudin sem, non fringilla nibh rutrum ut. Donec malesuada, felis ac vestibulum tristique, sem ipsum euismod massa, vel rutrum tortor libero sed felis. Nullam sodales aliquam mauris non facilisis. Curabitur iaculis nunc quis ligula malesuada, non facilisis lorem luctus. Suspendisse sed cursus purus, ac elementum est. Duis luctus ex at commodo blandit. Suspendisse potenti. Curabitur semper posuere nisl nec finibus. Nam at facilisis sapien, a bibendum est. Fusce facilisis lobortis urna, id auctor diam sagittis mattis.",
                                    audioName: "sampleAudio",
-                                   audioImage: samplePhoto,
                                    videoName: "sampleVideo",
-                                   videoThumbnail: samplePhoto,
-                                   cellImage: photoCpp)
+                                   cellImage: photoCpp,
+                                   answer: ".......",
+                                   output: """
+                                            Hello World
+                                            """)
                                    else {
             fatalError("Unable to instantiate lesson5")
         }
         
-        lessons += [lesson1, lesson2, lesson3, lesson4, lesson5]
+        lessons += [lesson1, lesson2, lesson3, lesson4]
     }
 
 }

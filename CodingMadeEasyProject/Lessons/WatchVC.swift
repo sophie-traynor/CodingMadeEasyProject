@@ -16,7 +16,6 @@ class WatchVC: UIViewController {
     @IBOutlet weak var videoThumbnail: UIImageView!
     
     var videoName: String = ""
-    var videoThumb: UIImage?
     
     var playerView = AVPlayer()
     var playerViewController = AVPlayerViewController()
@@ -24,7 +23,7 @@ class WatchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        videoThumbnail.image = videoThumb
+     
     }
     
     @IBAction func playVideoPressed(_ sender: UIButton) {

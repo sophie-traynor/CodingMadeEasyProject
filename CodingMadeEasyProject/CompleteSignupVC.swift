@@ -170,8 +170,8 @@ class CompleteSignupVC: UIViewController, UITextFieldDelegate {
         let firstName = firstNameTextField.text
         let lastName = lastNameTextField.text
         let dateOfBirth = dateOfBirthTextField.text
-        let profileUrl = ""
-        let coverUrl = ""
+        //let profileUrl = ""
+        //let coverUrl = ""
         
         self.ref?.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["Display Name" : displayName!, "First Name" : firstName!, "Last Name": lastName!, "Date of Birth": dateOfBirth!], withCompletionBlock: { (error, ref) in
             if error != nil{

@@ -16,10 +16,10 @@ class Lesson {
     var lessonDescription: String
     var readText: String
     var audioName: String
-    var audioImage: UIImage?
     var videoName: String
-    var videoThumbnail: UIImage?
     var cellImage: UIImage?
+    var answer: String
+    var output: String
     
     //MARK: - Property Key
     struct PropertyKey{
@@ -28,23 +28,23 @@ class Lesson {
         static let lessonDescription = "lessonDescription"
         static let readText = "readText"
         static let audioName = "audioName"
-        static let audioImage = "audioImage"
         static let videoName = "videoName"
-        static let videoThumbnail = "videoThumbnail"
         static let cellImage = "cellImage"
+        static let answer = "answer"
+        static let output = "output"
     }
     
     //MARK: - Initialiser
-    init?(name: String, overview: String, lessonDescription: String, readText: String, audioName: String, audioImage: UIImage?, videoName: String, videoThumbnail: UIImage?, cellImage: UIImage?) {
+    init?(name: String, overview: String, lessonDescription: String, readText: String, audioName: String, videoName: String, cellImage: UIImage?, answer: String, output: String) {
         self.name = name
         self.overview = overview
         self.lessonDescription = lessonDescription
         self.readText = readText
         self.audioName = audioName
-        self.audioImage = audioImage
         self.videoName = videoName
-        self.videoThumbnail = videoThumbnail
         self.cellImage = cellImage
+        self.answer = answer
+        self.output = output
     }
 }
 

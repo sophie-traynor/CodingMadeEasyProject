@@ -46,16 +46,16 @@ class IndividualLessonsVC: UIViewController {
         else if segue.identifier == "ShowListen"{
             let destination = segue.destination as? ListenVC
             destination?.audioName = (lesson?.audioName)!
-            destination?.audioImg = lesson?.audioImage
             
         }
         else if segue.identifier == "ShowWatch"{
             let destination = segue.destination as? WatchVC
             destination?.videoName = (lesson?.videoName)!
-            destination?.videoThumb = lesson?.videoThumbnail
         }
         else if segue.identifier == "ShowDo"{
-            //let destination = segue.destination as? DoVC
+            let destination = segue.destination as? DoVC
+            destination?.answer = (lesson?.answer)!
+            destination?.output = (lesson?.output)!
             
         }
     }

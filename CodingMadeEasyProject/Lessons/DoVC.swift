@@ -8,14 +8,17 @@
 
 import UIKit
 
-class DoVC: UIViewController {
+class DoVC: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var codeTextView: UITextView!
+   
+    var answer: String = ""
+    var output: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+
     }
     
     //Dismiss the keyboard when view is tapped on
@@ -23,5 +26,29 @@ class DoVC: UIViewController {
         codeTextView.resignFirstResponder()
     
     }
-
+    
+    @IBAction func helpBtnTapped(_ sender: UIButton) {
+        createAlert(title: "Help", message: answer)
+    }
+    
+    @IBAction func compileBtnTapped(_ sender: UIButton) {
+        let userAnswer: String = codeTextView.text
+        
+        if userAnswer == answer {
+            createAlert(title: "Correct!", message: output)
+        }
+        else {
+            createAlert(title: "Incorrect", message: "Try again")
+        }
+    }
+    
+    func createAlert (title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        //creates button on alert
+        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)}))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
