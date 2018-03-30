@@ -108,10 +108,14 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                    videoName: "sampleVideo",
                                    cellImage: photoCpp,
                                    answer: """
-                                                .......
-                                                """,
+                                            int first = 1;
+                                            float second = 4.76;
+                                            cout << first << endl;
+                                            cout << second << endl;
+                                            """,
                                    output: """
-                                            Hello World
+                                            first = 1
+                                            second = 4.76
                                             """)
                                    else {
             fatalError("Unable to instantiate lesson3")
