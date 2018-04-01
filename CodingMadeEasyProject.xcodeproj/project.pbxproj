@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5DE966A0B8AD8E056C45F629 /* Pods_CodingMadeEasyProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F962CF0C4785F83DF44077C8 /* Pods_CodingMadeEasyProject.framework */; };
 		890C18E8201F419F00216E88 /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C18E7201F419F00216E88 /* FeedbackVC.swift */; };
+		8910C4F8207194FD009E5BC7 /* lesson1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8910C4F7207194FD009E5BC7 /* lesson1.mp4 */; };
 		8921F49C1FA10B5600A2F639 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8921F49B1FA10B5600A2F639 /* HomeVC.swift */; };
 		8922B055200E2771000BFF34 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922B054200E2771000BFF34 /* Lesson.swift */; };
 		8922B057200E297A000BFF34 /* LessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922B056200E297A000BFF34 /* LessonTableViewCell.swift */; };
@@ -41,6 +42,7 @@
 		093188470B553A5199259F34 /* Pods-CodingMadeEasyProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingMadeEasyProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodingMadeEasyProject/Pods-CodingMadeEasyProject.debug.xcconfig"; sourceTree = "<group>"; };
 		8812A6F1CF2ED428023DD8A2 /* Pods-CodingMadeEasyProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingMadeEasyProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodingMadeEasyProject/Pods-CodingMadeEasyProject.release.xcconfig"; sourceTree = "<group>"; };
 		890C18E7201F419F00216E88 /* FeedbackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
+		8910C4F7207194FD009E5BC7 /* lesson1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = lesson1.mp4; sourceTree = "<group>"; };
 		8921F49B1FA10B5600A2F639 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		8922B054200E2771000BFF34 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		8922B056200E297A000BFF34 /* LessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTableViewCell.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		895E206A2020898200152F9F /* Video Files */ = {
 			isa = PBXGroup;
 			children = (
+				8910C4F7207194FD009E5BC7 /* lesson1.mp4 */,
 				895E206B2020899900152F9F /* sampleVideo.mp4 */,
 			);
 			path = "Video Files";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8951058D2020A1DC0056ED78 /* sampleAudio.mp3 in Resources */,
+				8910C4F8207194FD009E5BC7 /* lesson1.mp4 in Resources */,
 				895E206C20208CC300152F9F /* sampleVideo.mp4 in Resources */,
 				89F94B231F9E6AAE00B82D44 /* LaunchScreen.storyboard in Resources */,
 				89F94B201F9E6AAE00B82D44 /* Assets.xcassets in Resources */,

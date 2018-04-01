@@ -102,7 +102,7 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                                         cout << "Hello World" << endl;
                                                         """,
                                    audioName: "lesson1",
-                                   videoName: "sampleVideo",
+                                   videoName: "lesson1",
                                    cellImage: photoCpp,
                                    answer: "cout << \"Hello World\" << endl;",
                                    output: """
