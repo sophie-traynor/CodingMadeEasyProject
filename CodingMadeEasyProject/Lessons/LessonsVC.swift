@@ -87,9 +87,21 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         guard let lesson1 = Lesson(name: "Lesson 1",
                                    overview: "Print a message to the screen",
-                                   lessonDescription: "Learn how to print your first message to the screen!",
-                                   readText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis odio a lacus vulputate placerat eu sed augue. Aliquam dui neque, volutpat et metus quis, condimentum bibendum dolor. Phasellus magna metus, accumsan eget lectus sit amet, suscipit varius turpis. Praesent in ante scelerisque, mattis tortor id, viverra libero. Sed facilisis consequat iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer ornare velit ac leo commodo ultrices. Ut laoreet volutpat nisi, rhoncus ultricies arcu eleifend sit amet. Pellentesque congue semper lorem, nec sagittis libero fringilla at. Pellentesque feugiat sapien sit amet eros rutrum efficitur. Donec sit amet magna elit. Cras ornare ligula a magna bibendum, in molestie enim ullamcorper. Donec rhoncus sollicitudin sem, non fringilla nibh rutrum ut. Donec malesuada, felis ac vestibulum tristique, sem ipsum euismod massa, vel rutrum tortor libero sed felis. Nullam sodales aliquam mauris non facilisis. Curabitur iaculis nunc quis ligula malesuada, non facilisis lorem luctus. Suspendisse sed cursus purus, ac elementum est. Duis luctus ex at commodo blandit. Suspendisse potenti. Curabitur semper posuere nisl nec finibus. Nam at facilisis sapien, a bibendum est. Fusce facilisis lobortis urna, id auctor diam sagittis mattis.",
-                                   audioName: "sampleAudio",
+                                   lessonDescription: "Learn how to print Hello World to the screen",
+                                   readText: """
+                                                        Welcome to your first C++ lesson!
+                                                        Today we will learn how to print Hello World to the screen.
+
+                                                        • cout - This is a standard output stream which allows us to print to the screen.
+                                                        • << - This is the insert operator which follows directly after cout to specify the data we are sending to the stream.
+                                                        • "..." - We put the text within quotation marks after the insertion operator. This will be the message printed to the screen. We can also directly specify a variable name which we will look at in the next lesson.
+                                                        • endl - Following the quotation, we should include another insert operator to specify the endl. endl will end the current line so if another cout occurs, it will start on a new line.
+                                                        • ; - Each line of code should always end in a semicolon, this is to confirm we have finished the line of code.
+                                                        
+                                                        Example:
+                                                        cout << "Hello World" << endl;
+                                                        """,
+                                   audioName: "lesson1",
                                    videoName: "sampleVideo",
                                    cellImage: photoCpp,
                                    answer: "cout << \"Hello World\" << endl;",
@@ -130,7 +142,7 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                    cellImage: photoCpp,
                                    answer: ".......",
                                    output: """
-                                            Hello World
+                                            .......
                                             """)
                                    else {
             fatalError("Unable to instantiate lesson4")
@@ -145,7 +157,7 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                    cellImage: photoCpp,
                                    answer: ".......",
                                    output: """
-                                            Hello World
+                                            ......
                                             """)
                                    else {
             fatalError("Unable to instantiate lesson5")

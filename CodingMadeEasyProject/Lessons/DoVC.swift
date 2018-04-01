@@ -38,7 +38,10 @@ class DoVC: UIViewController, UITextViewDelegate {
             createAlert(title: "Correct!", message: output)
         }
         else {
-            createAlert(title: "Incorrect", message: "Try again")
+            createAlert(title: "Incorrect", message: """
+                                                        Try again
+                                                        Please ensure correct spacing, quotations and semi colons are included.
+                                                        """)
         }
     }
     
