@@ -53,7 +53,7 @@ class WritePostVC: UIViewController {
         
         let postTitle = postTitleTextView.text
         let postDescription = postDescriptionTextView.text
-        self.ref?.child("posts").childByAutoId().updateChildValues(["Post Title" : postTitle!, "Post Description" : postDescription!], withCompletionBlock: { (error, ref) in
+        self.ref?.child("posts").childByAutoId().updateChildValues(["postTitle" : postTitle!, "postDescription" : postDescription!], withCompletionBlock: { (error, ref) in
             if error != nil{
                 print(error!)
                 return

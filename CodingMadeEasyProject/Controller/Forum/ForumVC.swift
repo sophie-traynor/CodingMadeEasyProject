@@ -18,7 +18,9 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
      ///Reference to Firebase Database
     var ref: DatabaseReference?
     ///Array to store the forum posts
-    var posts = [String]()
+    //var posts = [String]()
+    
+    var posts = [Post]()
     
     //MARK: - override Functions
     override func viewDidLoad() {
@@ -28,6 +30,11 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableView.delegate = self
         tableView.dataSource = self
+        listenForPosts()
+        
+        //var post = Post(postDescriptionText: "test.....", postTitleText: "rtdhfartdfhber")
+        //print(post.postDescription)
+        //print(post.postTitle)
     }
     
     //Dismiss the keyboard when view is tapped on 
@@ -52,6 +59,8 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             fatalError("The dequeued cell is not an instance of ForumTableViewCell.")
         }
         
+        cell.questionLabel.text = posts[indexPath.row].postTitle
+        
         return cell
     }
   
@@ -66,14 +75,18 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     ///Checks firebase database for forum posts
     func listenForPosts(){
-        ref?.child("posts").observe(.childAdded, with: { (snapshot) in
-            let post = snapshot.value as? String
+        
+        Database.database().reference().child("posts").observe(.childAdded) { (snapshot) in
             
-            if let actualPost = post {
-                self.posts.append(actualPost)
+            if let dict = snapshot.value as? [String: Any] {
+                let postDescriptionText = dict["postDescription"] as! String
+                let postTitletext = dict["postTitle"] as! String
+                let post = Post(postDescriptionText: postDescriptionText, postTitleText: postTitletext)
+                self.posts.append(post)
+                print(self.posts)
                 self.tableView.reloadData()
             }
-        })
+        }
     }
 
 }

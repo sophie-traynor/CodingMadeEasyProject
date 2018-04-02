@@ -10,6 +10,7 @@
 		5DE966A0B8AD8E056C45F629 /* Pods_CodingMadeEasyProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F962CF0C4785F83DF44077C8 /* Pods_CodingMadeEasyProject.framework */; };
 		890C18E8201F419F00216E88 /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C18E7201F419F00216E88 /* FeedbackVC.swift */; };
 		8910C4F8207194FD009E5BC7 /* lesson1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8910C4F7207194FD009E5BC7 /* lesson1.mp4 */; };
+		8910C4FD20724029009E5BC7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8910C4FC20724029009E5BC7 /* Post.swift */; };
 		8921F49C1FA10B5600A2F639 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8921F49B1FA10B5600A2F639 /* HomeVC.swift */; };
 		8922B055200E2771000BFF34 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922B054200E2771000BFF34 /* Lesson.swift */; };
 		8922B057200E297A000BFF34 /* LessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8922B056200E297A000BFF34 /* LessonTableViewCell.swift */; };
@@ -43,6 +44,7 @@
 		8812A6F1CF2ED428023DD8A2 /* Pods-CodingMadeEasyProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingMadeEasyProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodingMadeEasyProject/Pods-CodingMadeEasyProject.release.xcconfig"; sourceTree = "<group>"; };
 		890C18E7201F419F00216E88 /* FeedbackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
 		8910C4F7207194FD009E5BC7 /* lesson1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = lesson1.mp4; sourceTree = "<group>"; };
+		8910C4FC20724029009E5BC7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8921F49B1FA10B5600A2F639 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		8922B054200E2771000BFF34 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		8922B056200E297A000BFF34 /* LessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTableViewCell.swift; sourceTree = "<group>"; };
@@ -94,12 +96,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8910C4F920723F6B009E5BC7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8922B054200E2771000BFF34 /* Lesson.swift */,
+				8910C4FC20724029009E5BC7 /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8910C4FA20723F7D009E5BC7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8910C4FB20723FB9009E5BC7 /* Login_Home */,
+				892E07F6200FC3AD00632A0D /* Lessons */,
+				89E2D7462014C0DA00C9AFA3 /* Settings */,
+				89E2D767201601DC00C9AFA3 /* Forum */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8910C4FB20723FB9009E5BC7 /* Login_Home */ = {
+			isa = PBXGroup;
+			children = (
+				89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */,
+				8921F49B1FA10B5600A2F639 /* HomeVC.swift */,
+				89B048BC1FF52CE70019A304 /* CompleteSignupVC.swift */,
+			);
+			path = Login_Home;
+			sourceTree = "<group>";
+		};
 		892E07F6200FC3AD00632A0D /* Lessons */ = {
 			isa = PBXGroup;
 			children = (
 				89B048B91FF50F880019A304 /* LessonsVC.swift */,
 				8922B056200E297A000BFF34 /* LessonTableViewCell.swift */,
-				8922B054200E2771000BFF34 /* Lesson.swift */,
 				895E205F201F8D8000152F9F /* IndividualLessonsVC.swift */,
 				895E2062201FC0B700152F9F /* ReadVC.swift */,
 				895E2064201FC0C700152F9F /* ListenVC.swift */,
@@ -169,12 +200,8 @@
 		89F94B171F9E6AAE00B82D44 /* CodingMadeEasyProject */ = {
 			isa = PBXGroup;
 			children = (
-				89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */,
-				8921F49B1FA10B5600A2F639 /* HomeVC.swift */,
-				89B048BC1FF52CE70019A304 /* CompleteSignupVC.swift */,
-				89E2D767201601DC00C9AFA3 /* Forum */,
-				89E2D7462014C0DA00C9AFA3 /* Settings */,
-				892E07F6200FC3AD00632A0D /* Lessons */,
+				8910C4F920723F6B009E5BC7 /* Model */,
+				8910C4FA20723F7D009E5BC7 /* Controller */,
 				89F94B1C1F9E6AAE00B82D44 /* Main.storyboard */,
 				89F94B211F9E6AAE00B82D44 /* LaunchScreen.storyboard */,
 				89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */,
@@ -357,6 +384,7 @@
 				89B048BD1FF52CE70019A304 /* CompleteSignupVC.swift in Sources */,
 				895E2065201FC0C700152F9F /* ListenVC.swift in Sources */,
 				89F94B191F9E6AAE00B82D44 /* AppDelegate.swift in Sources */,
+				8910C4FD20724029009E5BC7 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
