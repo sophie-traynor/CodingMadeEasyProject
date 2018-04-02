@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseStorage
 
 class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -60,6 +61,27 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.questionLabel.text = posts[indexPath.row].postTitle
+        cell.usernameLabel.text = posts[indexPath.row].username
+    
+        if posts[indexPath.row].profileImageUrl != "" {
+            let profileStorageRef = Storage.storage().reference(forURL: posts[indexPath.row].profileImageUrl)
+            /// Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+            profileStorageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                if let error = error {
+                    print(error)
+                } else {
+                    if let imageData = data {
+                        DispatchQueue.main.async {
+                            let image = UIImage(data: imageData)
+                            cell.profileImageView.image = image
+                        }
+                    }
+                }
+            }
+        } else {
+            print("no profile image for row", indexPath.row)
+        }
+        
         
         return cell
     }
@@ -73,6 +95,7 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - Public Functions
     
+    
     ///Checks firebase database for forum posts
     func listenForPosts(){
         
@@ -81,9 +104,13 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if let dict = snapshot.value as? [String: Any] {
                 let postDescriptionText = dict["postDescription"] as! String
                 let postTitletext = dict["postTitle"] as! String
-                let post = Post(postDescriptionText: postDescriptionText, postTitleText: postTitletext)
-                self.posts.append(post)
-                print(self.posts)
+                let usernameText = dict["username"] as! String
+                let profileImageLink = dict["profileImageUrl"] as! String
+                let post = Post(postDescriptionText: postDescriptionText, usernameText: usernameText, postTitleText: postTitletext, profileImageLink: profileImageLink)
+                //self.posts.append(post)
+                self.posts.insert(post, at: 0)
+                
+                print(dict)
                 self.tableView.reloadData()
             }
         }

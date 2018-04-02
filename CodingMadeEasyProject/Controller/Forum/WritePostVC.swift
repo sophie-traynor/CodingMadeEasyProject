@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class WritePostVC: UIViewController {
 
@@ -51,9 +52,24 @@ class WritePostVC: UIViewController {
     //MARK: - Public Functions
     func saveData(){
         
+        var username: String = ""
+        var profileImageUrl: String = ""
+        
+        let userID = Auth.auth().currentUser?.uid
+        ref?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+    
+            username = value?["Display Name"] as? String ?? ""
+            
+            if snapshot.hasChild("ProfileURL"){
+                profileImageUrl = value?["ProfileURL"] as? String ?? ""
+                }
+        })
+        
         let postTitle = postTitleTextView.text
         let postDescription = postDescriptionTextView.text
-        self.ref?.child("posts").childByAutoId().updateChildValues(["postTitle" : postTitle!, "postDescription" : postDescription!], withCompletionBlock: { (error, ref) in
+        
+        self.ref?.child("posts").childByAutoId().updateChildValues(["username": username,"profileImageUrl": profileImageUrl, "postTitle" : postTitle!, "postDescription" : postDescription!], withCompletionBlock: { (error, ref) in
             if error != nil{
                 print(error!)
                 return
