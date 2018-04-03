@@ -11,6 +11,16 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
+public struct userInfo{
+    static var displayName: String = ""
+    static var profileImageUrl: String = ""
+    static var firstName: String = ""
+    static var lastName: String = ""
+    static var email: String = ""
+    static var dob: String = ""
+    static var coverImageUrl: String = ""
+}
+
 class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //MARK: - Properties
@@ -29,17 +39,6 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     var dataRef: DatabaseReference?
     ///reference to Firebase Storage
     var storageRef: StorageReference?
-    
-    ///Default name for the user Display Name
-    var displayName: String = ""
-    var firstName: String = ""
-    var lastName: String = ""
-    var email: String = ""
-    var dob: String = ""
-    var profileImageUrl: String = ""
-    var coverImageUrl: String = ""
-    
-    
     
     //MARK: - override Functions
     
@@ -95,24 +94,24 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         dataRef?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             
-            self.displayName = value?["Display Name"] as? String ?? ""
-            self.firstName = value?["First Name"] as? String ?? ""
-            self.lastName = value?["Last Name"] as? String ?? ""
-            self.email = value?["Email"] as? String ?? ""
-            self.dob = value?["Date of Birth"] as? String ?? ""
+            userInfo.displayName = value?["Display Name"] as? String ?? ""
+            userInfo.firstName = value?["First Name"] as? String ?? ""
+            userInfo.lastName = value?["Last Name"] as? String ?? ""
+            userInfo.email = value?["Email"] as? String ?? ""
+            userInfo.dob = value?["Date of Birth"] as? String ?? ""
             
             
             
-            self.displayNameTextField.text = self.displayName
-            self.firstNameTextField.text = self.firstName
-            self.lastNameTextField.text = self.lastName
-            self.emailTextField.text = self.email
-            self.dobTextField.text = self.dob
+            self.displayNameTextField.text = userInfo.displayName
+            self.firstNameTextField.text = userInfo.firstName
+            self.lastNameTextField.text = userInfo.lastName
+            self.emailTextField.text = userInfo.email
+            self.dobTextField.text = userInfo.dob
         
             if snapshot.hasChild("ProfileURL"){
                 print ("Profile Image exists")
-                self.profileImageUrl = value?["ProfileURL"] as? String ?? ""
-                let profileStorageRef = Storage.storage().reference(forURL: self.profileImageUrl)
+                userInfo.profileImageUrl = value?["ProfileURL"] as? String ?? ""
+                let profileStorageRef = Storage.storage().reference(forURL: userInfo.profileImageUrl)
                 /// Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
                 profileStorageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
                     if let error = error {
@@ -135,8 +134,8 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
             if snapshot.hasChild("CoverURL"){
                 print ("Cover Image exists")
                 ///Get Cover Image
-                self.coverImageUrl = value?["CoverURL"] as? String ?? ""
-                let coverStorageRef = Storage.storage().reference(forURL: self.coverImageUrl)
+                userInfo.coverImageUrl = value?["CoverURL"] as? String ?? ""
+                let coverStorageRef = Storage.storage().reference(forURL: userInfo.coverImageUrl)
                 /// Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
                 coverStorageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
                     if let error = error {
@@ -157,7 +156,7 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
             }
             
             
-            if self.displayName == "" || self.firstName == "" || self.lastName == "" || self.dob == "" {
+            if userInfo.displayName == "" || userInfo.firstName == "" || userInfo.lastName == "" || userInfo.dob == "" {
                 self.performSegue(withIdentifier: "HomeToCompleteSignup", sender: self)
                 print("........no data.......")
             }

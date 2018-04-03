@@ -74,6 +74,9 @@ class WritePostVC: UIViewController, UITextViewDelegate {
         })*/
         
         
+        self.username = userInfo.displayName
+        self.profileImageUrl = userInfo.profileImageUrl
+        
         
         let postTitle = postTitleTextView.text
         let postDescription = postDescriptionTextView.text

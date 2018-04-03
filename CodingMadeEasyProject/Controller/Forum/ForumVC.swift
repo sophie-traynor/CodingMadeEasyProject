@@ -125,6 +125,7 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
         if  segue.identifier == "ViewPost",
             let destination = segue.destination as? ViewPostVC,
             let postIndex = tableView.indexPathForSelectedRow?.row
