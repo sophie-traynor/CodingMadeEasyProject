@@ -75,15 +75,7 @@ class WritePostVC: UIViewController, UITextViewDelegate {
     
     //MARK: - Public Functions
     func saveData(){
-        //TODO: FIX RETRIEVING USERNAME AND PROFILE IMAGE
-        /*let userID = Auth.auth().currentUser?.uid
-        ref?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            self.username = value?["Display Name"] as? String ?? ""
-            self.profileImageUrl = value?["ProfileURL"] as? String ?? ""
-        })*/
-        
-        
+
         self.username = userInfo.displayName
         self.profileImageUrl = userInfo.profileImageUrl
         

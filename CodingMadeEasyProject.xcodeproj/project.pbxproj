@@ -30,6 +30,7 @@
 		89B048BA1FF50F880019A304 /* LessonsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B048B91FF50F880019A304 /* LessonsVC.swift */; };
 		89B048BD1FF52CE70019A304 /* CompleteSignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B048BC1FF52CE70019A304 /* CompleteSignupVC.swift */; };
 		89E2D7452014C0C600C9AFA3 /* FAQVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E2D7442014C0C600C9AFA3 /* FAQVC.swift */; };
+		89E35C962073DF370046BE43 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E35C952073DF370046BE43 /* Comment.swift */; };
 		89F94B191F9E6AAE00B82D44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */; };
 		89F94B1B1F9E6AAE00B82D44 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */; };
 		89F94B1E1F9E6AAE00B82D44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B1C1F9E6AAE00B82D44 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		89F94B231F9E6AAE00B82D44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B211F9E6AAE00B82D44 /* LaunchScreen.storyboard */; };
 		89F94B2B1F9E6B0000B82D44 /* earwig-factory.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B2A1F9E6B0000B82D44 /* earwig-factory.regular.ttf */; };
 		89F94B2E1F9E917000B82D44 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89F94B2D1F9E917000B82D44 /* GoogleService-Info.plist */; };
+		89FF36BA2073CFBF00F80C34 /* ViewPostCommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FF36B92073CFBF00F80C34 /* ViewPostCommentsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,7 @@
 		89B048B91FF50F880019A304 /* LessonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsVC.swift; sourceTree = "<group>"; };
 		89B048BC1FF52CE70019A304 /* CompleteSignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSignupVC.swift; sourceTree = "<group>"; };
 		89E2D7442014C0C600C9AFA3 /* FAQVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQVC.swift; sourceTree = "<group>"; };
+		89E35C952073DF370046BE43 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		89F94B151F9E6AAE00B82D44 /* CodingMadeEasyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodingMadeEasyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89F94B181F9E6AAE00B82D44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89F94B1A1F9E6AAE00B82D44 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 		89F94B241F9E6AAE00B82D44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89F94B2A1F9E6B0000B82D44 /* earwig-factory.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "earwig-factory.regular.ttf"; path = "Resources/earwig-factory.regular.ttf"; sourceTree = "<group>"; };
 		89F94B2D1F9E917000B82D44 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		89FF36B92073CFBF00F80C34 /* ViewPostCommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPostCommentsTableViewCell.swift; sourceTree = "<group>"; };
 		F962CF0C4785F83DF44077C8 /* Pods_CodingMadeEasyProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodingMadeEasyProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -101,6 +105,7 @@
 			children = (
 				8922B054200E2771000BFF34 /* Lesson.swift */,
 				8910C4FC20724029009E5BC7 /* Post.swift */,
+				89E35C952073DF370046BE43 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 				89580DDE2016045F00E45FC8 /* ForumTableViewCell.swift */,
 				89294A69201A445C007E5A6B /* WritePostVC.swift */,
 				89294A6B201A46BC007E5A6B /* ViewPostVC.swift */,
+				89FF36B92073CFBF00F80C34 /* ViewPostCommentsTableViewCell.swift */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -368,11 +374,13 @@
 				895E2060201F8D8000152F9F /* IndividualLessonsVC.swift in Sources */,
 				8921F49C1FA10B5600A2F639 /* HomeVC.swift in Sources */,
 				895E2067201FC0D600152F9F /* WatchVC.swift in Sources */,
+				89FF36BA2073CFBF00F80C34 /* ViewPostCommentsTableViewCell.swift in Sources */,
 				89B048B61FF50F440019A304 /* SettingsVC.swift in Sources */,
 				89580DDF2016045F00E45FC8 /* ForumTableViewCell.swift in Sources */,
 				89F94B1B1F9E6AAE00B82D44 /* LoginVC.swift in Sources */,
 				890C18E8201F419F00216E88 /* FeedbackVC.swift in Sources */,
 				8922B055200E2771000BFF34 /* Lesson.swift in Sources */,
+				89E35C962073DF370046BE43 /* Comment.swift in Sources */,
 				89294A6A201A445C007E5A6B /* WritePostVC.swift in Sources */,
 				89B048B81FF50F5E0019A304 /* ForumVC.swift in Sources */,
 				89E2D7452014C0C600C9AFA3 /* FAQVC.swift in Sources */,

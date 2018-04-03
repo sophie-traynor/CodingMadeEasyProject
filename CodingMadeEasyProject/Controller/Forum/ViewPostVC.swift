@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import FirebaseDatabase
 import FirebaseStorage
 
-class ViewPostVC: UIViewController {
+class ViewPostVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var postTitleTextView: UILabel!
     @IBOutlet weak var postDescriptionTextView: UITextView!
     @IBOutlet weak var profileImage: UIImageView!
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var writeCommentStackView: UIStackView!
+    @IBOutlet weak var commentTextView: UITextView!
+    @IBOutlet weak var commentsStackView: UIStackView!
+    
+    var ref: DatabaseReference?
+    
+    var comments = [Comment]()
     
     var post: Post?
     var user: String?
@@ -23,7 +33,10 @@ class ViewPostVC: UIViewController {
     //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        commentsStackView.isHidden = false
+        writeCommentStackView.isHidden = true
+        
         if let post = post {
             postTitleTextView.text = post.postTitle
             postDescriptionTextView.text = post.postDescription
@@ -34,13 +47,65 @@ class ViewPostVC: UIViewController {
             loadImage()
         }
         
+        loadSampleComments()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.reloadData()
+
+        
     }
 
+  
+    
     //MARK: - Actions
     @IBAction func backBtnPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "unwindToForum", sender: self)
     }
 
+    @IBAction func writeCommentBtnTapped(_ sender: UIButton) {
+        commentsStackView.isHidden = true
+        writeCommentStackView.isHidden = false
+    }
+    
+    @IBAction func cancelBtnTapped(_ sender: UIButton) {
+        commentsStackView.isHidden = false
+        writeCommentStackView.isHidden = true
+    }
+    
+    @IBAction func postCommentBtnTapped(_ sender: UIButton) {
+    }
+    
+    //MARK: - Table View
+    func numberOfSections(in tableView: UITableView) -> Int {
+        print("num of sections")
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("num rows in section")
+        return comments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("cell for row at")
+        //Table view cells are reused and should be dequeued using a cell identifier.
+        let cellIdentifier = "PostComments"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ViewPostCommentsTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of ViewPostCommentsTableViewCell.")
+        }
+        
+        let comment = comments[indexPath.row]
+        
+        cell.username.text = comment.username
+        cell.userComment.text = comment.comment
+        cell.userImg.image = comment.profileImage
+        
+        return cell
+    }
+    //MARK: - Private Functions
+
+    
     func loadImage(){
         let profileStorageRef = Storage.storage().reference(forURL: profileUrl!)
         /// Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
@@ -58,4 +123,25 @@ class ViewPostVC: UIViewController {
         }
     }
     
+    func loadSampleComments(){
+        
+        let photo1 = UIImage(named: "photo1")
+        let photo2 = UIImage(named: "photo2")
+        let photo3 = UIImage(named: "photo3")
+        
+        guard let comment1 = Comment(commentText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, massa id consequat rhoncus, odio eros feugiat elit, a vehicula nibh orci et nulla.", usernameText: "Jake", profileImg: photo1) else {
+            fatalError("Unable to instantiate photo1")
+        }
+        
+        guard let comment2 = Comment(commentText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, massa id consequat rhoncus, odio eros feugiat elit, a vehicula nibh orci et nulla.", usernameText: "James", profileImg: photo2) else {
+            fatalError("Unable to instantiate photo2")
+        }
+        
+        guard let comment3 = Comment(commentText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, massa id consequat rhoncus, odio eros feugiat elit, a vehicula nibh orci et nulla.", usernameText: "Joe", profileImg: photo3) else {
+            fatalError("Unable to instantiate photo3")
+        }
+        
+        comments += [comment1, comment2, comment3]
+    }
 }
+
