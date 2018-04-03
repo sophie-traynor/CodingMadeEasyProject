@@ -24,6 +24,8 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
     var posts = [Post]()
     var searchPosts = [Post]()
     
+    var profileImg: UIImage?
+    
     //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +54,10 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
     func setUpSearchBar(){
         searchBar.delegate = self
         searchBar.placeholder = "Search Forum"
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -90,8 +96,8 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
         cell.questionLabel.text = post.postTitle
         cell.usernameLabel.text = post.username
     
-        if posts[indexPath.row].profileImageUrl != "" {
-            let profileStorageRef = Storage.storage().reference(forURL: posts[indexPath.row].profileImageUrl)
+        if searchPosts[indexPath.row].profileImageUrl != "" {
+            let profileStorageRef = Storage.storage().reference(forURL: searchPosts[indexPath.row].profileImageUrl)
             /// Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
             profileStorageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
                 if let error = error {
@@ -100,6 +106,7 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
                     if let imageData = data {
                         DispatchQueue.main.async {
                             let image = UIImage(data: imageData)
+                            self.profileImg = image
                             cell.profileImageView.image = image
                         }
                     }
@@ -125,12 +132,14 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
-        if  segue.identifier == "ViewPost",
+        if segue.identifier == "ViewPost",
             let destination = segue.destination as? ViewPostVC,
             let postIndex = tableView.indexPathForSelectedRow?.row
         {
+            tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
             destination.post = searchPosts[postIndex]
+            destination.user = searchPosts[postIndex].username
+            destination.profileUrl = searchPosts[postIndex].profileImageUrl
         }
     }
     
@@ -151,7 +160,6 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
                 self.posts.insert(post, at: 0)
                 self.searchPosts = self.posts
                 
-                print(dict)
                 self.tableView.reloadData()
             }
         }

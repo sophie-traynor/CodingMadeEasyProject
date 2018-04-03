@@ -30,6 +30,7 @@ class WritePostVC: UIViewController, UITextViewDelegate {
         ref = Database.database().reference()
         postTitleTextView.delegate = self
         postDescriptionTextView.delegate = self
+        setUpToolbar()
     }
     
     //Dismiss the keyboard when view is tapped on when in text views
@@ -38,13 +39,22 @@ class WritePostVC: UIViewController, UITextViewDelegate {
         postDescriptionTextView.resignFirstResponder()
     }
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if (text == "\n") {
-            postTitleTextView.resignFirstResponder()
-            postDescriptionTextView.resignFirstResponder()
-            return false
-        }
-        return true
+    func setUpToolbar(){
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem:UIBarButtonSystemItem
+            .done, target: self, action: #selector(self.doneClicked))
+        
+        toolbar.setItems([doneButton], animated: false)
+        
+        postTitleTextView.inputAccessoryView = toolbar
+        postDescriptionTextView.inputAccessoryView = toolbar
+    }
+    
+    @objc func doneClicked()
+    {
+        view.endEditing(true)
     }
     
     //MARK: - Actions

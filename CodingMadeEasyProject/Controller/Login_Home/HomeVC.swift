@@ -64,7 +64,7 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         //Dismiss the picker if the user cancelled
         dismiss(animated: true, completion: nil)
     }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         //The info dictionary may contain multiple representations of the image
         guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")

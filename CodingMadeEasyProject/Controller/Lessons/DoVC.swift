@@ -18,13 +18,22 @@ class DoVC: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        codeTextView.delegate = self
 
+        setUpToolbar()
     }
     
     //Dismiss the keyboard when view is tapped on
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         codeTextView.resignFirstResponder()
     
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        codeTextView.setContentOffset(CGPoint(x:0,y:60), animated: true)
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        codeTextView.setContentOffset(CGPoint(x:0,y:0), animated: true)
     }
     
     @IBAction func helpBtnTapped(_ sender: UIButton) {
@@ -45,6 +54,23 @@ class DoVC: UIViewController, UITextViewDelegate {
         }
     }
     
+    func setUpToolbar(){
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem:UIBarButtonSystemItem
+            .done, target: self, action: #selector(self.doneClicked))
+        
+        toolbar.setItems([doneButton], animated: false)
+        
+        codeTextView.inputAccessoryView = toolbar
+    }
+    
+    @objc func doneClicked()
+    {
+        view.endEditing(true)
+    }
+    
     func createAlert (title: String, message: String)
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -54,4 +80,5 @@ class DoVC: UIViewController, UITextViewDelegate {
         
         self.present(alert, animated: true, completion: nil)
     }
+    
 }

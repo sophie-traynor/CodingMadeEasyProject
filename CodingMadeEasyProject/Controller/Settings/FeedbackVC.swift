@@ -20,6 +20,7 @@ class FeedbackVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
          ref = Database.database().reference()
+        setUpToolbar()
     }
     
     //Dismiss the keyboard when view is tapped on when in email or password text field
@@ -66,6 +67,23 @@ class FeedbackVC: UIViewController {
         alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)}))
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func setUpToolbar(){
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem:UIBarButtonSystemItem
+            .done, target: self, action: #selector(self.doneClicked))
+        
+        toolbar.setItems([doneButton], animated: false)
+        
+        feedbackTextView.inputAccessoryView = toolbar
+    }
+    
+    @objc func doneClicked()
+    {
+        view.endEditing(true)
     }
     
 }
