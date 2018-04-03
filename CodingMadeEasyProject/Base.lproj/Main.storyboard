@@ -361,6 +361,7 @@
                                             <outlet property="profileImageView" destination="1o5-vA-9Vg" id="YIG-Qw-ueI"/>
                                             <outlet property="questionLabel" destination="BdN-kT-j9m" id="It8-VE-oEa"/>
                                             <outlet property="usernameLabel" destination="2bh-jW-bX3" id="X6a-fU-RCQ"/>
+                                            <segue destination="Gdh-Pz-T8l" kind="show" identifier="ViewPost" trigger="accessoryAction" id="ARI-4o-o3c"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -416,7 +417,6 @@
                     <connections>
                         <outlet property="searchBar" destination="ctg-GB-ZO6" id="ary-cy-fIJ"/>
                         <outlet property="tableView" destination="SbS-0p-TVu" id="O09-Eh-XfH"/>
-                        <segue destination="Gdh-Pz-T8l" kind="showDetail" identifier="ViewPost" id="Q2F-94-lc9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4c1-JH-3eW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -470,7 +470,7 @@
                                         <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ijE-PI-Z2H">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ijE-PI-Z2H">
                                         <rect key="frame" x="0.0" y="203" width="786" height="300"/>
                                         <color key="backgroundColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
@@ -588,6 +588,7 @@
                                             <color key="titleColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
+                                            <action selector="backBtnPressed:" destination="Gdh-Pz-T8l" eventType="touchUpInside" id="FcT-Xs-7Bn"/>
                                             <action selector="backBtnPressed:" destination="fKH-Nx-r3G" eventType="touchUpInside" id="ez2-Fx-77Z"/>
                                         </connections>
                                     </button>
@@ -653,8 +654,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nbd-z1-qsd"/>
                     </view>
+                    <connections>
+                        <outlet property="postDescriptionTextView" destination="Pgk-12-kK0" id="jo3-LX-NIv"/>
+                        <outlet property="postTitleTextView" destination="AMi-vY-asx" id="EbM-zd-PPg"/>
+                        <segue destination="6Zf-fX-m9g" kind="unwind" identifier="unwindToForum" unwindAction="unwindToForumWithSegue:" id="We3-JW-2Mh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9MX-k5-8t3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6Zf-fX-m9g" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="585" y="2322"/>
         </scene>

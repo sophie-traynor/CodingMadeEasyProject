@@ -49,6 +49,11 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        emailTextField.text = ""
+        passwordTextField.text = ""
+    }
+    
     //MARK: - Text Field Delegate
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

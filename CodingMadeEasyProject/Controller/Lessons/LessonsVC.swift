@@ -36,7 +36,7 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - Actions
     @IBAction func unwindToLessons(segue: UIStoryboardSegue) {
-        
+        tableView.reloadData()
     }
     
     //MARK: - Table View

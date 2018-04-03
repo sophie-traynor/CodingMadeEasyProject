@@ -11,7 +11,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
-class WritePostVC: UIViewController {
+class WritePostVC: UIViewController, UITextViewDelegate {
 
     //MARK: - Properties
     @IBOutlet weak var postTitleTextView: UITextView!
@@ -20,17 +20,31 @@ class WritePostVC: UIViewController {
     ///Reference to Firebase Database
     var ref: DatabaseReference?
     
+    var username: String = ""
+    var profileImageUrl: String = ""
+    
     //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
         ref = Database.database().reference()
+        postTitleTextView.delegate = self
+        postDescriptionTextView.delegate = self
     }
     
     //Dismiss the keyboard when view is tapped on when in text views
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         postTitleTextView.resignFirstResponder()
         postDescriptionTextView.resignFirstResponder()
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            postTitleTextView.resignFirstResponder()
+            postDescriptionTextView.resignFirstResponder()
+            return false
+        }
+        return true
     }
     
     //MARK: - Actions
@@ -51,25 +65,20 @@ class WritePostVC: UIViewController {
     
     //MARK: - Public Functions
     func saveData(){
-        
-        var username: String = ""
-        var profileImageUrl: String = ""
-        
-        let userID = Auth.auth().currentUser?.uid
+        //TODO: FIX RETRIEVING USERNAME AND PROFILE IMAGE
+        /*let userID = Auth.auth().currentUser?.uid
         ref?.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
-    
-            username = value?["Display Name"] as? String ?? ""
-            
-            if snapshot.hasChild("ProfileURL"){
-                profileImageUrl = value?["ProfileURL"] as? String ?? ""
-                }
-        })
+            self.username = value?["Display Name"] as? String ?? ""
+            self.profileImageUrl = value?["ProfileURL"] as? String ?? ""
+        })*/
+        
+        
         
         let postTitle = postTitleTextView.text
         let postDescription = postDescriptionTextView.text
         
-        self.ref?.child("posts").childByAutoId().updateChildValues(["username": username,"profileImageUrl": profileImageUrl, "postTitle" : postTitle!, "postDescription" : postDescription!], withCompletionBlock: { (error, ref) in
+        self.ref?.child("posts").childByAutoId().updateChildValues(["username": self.username,"profileImageUrl": self.profileImageUrl, "postTitle" : postTitle!, "postDescription" : postDescription!], withCompletionBlock: { (error, ref) in
             if error != nil{
                 print(error!)
                 return

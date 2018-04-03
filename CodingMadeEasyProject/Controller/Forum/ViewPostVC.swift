@@ -10,11 +10,25 @@ import UIKit
 
 class ViewPostVC: UIViewController {
 
+    @IBOutlet weak var postTitleTextView: UILabel!
+    @IBOutlet weak var postDescriptionTextView: UITextView!
+    
+    var post: Post?
+    
     //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let post = post {
+            postTitleTextView.text = post.postTitle
+            postDescriptionTextView.text = post.postDescription
+        }
+        
     }
 
+    //MARK: - Actions
+    @IBAction func backBtnPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "unwindToForum", sender: self)
+    }
 
 }

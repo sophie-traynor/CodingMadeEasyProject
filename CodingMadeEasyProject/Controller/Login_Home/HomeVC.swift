@@ -39,6 +39,8 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     var profileImageUrl: String = ""
     var coverImageUrl: String = ""
     
+    
+    
     //MARK: - override Functions
     
     override func viewDidLoad() {
@@ -99,6 +101,8 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
             self.email = value?["Email"] as? String ?? ""
             self.dob = value?["Date of Birth"] as? String ?? ""
             
+            
+            
             self.displayNameTextField.text = self.displayName
             self.firstNameTextField.text = self.firstName
             self.lastNameTextField.text = self.lastName
@@ -128,8 +132,8 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                 print ("Profile Image does not exist")
             }
             
-            if snapshot.hasChild("ProfileURL"){
-                print ("Profile Image exists")
+            if snapshot.hasChild("CoverURL"){
+                print ("Cover Image exists")
                 ///Get Cover Image
                 self.coverImageUrl = value?["CoverURL"] as? String ?? ""
                 let coverStorageRef = Storage.storage().reference(forURL: self.coverImageUrl)
