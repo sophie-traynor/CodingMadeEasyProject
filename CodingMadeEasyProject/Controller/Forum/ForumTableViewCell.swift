@@ -10,7 +10,6 @@ import UIKit
 
 class ForumTableViewCell: UITableViewCell {
 
-    
     //MARK: - Properties
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!

@@ -11,33 +11,33 @@ import AVFoundation
 
 class ListenVC: UIViewController {
 
-    
+    //MARK: - Properties
     @IBOutlet weak var audioImage: UIImageView!
     @IBOutlet weak var audioSlider: UISlider!
     @IBOutlet weak var audioDuration: UILabel!
-    
     var audioName: String = ""
     var timer: Timer?
-    
     var audio = AVAudioPlayer()
-
     let ncObserver = NotificationCenter.default
     
+    //MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         playAudio()
         audioSlider.value = 0.0
         audioSlider.maximumValue = Float(audio.duration)
         
+        ///gets length of audio and formats it
         audioDuration.text = String(format: "%02d:%02d", ((Int)((audio.duration))) / 60, ((Int)((audio.duration))) % 60)
         
+        ///recieves notification to stop music if container view is changed
         ncObserver.addObserver(self, selector: #selector(self.stopMusic), name: Notification.Name("StopMusic"), object: nil)
     }
     
-    
+    //MARK: - Actions
     @IBAction func audioSliderChanged(_ sender: UISlider) {
+        ///allow slider to be moved to change position of audio
         audio.stop()
         audio.currentTime = TimeInterval(audioSlider.value)
         audio.prepareToPlay()
@@ -62,6 +62,7 @@ class ListenVC: UIViewController {
         audio.currentTime = 0
     }
     
+    //MARK: - Private functions
     func playAudio(){
          do {
             audio = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: audioName, ofType: "mp3")!))

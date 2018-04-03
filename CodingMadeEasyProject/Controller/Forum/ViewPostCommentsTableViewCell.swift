@@ -10,11 +10,12 @@ import UIKit
 
 class ViewPostCommentsTableViewCell: UITableViewCell {
 
+    //MARK: - Properties
     @IBOutlet weak var userImg: UIImageView!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var userComment: UITextView!
     
-    
+    //MARK: - override functions
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

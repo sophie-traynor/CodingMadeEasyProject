@@ -10,11 +10,12 @@ import UIKit
 
 class DoVC: UIViewController, UITextViewDelegate {
     
+    //MARK: - Properties
     @IBOutlet weak var codeTextView: UITextView!
-   
     var answer: String = ""
     var output: String = ""
     
+    //MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,12 +24,13 @@ class DoVC: UIViewController, UITextViewDelegate {
         setUpToolbar()
     }
     
-    //Dismiss the keyboard when view is tapped on
+    ///Dismiss the keyboard when view is tapped on
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         codeTextView.resignFirstResponder()
     
     }
     
+    //MARK: - text view delegate
     func textViewDidBeginEditing(_ textView: UITextView) {
         codeTextView.setContentOffset(CGPoint(x:0,y:60), animated: true)
     }
@@ -36,6 +38,7 @@ class DoVC: UIViewController, UITextViewDelegate {
         codeTextView.setContentOffset(CGPoint(x:0,y:0), animated: true)
     }
     
+    //MARK: - Actions
     @IBAction func helpBtnTapped(_ sender: UIButton) {
         createAlert(title: "Help", message: answer)
     }
@@ -54,7 +57,9 @@ class DoVC: UIViewController, UITextViewDelegate {
         }
     }
     
+    //MARK: - private functions
     func setUpToolbar(){
+        ///add done toolbar to keyboard
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
@@ -75,7 +80,7 @@ class DoVC: UIViewController, UITextViewDelegate {
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
-        //creates button on alert
+        ///creates button on alert
         alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)}))
         
         self.present(alert, animated: true, completion: nil)

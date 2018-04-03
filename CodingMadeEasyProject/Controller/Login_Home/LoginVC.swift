@@ -13,29 +13,24 @@ import FirebaseDatabase
 class LoginVC: UIViewController, UITextFieldDelegate {
     
     //MARK: - Properties
-    
     @IBOutlet weak var signInSelector: UISegmentedControl!
     @IBOutlet weak var signInLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
-    
-    
     ///variable to check if sign in or register is selected
     var isSignIn:Bool = true
-    
     ///Reference to Firebase Database
     var ref: DatabaseReference?
     
     //MARK: - override Functions
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference()
         
-        //set status bar to white
+        ///set status bar to white
         UIApplication.shared.statusBarStyle = .lightContent
         
         emailTextField.delegate = self
@@ -43,19 +38,20 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //Keep user signed in if not logged out in previous session
+        ///Keep user signed in if not logged out in previous session
         if Auth.auth().currentUser != nil {
+            print("User already signed in")
             self.performSegue(withIdentifier: "loginToHomeScreen", sender: self)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        ///Make text fields blank so details are gone if user logs out
         emailTextField.text = ""
         passwordTextField.text = ""
     }
     
     //MARK: - Text Field Delegate
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         switch textField.tag
         {
@@ -83,9 +79,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     
     //MARK: - Public Functions
-    
-    ///sends pop up to screen displaying message
     func createAlert(title:String, message:String){
+        ///sends pop up to screen displaying message
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
@@ -95,6 +90,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     
     func saveEmail(){
+        ///Save user email to firebase in a sub section called users using user id
         let email = self.emailTextField.text
         self.ref?.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["Email" : email!], withCompletionBlock: { (error, ref) in
             if error != nil{
@@ -105,16 +101,15 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     
     //MARK: - Actions
-    
     @IBAction func unwindToLogin(segue: UIStoryboardSegue) {
         
     }
     
     @IBAction func signInSelectorChanged(_ sender: UISegmentedControl) {
-        //flip boolean - switch to sign in or register
+        ///flip boolean - switch to sign in or register
         isSignIn = !isSignIn
         
-        //check bool and set buttons and labels
+        ///check bool and set buttons and labels
         if isSignIn {
             signInLabel.text = "Sign In"
             signInBtn.setTitle("Sign In", for: .normal)
@@ -126,19 +121,19 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signInBtnTapped(_ sender: UIButton) {
-        //store values in email and password fields
+        ///store values in email and password fields
         if let email = emailTextField.text, let password = passwordTextField.text{
             
-            //sign user in if selector is on sign in
+            ///sign user in if selector is on sign in
             if isSignIn {
                 
-                //Calls the sign in method using the email and password provided by user
+                ///Calls the sign in method using the email and password provided by user
                 Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                     
-                    //checks if any errors e.g. user not created yet
+                    ///checks if any errors e.g. user not created yet
                     if error == nil{
-                        
-                       //go to home screen if user has been authenticated
+                        print("Successfully Signed in")
+                       ///go to home screen if user has been authenticated
                         self.performSegue(withIdentifier: "loginToHomeScreen", sender: self)
                     }
                     else{
@@ -146,19 +141,19 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     }
                 }
             }
-            //create user if register is selected
+            ///create user if register is selected
             else{
-                //Calls the create user method to add a new user to the firebase database
+                ///Calls the create user method to add a new user to the firebase database
                 Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                     
                     if error == nil{
-                        
-                        //Sign user in with created details if user has been created successfully
+                        ///Sign user in with created details if user has been created successfully
                         Auth.auth().signIn(withEmail: email, password: password)
                         
                         self.saveEmail()
-                        
-                        //go to complete signup screen to get further details about new user
+
+                        print("Successfully Registered User")
+                        ///go to complete signup screen to get further details about new user
                         self.performSegue(withIdentifier: "loginToCompleteSignupScreen", sender: self)
                     }
                     else{

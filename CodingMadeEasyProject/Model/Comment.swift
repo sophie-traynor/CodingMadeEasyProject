@@ -9,10 +9,13 @@
 import UIKit
 
 class Comment{
+    
+    //MARK: - Properties
     var comment: String
     var username: String
     var profileImage: UIImage?
     
+    //MARK: - Initialiser
     init?(commentText: String, usernameText: String, profileImg: UIImage?) {
         comment = commentText
         username = usernameText

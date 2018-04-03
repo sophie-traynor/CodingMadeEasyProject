@@ -11,8 +11,8 @@ import FirebaseDatabase
 
 class FeedbackVC: UIViewController {
 
+    //MARK: - Properties
     @IBOutlet weak var feedbackTextView: UITextView!
-    
     ///Reference to Firebase Database
     var ref: DatabaseReference?
     
@@ -23,14 +23,13 @@ class FeedbackVC: UIViewController {
         setUpToolbar()
     }
     
-    //Dismiss the keyboard when view is tapped on when in email or password text field
+    ///Dismiss the keyboard when view is tapped on when in email or password text field
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         feedbackTextView.resignFirstResponder()
         
     }
     
     //MARK: - Actions
-    
     @IBAction func backBtnPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "unwindToSettings", sender: self)
     }
@@ -48,13 +47,14 @@ class FeedbackVC: UIViewController {
     
     //MARK: - Public Functions
     func saveData(){
-        
+        ///upload feedback to firebase
         let feedback = feedbackTextView.text
         self.ref?.child("user feedback").childByAutoId().updateChildValues(["feedback" : feedback!], withCompletionBlock: { (error, ref) in
             if error != nil{
                 print(error!)
                 return
             }
+            print("Successfully uploaded feedback to firebase database")
         })
         
     }

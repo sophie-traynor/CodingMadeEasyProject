@@ -10,11 +10,13 @@ import UIKit
 
 class Post {
 
+    //MARK: - Properties
     var postDescription: String
     var username: String
     var postTitle: String
     var profileImageUrl: String
     
+    //MARK: - Initialiser
     init(postDescriptionText: String, usernameText: String, postTitleText: String, profileImageLink: String) {
         postDescription = postDescriptionText
         username = usernameText

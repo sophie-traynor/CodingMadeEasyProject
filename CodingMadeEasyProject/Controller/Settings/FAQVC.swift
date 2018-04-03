@@ -17,7 +17,6 @@ class FAQVC: UIViewController {
     }
 
     //MARK: - Actions
-    
     @IBAction func backBtnPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "unwindToSettings", sender: self)
     }

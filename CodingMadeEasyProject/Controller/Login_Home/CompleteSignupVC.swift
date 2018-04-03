@@ -19,17 +19,11 @@ class CompleteSignupVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var dateOfBirthTextField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
-    
     let datePicker = UIDatePicker()
-    
-    ///String to store the email address retrieved from the LoginVC 
-    //var emailAddress: String?
-    
     ///Reference to Firebase Database
     var ref: DatabaseReference?
     
     //MARK: - override Functions
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,8 +46,8 @@ class CompleteSignupVC: UIViewController, UITextFieldDelegate {
 
 
     //MARK: - Text Field Delegate
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        ///set offset so text field can be seen above keyboard
         switch textField.tag
         {
         case 0:
@@ -72,10 +66,12 @@ class CompleteSignupVC: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        ///set offset back to normal
         scrollView.setContentOffset(CGPoint(x:0,y:0), animated: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        ///dismiss keyboard when done is clicked
         if textField.tag == 0{
             displayNameTextField.resignFirstResponder()
         }
@@ -95,7 +91,6 @@ class CompleteSignupVC: UIViewController, UITextFieldDelegate {
     }
     
     //MARK: - Actions
-    
     @IBAction func logOutTapped(_ sender: UIButton) {
         let firebaseAuth = Auth.auth()
         
@@ -109,7 +104,6 @@ class CompleteSignupVC: UIViewController, UITextFieldDelegate {
         self.performSegue(withIdentifier: "unwindToLogin", sender: self)
     }
     
-    
     @IBAction func completeBtnClicked(_ sender: Any) {
         
         if firstNameTextField.text!.isEmpty || lastNameTextField.text!.isEmpty || dateOfBirthTextField.text!.isEmpty{
@@ -117,14 +111,12 @@ class CompleteSignupVC: UIViewController, UITextFieldDelegate {
         }
         else{
             saveData()
-            //TODO: - fix dismissing of complete signup
             self.dismiss(animated: true, completion: {});
             self.performSegue(withIdentifier: "completeSignupToHomeScreen", sender: self)
         }
     }
     
     //MARK: - Public Functions
-    
     func createDatePicker()
     {
         ///create toolbar for date picker view to hold done button
@@ -157,7 +149,7 @@ class CompleteSignupVC: UIViewController, UITextFieldDelegate {
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
-        //creates button on alert
+        ///creates button on alert
         alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)}))
         
         self.present(alert, animated: true, completion: nil)
@@ -170,14 +162,12 @@ class CompleteSignupVC: UIViewController, UITextFieldDelegate {
         let firstName = firstNameTextField.text
         let lastName = lastNameTextField.text
         let dateOfBirth = dateOfBirthTextField.text
-        //let profileUrl = ""
-        //let coverUrl = ""
-        
         self.ref?.child("users").child((Auth.auth().currentUser?.uid)!).updateChildValues(["Display Name" : displayName!, "First Name" : firstName!, "Last Name": lastName!, "Date of Birth": dateOfBirth!], withCompletionBlock: { (error, ref) in
             if error != nil{
                 print(error!)
                 return
             }
+            print("Successfully saved user information")
         })
     }
 }

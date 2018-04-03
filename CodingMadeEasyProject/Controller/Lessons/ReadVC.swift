@@ -10,10 +10,11 @@ import UIKit
 
 class ReadVC: UIViewController {
 
+    //MARK: - Properties
     @IBOutlet weak var readTextView: UITextView!
-
     var readDescription: String = ""
     
+    //MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
 

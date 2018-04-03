@@ -13,7 +13,6 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
     var lessons = [Lesson]()
     
     //MARK: - override Functions
@@ -40,20 +39,18 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     //MARK: - Table View
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lessons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "LessonTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? LessonTableViewCell  else {
             fatalError("The dequeued cell is not an instance of LessonTableViewCell.")
         }
         
-        //Fetches the appropriate lesson for the data source layout.
+        ///Fetches the appropriate lesson for the data source layout.
         let lesson = lessons[indexPath.row]
         
         cell.lessonName.text = lesson.name
@@ -80,8 +77,6 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - Private Functions
     private func loadLessons(){
-        
-        //let photo = UIImage(named: "nophoto")
         
         let photoCpp = UIImage(named: "cpp")
         

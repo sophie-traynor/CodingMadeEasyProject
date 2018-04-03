@@ -15,15 +15,11 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
     //MARK: - Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    
-     ///Reference to Firebase Database
+    ///Reference to Firebase Database
     var ref: DatabaseReference?
-    ///Array to store the forum posts
-    //var posts = [String]()
-    
     var posts = [Post]()
+    ///stores posts to show when typing in search bar
     var searchPosts = [Post]()
-    
     var profileImg: UIImage?
     
     //MARK: - override Functions
@@ -31,21 +27,15 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
         super.viewDidLoad()
 
         ref = Database.database().reference()
-        
         tableView.delegate = self
         tableView.dataSource = self
         
         searchPosts = posts
-        
         setUpSearchBar()
         listenForPosts()
-        
-        //var post = Post(postDescriptionText: "test.....", postTitleText: "rtdhfartdfhber")
-        //print(post.postDescription)
-        //print(post.postTitle)
     }
     
-    //Dismiss the keyboard when view is tapped on 
+    ///Dismiss the keyboard when view is tapped on
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         searchBar.resignFirstResponder()
     }
@@ -68,6 +58,7 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
             return
             
         }
+        ///filters posts to correspond with search text
         searchPosts = posts.filter({ (post) -> Bool in
             post.postTitle.lowercased().contains(searchText.lowercased())
         })
@@ -84,7 +75,6 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "ForumTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ForumTableViewCell  else {
@@ -96,9 +86,10 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
         cell.questionLabel.text = post.postTitle
         cell.usernameLabel.text = post.username
     
+        ///check if there is an image url stored before attempting to download from storage
         if searchPosts[indexPath.row].profileImageUrl != "" {
             let profileStorageRef = Storage.storage().reference(forURL: searchPosts[indexPath.row].profileImageUrl)
-            /// Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+            ///Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
             profileStorageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
                 if let error = error {
                     print(error)
@@ -125,7 +116,6 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
     }
     
     //MARK: - Actions
-    
     @IBAction func unwindToForum(segue: UIStoryboardSegue) {
         
     }
@@ -144,10 +134,9 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
     }
     
     //MARK: - Public Functions
-    
     ///Checks firebase database for forum posts
     func listenForPosts(){
-        
+        ///updates post table everytime a new child(post) is added to firebase database
         Database.database().reference().child("posts").observe(.childAdded) { (snapshot) in
             
             if let dict = snapshot.value as? [String: Any] {
@@ -156,11 +145,11 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
                 let usernameText = dict["username"] as! String
                 let profileImageLink = dict["profileImageUrl"] as! String
                 let post = Post(postDescriptionText: postDescriptionText, usernameText: usernameText, postTitleText: postTitletext, profileImageLink: profileImageLink)
-                //self.posts.append(post)
+                ///insert post at beginning so most recent is at top
                 self.posts.insert(post, at: 0)
                 self.searchPosts = self.posts
-                
                 self.tableView.reloadData()
+                print("Post recieved from firebase database")
             }
         }
     }

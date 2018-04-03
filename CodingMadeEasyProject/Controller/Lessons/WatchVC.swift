@@ -12,20 +12,19 @@ import AVFoundation
 
 class WatchVC: UIViewController {
 
-    
+    //MARK: - Properties
     @IBOutlet weak var videoThumbnail: UIImageView!
-    
     var videoName: String = ""
-    
     var playerView = AVPlayer()
     var playerViewController = AVPlayerViewController()
     
+    //MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
      
     }
     
+    //MARK: - Actions
     @IBAction func playVideoPressed(_ sender: UIButton) {
         let fileURL = Bundle.main.path(forResource: videoName, ofType: "mp4")
         
