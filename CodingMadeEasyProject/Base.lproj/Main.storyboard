@@ -222,7 +222,7 @@
                                                     <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nophoto" translatesAutoresizingMaskIntoConstraints="NO" id="6cW-HQ-Jjd">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nophoto" translatesAutoresizingMaskIntoConstraints="NO" id="6cW-HQ-Jjd">
                                                     <rect key="frame" x="301" y="16" width="58" height="57.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="58" id="PLc-cH-bpT"/>
@@ -346,7 +346,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="1o5-vA-9Vg">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="1o5-vA-9Vg">
                                                     <rect key="frame" x="16" y="8" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="e7J-KB-I4q"/>
@@ -1389,26 +1389,38 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="fNy-p2-jV0">
                                 <rect key="frame" x="93.5" y="398" width="188" height="60"/>
                                 <subviews>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cpp_l1_badge_dark" translatesAutoresizingMaskIntoConstraints="NO" id="dWR-yv-LXe">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cpp_l1_badge" translatesAutoresizingMaskIntoConstraints="NO" id="dWR-yv-LXe">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="3q6-WX-KrE"/>
                                             <constraint firstAttribute="height" constant="60" id="H1n-5R-lJg"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="FR1-qn-JVP" appends="YES" id="fcO-eA-wur"/>
+                                        </connections>
                                     </imageView>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cpp_l2_badge_dark" translatesAutoresizingMaskIntoConstraints="NO" id="zVf-Vp-1wg">
                                         <rect key="frame" x="64" y="0.0" width="60" height="60"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="9gd-6a-Nx4"/>
                                             <constraint firstAttribute="width" constant="60" id="miW-2f-PYc"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="WKB-QD-3JZ" appends="YES" id="mXe-cU-sOD"/>
+                                        </connections>
                                     </imageView>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cpp_l3_badge_dark" translatesAutoresizingMaskIntoConstraints="NO" id="ZBR-MD-Pmn">
                                         <rect key="frame" x="128" y="0.0" width="60" height="60"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="1Jf-hS-W1g"/>
                                             <constraint firstAttribute="width" constant="60" id="t6d-z8-zRh"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="peu-Ho-4ky" appends="YES" id="LP7-1Z-H1C"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -1426,17 +1438,25 @@
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cpp_l4_badge_dark" translatesAutoresizingMaskIntoConstraints="NO" id="YRE-Uy-9YS">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="NZi-Px-zzd"/>
                                             <constraint firstAttribute="width" constant="60" id="jzW-8f-oPC"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="D4w-6e-y89" appends="YES" id="XXU-Vu-CVy"/>
+                                        </connections>
                                     </imageView>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cpp_l5_badge_dark" translatesAutoresizingMaskIntoConstraints="NO" id="Vq7-a1-0o4">
                                         <rect key="frame" x="60" y="0.0" width="60" height="60"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="hZq-aA-BfX"/>
                                             <constraint firstAttribute="width" constant="60" id="kG0-vZ-kal"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="It4-e9-OIz" appends="YES" id="b2v-o0-cG0"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -1483,14 +1503,39 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwy-IB-1Ex" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Yso-9r-bUg">
+                <tapGestureRecognizer id="Yso-9r-bUg" userLabel="Profile Image Tap Gesture Recognizer">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="m37-vo-clh" id="7Li-yt-0Fa"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="FzA-U7-jNK">
+                <tapGestureRecognizer id="FzA-U7-jNK" userLabel="Cover Image Tap Gesture Recognizer">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="m37-vo-clh" id="5AL-Ge-bMW"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="FR1-qn-JVP" userLabel="Badge 1 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="badge1Tapped:" destination="m37-vo-clh" id="8en-52-Pre"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="WKB-QD-3JZ" userLabel="Badge 2 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="badge2Tapped:" destination="m37-vo-clh" id="gT9-Ds-9ad"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="peu-Ho-4ky" userLabel="Badge 3 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="badge3Tapped:" destination="m37-vo-clh" id="ILc-NM-XGj"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="D4w-6e-y89" userLabel="Badge 4 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="badge4Tapped:" destination="m37-vo-clh" id="z6V-p0-1x8"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="It4-e9-OIz" userLabel="Badge 5 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="badge5Tapped:" destination="m37-vo-clh" id="MsR-cR-6xp"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -2165,7 +2210,7 @@
     </scenes>
     <resources>
         <image name="audio" width="169" height="169"/>
-        <image name="cpp_l1_badge_dark" width="1265" height="1267"/>
+        <image name="cpp_l1_badge" width="1265" height="1267"/>
         <image name="cpp_l2_badge_dark" width="1265" height="1267"/>
         <image name="cpp_l3_badge_dark" width="1265" height="1267"/>
         <image name="cpp_l4_badge_dark" width="1265" height="1267"/>

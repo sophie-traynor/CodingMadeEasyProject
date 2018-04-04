@@ -78,6 +78,16 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     
     
     //MARK: - Public Functions
+    func createAlert (title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        ///creates button on alert
+        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)}))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func loadData(){
         ///Checks the current users display name from firebase database
         let userID = Auth.auth().currentUser?.uid
@@ -222,5 +232,20 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         present(imagePickerController, animated: true, completion: nil)
     }
     
+    @IBAction func badge1Tapped(_ sender: UITapGestureRecognizer) {
+        createAlert(title: "Achievement #1", message: "Earnt upon completion of C++ Lesson 1!")
+    }
+    @IBAction func badge2Tapped(_ sender: UITapGestureRecognizer) {
+        createAlert(title: "Achievement #2", message: "Earnt upon completion of C++ Lesson 2!")
+    }
+    @IBAction func badge3Tapped(_ sender: UITapGestureRecognizer) {
+        createAlert(title: "Achievement #3", message: "Earnt upon completion of C++ Lesson 3!")
+    }
+    @IBAction func badge4Tapped(_ sender: UITapGestureRecognizer) {
+        createAlert(title: "Achievement #4", message: "Earnt upon completion of C++ Lesson 4!")
+    }
+    @IBAction func badge5Tapped(_ sender: UITapGestureRecognizer) {
+        createAlert(title: "Achievement #5", message: "Earnt upon completion of C++ Lesson 5!")
+    }
     
 }
