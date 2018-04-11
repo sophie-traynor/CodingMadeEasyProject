@@ -40,6 +40,18 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
         searchBar.resignFirstResponder()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ViewPost",
+            let destination = segue.destination as? ViewPostVC,
+            let postIndex = tableView.indexPathForSelectedRow?.row
+        {
+            tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
+            destination.post = searchPosts[postIndex]
+            destination.user = searchPosts[postIndex].username
+            destination.profileUrl = searchPosts[postIndex].profileImageUrl
+        }
+    }
+    
     //MARK: - Search Bar
     func setUpSearchBar(){
         searchBar.delegate = self
@@ -115,24 +127,6 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
         performSegue(withIdentifier: "ViewPost", sender: self)
     }
     
-    //MARK: - Actions
-    @IBAction func unwindToForum(segue: UIStoryboardSegue) {
-        
-    }
-    
-    //MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ViewPost",
-            let destination = segue.destination as? ViewPostVC,
-            let postIndex = tableView.indexPathForSelectedRow?.row
-        {
-            tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: true)
-            destination.post = searchPosts[postIndex]
-            destination.user = searchPosts[postIndex].username
-            destination.profileUrl = searchPosts[postIndex].profileImageUrl
-        }
-    }
-    
     //MARK: - Public Functions
     ///Checks firebase database for forum posts
     func listenForPosts(){
@@ -153,6 +147,12 @@ class ForumVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIS
             }
         }
     }
+    
+    //MARK: - Actions
+    @IBAction func unwindToForum(segue: UIStoryboardSegue) {
+        
+    }
+
 }
 
 

@@ -29,22 +29,6 @@ class FeedbackVC: UIViewController {
         
     }
     
-    //MARK: - Actions
-    @IBAction func backBtnPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "unwindToSettings", sender: self)
-    }
-    
-    @IBAction func submitFeedbackPressed(_ sender: UIButton) {
-        if feedbackTextView.text.isEmpty{
-            createAlert(title: "Error", message: "No Feedback entered")
-        }
-        else{
-            saveData()
-            self.performSegue(withIdentifier: "unwindToSettings", sender: self)
-        }
-        
-    }
-    
     //MARK: - Public Functions
     func saveData(){
         ///upload feedback to firebase
@@ -84,6 +68,22 @@ class FeedbackVC: UIViewController {
     @objc func doneClicked()
     {
         view.endEditing(true)
+    }
+    
+    //MARK: - Actions
+    @IBAction func backBtnPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "unwindToSettings", sender: self)
+    }
+    
+    @IBAction func submitFeedbackPressed(_ sender: UIButton) {
+        if feedbackTextView.text.isEmpty{
+            createAlert(title: "Error", message: "No Feedback entered")
+        }
+        else{
+            saveData()
+            self.performSegue(withIdentifier: "unwindToSettings", sender: self)
+        }
+        
     }
     
 }

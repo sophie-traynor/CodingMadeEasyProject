@@ -17,6 +17,17 @@ class SettingsVC: UIViewController {
         
     }
 
+    //MARK: - Public Functions
+    func createAlert (title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        ///creates button on alert
+        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)}))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     //MARK: - Actions
     @IBAction func unwindToSettings(segue: UIStoryboardSegue) {
         
@@ -27,7 +38,7 @@ class SettingsVC: UIViewController {
         
     }
     
-    @IBAction func SignOut (_sender: Any){
+    @IBAction func SignOut (_sender: UIButton){
         let firebaseAuth = Auth.auth()
         
         do {
@@ -40,16 +51,5 @@ class SettingsVC: UIViewController {
         ///dismiss home view controller
         self.dismiss(animated: true, completion: {});
         self.navigationController?.popViewController(animated: true);
-    }
-
-    //MARK: - Public Functions
-    func createAlert (title: String, message: String)
-    {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        ///creates button on alert
-        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)}))
-    
-        self.present(alert, animated: true, completion: nil)
     }
 }

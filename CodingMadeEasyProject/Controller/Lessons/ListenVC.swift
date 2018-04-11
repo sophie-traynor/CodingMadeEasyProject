@@ -24,7 +24,7 @@ class ListenVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        playAudio()
+        setUpAudio()
         audioSlider.value = 0.0
         audioSlider.maximumValue = Float(audio.duration)
         
@@ -33,6 +33,25 @@ class ListenVC: UIViewController {
         
         ///recieves notification to stop music if container view is changed
         ncObserver.addObserver(self, selector: #selector(self.stopMusic), name: Notification.Name("StopMusic"), object: nil)
+    }
+    
+    //MARK: - Private functions
+    func setUpAudio(){
+        do {
+            audio = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: audioName, ofType: "mp3")!))
+            audio.prepareToPlay()
+        }
+        catch{
+            print(error)
+        }
+    }
+    
+    @objc func stopMusic(){
+        audio.stop()
+    }
+    
+    @objc func updateSlider(){
+        audioSlider.value = Float(audio.currentTime)
     }
     
     //MARK: - Actions
@@ -60,25 +79,6 @@ class ListenVC: UIViewController {
         audio.stop()
         audioSlider.value = 0.0
         audio.currentTime = 0
-    }
-    
-    //MARK: - Private functions
-    func playAudio(){
-         do {
-            audio = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: audioName, ofType: "mp3")!))
-            audio.prepareToPlay()
-         }
-         catch{
-            print(error)
-         }
-    }
-    
-    @objc func stopMusic(){
-        audio.stop()
-    }
-    
-    @objc func updateSlider(){
-        audioSlider.value = Float(audio.currentTime)
     }
 
 }

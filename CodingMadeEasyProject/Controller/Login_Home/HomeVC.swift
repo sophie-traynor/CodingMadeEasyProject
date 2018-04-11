@@ -41,6 +41,7 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     //MARK: - override Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         ///Make profile image circular
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.clipsToBounds = true
@@ -78,15 +79,6 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     
     
     //MARK: - Public Functions
-    func createAlert (title: String, message: String)
-    {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        ///creates button on alert
-        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)}))
-        
-        self.present(alert, animated: true, completion: nil)
-    }
     
     func loadData(){
         ///Checks the current users display name from firebase database
@@ -214,23 +206,17 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         }
     }
     
-    //MARK: - Actions
-    @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
+    func createAlert (title: String, message: String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
-        if sender.view?.tag == 1{
-            imageTag = 1
-        }
-        else if sender.view?.tag == 2{
-            imageTag = 2
-        }
-        ///let user pick media from their photo library
-        let imagePickerController = UIImagePickerController()
-        ///Only allow photos to be picked, not taken
-        imagePickerController.sourceType = .photoLibrary
+        ///creates button on alert
+        alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)}))
         
-        imagePickerController.delegate = self
-        present(imagePickerController, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
+    
+    //MARK: - Actions
     
     @IBAction func badge1Tapped(_ sender: UITapGestureRecognizer) {
         createAlert(title: "Achievement #1", message: "Earnt upon completion of C++ Lesson 1!")
@@ -248,4 +234,20 @@ class HomeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         createAlert(title: "Achievement #5", message: "Earnt upon completion of C++ Lesson 5!")
     }
     
+    @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
+        
+        if sender.view?.tag == 1{
+            imageTag = 1
+        }
+        else if sender.view?.tag == 2{
+            imageTag = 2
+        }
+        ///let user pick media from their photo library
+        let imagePickerController = UIImagePickerController()
+        ///Only allow photos to be picked, not taken
+        imagePickerController.sourceType = .photoLibrary
+        
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
 }

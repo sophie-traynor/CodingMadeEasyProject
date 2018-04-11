@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DoVC: UIViewController, UITextViewDelegate {
+class DoVC: UIViewController {
     
     //MARK: - Properties
     @IBOutlet weak var codeTextView: UITextView!
@@ -19,8 +19,6 @@ class DoVC: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        codeTextView.delegate = self
-
         setUpToolbar()
     }
     
@@ -28,33 +26,6 @@ class DoVC: UIViewController, UITextViewDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         codeTextView.resignFirstResponder()
     
-    }
-    
-    //MARK: - text view delegate
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        codeTextView.setContentOffset(CGPoint(x:0,y:60), animated: true)
-    }
-    func textViewDidEndEditing(_ textView: UITextView) {
-        codeTextView.setContentOffset(CGPoint(x:0,y:0), animated: true)
-    }
-    
-    //MARK: - Actions
-    @IBAction func helpBtnTapped(_ sender: UIButton) {
-        createAlert(title: "Help", message: answer)
-    }
-    
-    @IBAction func compileBtnTapped(_ sender: UIButton) {
-        let userAnswer: String = codeTextView.text
-        
-        if userAnswer == answer {
-            createAlert(title: "Correct!", message: output)
-        }
-        else {
-            createAlert(title: "Incorrect", message: """
-                                                        Try again
-                                                        Please ensure correct spacing, quotations and semi colons are included.
-                                                        """)
-        }
     }
     
     //MARK: - private functions
@@ -84,6 +55,25 @@ class DoVC: UIViewController, UITextViewDelegate {
         alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)}))
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    //MARK: - Actions
+    @IBAction func helpBtnTapped(_ sender: UIButton) {
+        createAlert(title: "Help", message: answer)
+    }
+    
+    @IBAction func compileBtnTapped(_ sender: UIButton) {
+        let userAnswer: String = codeTextView.text
+        
+        if userAnswer == answer {
+            createAlert(title: "Correct!", message: output)
+        }
+        else {
+            createAlert(title: "Incorrect", message: """
+                                                        Try again
+                                                        Please ensure correct spacing, quotations and semi colons are included.
+                                                        """)
+        }
     }
     
 }

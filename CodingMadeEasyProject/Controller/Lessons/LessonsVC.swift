@@ -33,9 +33,13 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    //MARK: - Actions
-    @IBAction func unwindToLessons(segue: UIStoryboardSegue) {
-        tableView.reloadData()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        let destination = segue.destination as? IndividualLessonsVC
+        let cellIndex = tableView.indexPathForSelectedRow?.row
+        
+        destination?.lesson = lessons[cellIndex!]
     }
     
     //MARK: - Table View
@@ -63,16 +67,6 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         performSegue(withIdentifier: "ShowLesson", sender: self)
-    }
-    
-    //MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        let destination = segue.destination as? IndividualLessonsVC
-        let cellIndex = tableView.indexPathForSelectedRow?.row
-        
-        destination?.lesson = lessons[cellIndex!]
     }
     
     //MARK: - Private Functions
@@ -161,4 +155,8 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         lessons += [lesson1, lesson2, lesson3, lesson4]
     }
 
+    //MARK: - Actions
+    @IBAction func unwindToLessons(segue: UIStoryboardSegue) {
+        tableView.reloadData()
+    }
 }

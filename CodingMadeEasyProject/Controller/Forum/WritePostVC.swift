@@ -37,21 +37,6 @@ class WritePostVC: UIViewController, UITextViewDelegate {
         postDescriptionTextView.resignFirstResponder()
     }
     
-    //MARK: - Actions
-    @IBAction func backBtnPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "unwindToForum", sender: self)
-    }
-    
-    @IBAction func SubmitPostPressed(_ sender: UIButton) {
-        if postTitleTextView.text!.isEmpty || postDescriptionTextView.text!.isEmpty{
-            createAlert(title: "Error", message: "All Fields must contain values")
-        }
-        else{
-            saveData()
-            self.performSegue(withIdentifier: "unwindToForum", sender: self)
-        }
-    }
-    
     //MARK: - Public Functions
     func setUpToolbar(){
         let toolbar = UIToolbar()
@@ -98,4 +83,20 @@ class WritePostVC: UIViewController, UITextViewDelegate {
         
         self.present(alert, animated: true, completion: nil)
     }
+    
+    //MARK: - Actions
+    @IBAction func backBtnPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "unwindToForum", sender: self)
+    }
+    
+    @IBAction func SubmitPostPressed(_ sender: UIButton) {
+        if postTitleTextView.text!.isEmpty || postDescriptionTextView.text!.isEmpty{
+            createAlert(title: "Error", message: "All Fields must contain values")
+        }
+        else{
+            saveData()
+            self.performSegue(withIdentifier: "unwindToForum", sender: self)
+        }
+    }
+    
 }

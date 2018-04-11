@@ -51,24 +51,6 @@ class ViewPostVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.reloadData()
     }
 
-    //MARK: - Actions
-    @IBAction func backBtnPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "unwindToForum", sender: self)
-    }
-
-    @IBAction func writeCommentBtnTapped(_ sender: UIButton) {
-        commentsStackView.isHidden = true
-        writeCommentStackView.isHidden = false
-    }
-    
-    @IBAction func cancelBtnTapped(_ sender: UIButton) {
-        commentsStackView.isHidden = false
-        writeCommentStackView.isHidden = true
-    }
-    
-    @IBAction func postCommentBtnTapped(_ sender: UIButton) {
-    }
-    
     //MARK: - Table View
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -136,5 +118,24 @@ class ViewPostVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         comments += [comment1, comment2, comment3]
     }
+    
+    //MARK: - Actions
+    @IBAction func backBtnPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "unwindToForum", sender: self)
+    }
+
+    @IBAction func writeCommentBtnTapped(_ sender: UIButton) {
+        commentsStackView.isHidden = true
+        writeCommentStackView.isHidden = false
+    }
+    
+    @IBAction func cancelBtnTapped(_ sender: UIButton) {
+        commentsStackView.isHidden = false
+        writeCommentStackView.isHidden = true
+    }
+    
+    @IBAction func postCommentBtnTapped(_ sender: UIButton) {
+    }
+    
 }
 

@@ -90,32 +90,6 @@ class CompleteSignupVC: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    //MARK: - Actions
-    @IBAction func logOutTapped(_ sender: UIButton) {
-        let firebaseAuth = Auth.auth()
-        
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-        
-        //dismiss home view controller
-        self.performSegue(withIdentifier: "unwindToLogin", sender: self)
-    }
-    
-    @IBAction func completeBtnClicked(_ sender: Any) {
-        
-        if firstNameTextField.text!.isEmpty || lastNameTextField.text!.isEmpty || dateOfBirthTextField.text!.isEmpty{
-            createAlert(title: "Error", message: "All Fields must contain values")
-        }
-        else{
-            saveData()
-            self.dismiss(animated: true, completion: {});
-            self.performSegue(withIdentifier: "completeSignupToHomeScreen", sender: self)
-        }
-    }
-    
     //MARK: - Public Functions
     func createDatePicker()
     {
@@ -169,5 +143,31 @@ class CompleteSignupVC: UIViewController, UITextFieldDelegate {
             }
             print("Successfully saved user information")
         })
+    }
+    
+    //MARK: - Actions
+    @IBAction func logOutTapped(_ sender: UIButton) {
+        let firebaseAuth = Auth.auth()
+        
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+        //dismiss home view controller
+        self.performSegue(withIdentifier: "unwindToLogin", sender: self)
+    }
+    
+    @IBAction func completeBtnClicked(_ sender: Any) {
+        
+        if firstNameTextField.text!.isEmpty || lastNameTextField.text!.isEmpty || dateOfBirthTextField.text!.isEmpty{
+            createAlert(title: "Error", message: "All Fields must contain values")
+        }
+        else{
+            saveData()
+            self.dismiss(animated: true, completion: {});
+            self.performSegue(withIdentifier: "completeSignupToHomeScreen", sender: self)
+        }
     }
 }

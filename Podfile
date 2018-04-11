@@ -12,3 +12,9 @@ target 'CodingMadeEasyProject' do
   pod 'Firebase/Storage'
 
 end
+
+target 'CodingMadeEasyProjectTests'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
