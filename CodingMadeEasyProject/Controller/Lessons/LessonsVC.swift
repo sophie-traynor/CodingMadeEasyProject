@@ -76,7 +76,7 @@ class LessonsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         guard let lesson1 = Lesson(name: "Lesson 1",
                                    overview: "Print a message to the screen",
-                                   lessonDescription: "Learn how to print Hello World to the screen",
+                                   lessonDescription: "Print Hello World to the screen",
                                    readText: """
                                                         Welcome to your first C++ lesson!
                                                         Today we will learn how to print Hello World to the screen.
